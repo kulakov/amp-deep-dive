@@ -65,7 +65,7 @@ const SafetyRules = () => {
         </div>
 
         {/* Formats - scattered cards gallery */}
-        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-16 my-8">
+        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8 my-4">
           {/* Pink skewed background */}
           <div 
             className="absolute inset-0 bg-highlight -z-10"
@@ -73,19 +73,19 @@ const SafetyRules = () => {
           />
           
           <div className="text-highlight-foreground">
-            <h3 className="font-mono text-sm uppercase tracking-[0.2em] mb-12">Наши форматы:</h3>
+            <h3 className="font-mono text-sm uppercase tracking-[0.2em] mb-8">Наши форматы:</h3>
             
             {/* Scattered cards */}
-            <div className="relative h-[500px] md:h-[450px]">
+            <div className="relative h-[550px] md:h-[500px]">
               {[
-                { name: formats[0].name, desc: formats[0].description, rotate: -4, top: "0%", left: "0%", width: "w-64 md:w-72" },
-                { name: formats[1].name, desc: formats[1].description, rotate: 3, top: "5%", left: "45%", width: "w-60 md:w-80" },
-                { name: formats[2].name, desc: formats[2].description, rotate: -2, top: "45%", left: "5%", width: "w-56 md:w-64" },
-                { name: formats[3].name, desc: formats[3].description, rotate: 5, top: "50%", left: "50%", width: "w-52 md:w-60" },
+                { name: formats[0].name, desc: formats[0].description, rotate: -4, top: "0%", left: "0%", width: "w-64 md:w-72", img: "/src/assets/camp-conversation-1.jpg" },
+                { name: formats[1].name, desc: formats[1].description, rotate: 3, top: "5%", left: "45%", width: "w-60 md:w-80", img: "/src/assets/camp-socializing.jpg" },
+                { name: formats[2].name, desc: formats[2].description, rotate: -2, top: "48%", left: "5%", width: "w-56 md:w-64", img: "/src/assets/camp-workshop.jpg" },
+                { name: formats[3].name, desc: formats[3].description, rotate: 5, top: "52%", left: "50%", width: "w-52 md:w-60", img: "/src/assets/camp-talk.jpg" },
               ].map((card, i) => (
                 <div 
                   key={i}
-                  className={`absolute ${card.width} bg-background text-foreground p-5 shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:z-50`}
+                  className={`absolute ${card.width} bg-background text-foreground shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:z-50 overflow-hidden`}
                   style={{ 
                     transform: `rotate(${card.rotate}deg)`,
                     top: card.top,
@@ -93,13 +93,22 @@ const SafetyRules = () => {
                     zIndex: i + 1,
                   }}
                 >
-                  <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
+                  <div className="h-20 overflow-hidden">
+                    <img 
+                      src={card.img} 
+                      alt={card.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
             
-            <p className="text-sm italic text-highlight-foreground/70 mt-8">
+            <p className="text-sm italic text-highlight-foreground/70 mt-4">
               У нас еще много, все разные и классные.
             </p>
           </div>
