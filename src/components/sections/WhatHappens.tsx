@@ -11,6 +11,7 @@ import campTalk from "@/assets/camp-talk.jpg";
 
 const WhatHappens = () => {
   const [visiblePhotos, setVisiblePhotos] = useState<number[]>([]);
+  const [expandedFormat, setExpandedFormat] = useState<number | null>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -219,30 +220,39 @@ const WhatHappens = () => {
                 { name: "Я не знаю про тебя…", desc: "я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека", rotate: 3, top: "5%", left: "45%", width: "w-60 md:w-80", img: campSocializing },
                 { name: "Круги Котова", desc: "это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми", rotate: -2, top: "48%", left: "5%", width: "w-56 md:w-64", img: campWorkshop },
                 { name: "Fuck-up night", desc: "тут просто все по очереди рассказывают о ситуации, когда они облажались", rotate: 5, top: "58%", left: "50%", width: "w-52 md:w-60", img: campTalk },
-              ].map((card, i) => (
-                <div 
-                  key={i}
-                  className={`absolute ${card.width} bg-background text-foreground shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:z-50 overflow-hidden`}
-                  style={{ 
-                    transform: `rotate(${card.rotate}deg)`,
-                    top: card.top,
-                    left: card.left,
-                    zIndex: i + 1,
-                  }}
-                >
-                  <div className="h-20 overflow-hidden">
-                    <img 
-                      src={card.img} 
-                      alt={card.name}
-                      className="w-full h-full object-cover"
-                    />
+              ].map((card, i) => {
+                const isExpanded = expandedFormat === i;
+                return (
+                  <div 
+                    key={i}
+                    onClick={() => setExpandedFormat(isExpanded ? null : i)}
+                    className={`absolute bg-background text-foreground shadow-xl cursor-pointer transition-all duration-500 ease-out overflow-hidden
+                      ${isExpanded ? 'w-[90%] md:w-[600px] z-[100] left-1/2 top-1/2' : `${card.width} hover:scale-105`}`}
+                    style={{ 
+                      transform: isExpanded 
+                        ? 'translate(-50%, -50%) rotate(0deg)' 
+                        : `rotate(${card.rotate}deg)`,
+                      top: isExpanded ? '50%' : card.top,
+                      left: isExpanded ? '50%' : card.left,
+                      zIndex: isExpanded ? 100 : i + 1,
+                    }}
+                  >
+                    <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? 'flex' : ''}`}>
+                      <div className={`overflow-hidden ${isExpanded ? 'w-1/2 h-48' : 'h-20 w-full'}`}>
+                        <img 
+                          src={card.img} 
+                          alt={card.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className={`p-4 ${isExpanded ? 'w-1/2 flex flex-col justify-center' : ''}`}>
+                        <h4 className={`font-bold mb-2 ${isExpanded ? 'text-lg' : 'text-sm'}`}>«{card.name}»</h4>
+                        <p className={`text-muted-foreground leading-relaxed ${isExpanded ? 'text-sm' : 'text-xs'}`}>{card.desc}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             
             <p className="text-sm italic text-highlight-foreground/70 mt-4">
