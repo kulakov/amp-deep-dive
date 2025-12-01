@@ -52,17 +52,17 @@ const WorthIt = () => {
         {/* Money */}
         <div className="space-y-6">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Про деньги:</h3>
-          <div className="grid md:grid-cols-2 gap-8 items-baseline">
-            <div>
-              <p className="text-2xl font-bold mb-3">800 евро</p>
+          <div className="grid md:grid-cols-2 gap-8 md:items-baseline">
+            <div className="space-y-3">
+              <p className="text-2xl font-bold">800 евро</p>
               <p className="text-muted-foreground text-sm">
                 <span className="underline decoration-highlight decoration-2 underline-offset-4">это реально дорого</span>. Можно купить курс, съездить в отпуск или просто отложить. 
                 Мы знаем, что цена отсекает людей с интересными историями, но без денег. 
                 Кэмп делается без прибыли, и мы не знаем, как его сделать дешевле.
               </p>
             </div>
-            <div className="bg-highlight/10 p-6">
-              <p className="text-2xl font-bold mb-3">800 евро</p>
+            <div className="bg-highlight/10 p-6 space-y-3">
+              <p className="text-2xl font-bold">800 евро</p>
               <p className="text-sm">
                 <span className="underline decoration-highlight decoration-2 underline-offset-4">это капец как дешево</span>. Почти в три раза дешевле аналогичных коммерческих мероприятий, 
                 потому что организаторы работают бесплатно. И вы получите офигеть как много за эти деньги.
@@ -88,8 +88,8 @@ const WorthIt = () => {
       </div>
 
       {/* Community benefits */}
-      <div className="bg-background my-16 -mx-6 md:mx-0">
-        <div className="max-w-6xl mx-auto px-6 py-16 space-y-8">
+      <div className="bg-background my-8 md:my-16 -mx-6 md:mx-0">
+        <div className="max-w-6xl mx-auto px-6 py-8 md:py-16 space-y-8">
           <h2 className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Что дает сообщество
           </h2>
@@ -97,8 +97,32 @@ const WorthIt = () => {
             Сообщество — это все кто когда-то был на кэмпе.
           </p>
           
-          {/* Scattered cards */}
-          <div className="relative h-[700px] md:h-[550px]">
+          {/* Mobile horizontal scroll */}
+          <div className="md:hidden overflow-x-auto -mx-6 px-6 pb-4">
+            <div className="flex gap-4" style={{ width: 'max-content' }}>
+              {benefits.map((benefit, i) => (
+                <div 
+                  key={i}
+                  className="w-[260px] flex-shrink-0 bg-background shadow-xl"
+                >
+                  <div className="h-28 overflow-hidden bg-white">
+                    <img 
+                      src={benefit.img} 
+                      alt={benefit.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-bold text-sm mb-2">{benefit.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{benefit.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Desktop scattered cards */}
+          <div className="hidden md:block relative h-[550px]">
             {benefits.map((benefit, i) => {
               const positions = [
                 { top: "0%", left: "0%" },
@@ -110,7 +134,7 @@ const WorthIt = () => {
               return (
                 <div 
                   key={i}
-                  className="absolute w-[280px] md:w-[300px] bg-background shadow-xl cursor-pointer transition-all duration-300 group"
+                  className="absolute w-[300px] bg-background shadow-xl cursor-pointer transition-all duration-300 group"
                   style={{ 
                     transform: `rotate(${benefit.rotate}deg)`,
                     top: positions[i].top,
@@ -145,7 +169,7 @@ const WorthIt = () => {
       </div>
 
       {/* How to join - CTA */}
-      <div className="relative -mx-6 md:mx-0 mt-16">
+      <div className="relative -mx-6 md:mx-0 mt-8 md:mt-16">
         {/* Skewed background with photo */}
         <div className="absolute inset-0 overflow-hidden" style={{ transform: 'skewY(-2deg)', transformOrigin: 'top left' }}>
           <img src={campHandsUp} alt="" className="w-full h-full object-cover scale-110" />
