@@ -1,3 +1,10 @@
+import campWorkshop from "@/assets/camp-workshop.jpg";
+import campHug from "@/assets/camp-hug.jpg";
+import campHandsUp from "@/assets/camp-hands-up.jpg";
+import campConnection from "@/assets/camp-connection.jpg";
+import campEnergy from "@/assets/camp-energy.jpg";
+import campSocializing from "@/assets/camp-socializing.jpg";
+
 const WhatHappens = () => {
   return (
     <section className="py-32 px-6 bg-card">
@@ -11,6 +18,40 @@ const WhatHappens = () => {
               Никогда не видел в одном месте столько нормальных людей
               <footer className="text-xl mt-2 not-italic">— Даня Рубинштейн</footer>
             </blockquote>
+          </div>
+
+          {/* Photo Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+            <img 
+              src={campWorkshop} 
+              alt="Воркшоп на кемпе" 
+              className="w-full h-48 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            />
+            <img 
+              src={campHug} 
+              alt="Объятия на кемпе" 
+              className="w-full h-48 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            />
+            <img 
+              src={campHandsUp} 
+              alt="Поднятые руки" 
+              className="w-full h-48 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            />
+            <img 
+              src={campConnection} 
+              alt="Общение участников" 
+              className="w-full h-48 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            />
+            <img 
+              src={campEnergy} 
+              alt="Энергия кемпа" 
+              className="w-full h-48 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            />
+            <img 
+              src={campSocializing} 
+              alt="Социализация" 
+              className="w-full h-48 md:h-64 object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            />
           </div>
 
           <div className="space-y-6 text-lg md:text-xl">
