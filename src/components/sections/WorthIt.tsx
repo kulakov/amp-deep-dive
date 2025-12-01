@@ -23,109 +23,103 @@ const WorthIt = () => {
   ];
 
   return (
-    <section className="py-32 px-6 bg-background">
-      <div className="max-w-3xl mx-auto space-y-20">
-        <div className="space-y-8">
-          <h2 className="text-4xl md:text-5xl font-display font-bold">Стоит ли мне туда ехать?</h2>
+    <section className="py-24 px-6 bg-background">
+      <div className="max-w-3xl mx-auto space-y-16">
+        {/* Section Header */}
+        <div className="space-y-6">
+          <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
+            Стоит ли ехать
+          </span>
         </div>
 
-        <div className="space-y-8">
-          <h3 className="text-2xl md:text-3xl font-display font-bold">Про деньги</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-8 border-2 border-primary">
-              <p className="text-lg">
-                <span className="text-3xl font-black block mb-4">800 евро</span>
+        {/* Money */}
+        <div className="space-y-6">
+          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Про деньги:</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <p className="text-2xl font-bold mb-3">800 евро</p>
+              <p className="text-muted-foreground text-sm">
                 это реально дорого. Можно купить курс, съездить в отпуск или просто отложить. 
                 Мы знаем, что цена отсекает людей с интересными историями, но без денег. 
                 Кэмп делается без прибыли, и мы не знаем, как его сделать дешевле.
               </p>
             </div>
-            <div className="p-8 bg-highlight text-highlight-foreground border-2 border-highlight">
-              <p className="text-lg">
-                <span className="text-3xl font-black block mb-4">800 евро</span>
+            <div className="bg-highlight/10 p-6">
+              <p className="text-2xl font-bold mb-3">800 евро</p>
+              <p className="text-sm">
                 это капец как дешево. Почти в три раза дешевле аналогичных коммерческих мероприятий, 
                 потому что организаторы работают бесплатно. И вы получите офигеть как много за эти деньги.
               </p>
             </div>
           </div>
-
-          <div className="p-6 bg-muted border-l-4 border-primary">
-            <p className="text-lg">
-              <span className="font-bold">Кстати.</span> Мы не обещаем вам супер-лакшери условий. 
-              Будет комфортно. Будет интересно. Мы будем друг о друге заботиться. Но нет, это не пятизвездочный сервис. 
-              Это вообще не сервис. Это волонтерский лагерь.
-            </p>
-          </div>
+          <p className="text-sm text-muted-foreground">
+            <span className="font-bold">Кстати.</span> Мы не обещаем вам супер-лакшери условий. 
+            Будет комфортно. Будет интересно. Мы будем друг о друге заботиться. Но нет, это не пятизвездочный сервис. 
+            Это вообще не сервис. Это волонтерский лагерь.
+          </p>
         </div>
 
-        <div className="p-8 bg-primary text-primary-foreground">
-          <h4 className="text-2xl font-bold mb-4">История про кэмп с юртами:</h4>
-          <p className="text-lg leading-relaxed italic">
+        {/* Quote */}
+        <div className="border-l-2 border-highlight pl-6">
+          <p className="text-lg font-display italic leading-relaxed">
             «Звезд непривычное количество, как в Ташкенте в горах. Избушка с диджеями, задушевно топчется. 
             В двадцати шагах костер, вокруг люди с гитарами, задушевно поется. И не надо выбирать! 
-            Наговорились про страх, сон, смерть, стейк, секс и синхронистичность. Почему я не устала, не понимаю. 
-            Возможно, я вовсе не от того устаю, надо проверить гипотезы.»
+            Наговорились про страх, сон, смерть, стейк, секс и синхронистичность.»
           </p>
-          <footer className="mt-4 text-base">— Саша Гартман</footer>
+          <footer className="mt-4 font-mono text-sm text-muted-foreground">— Саша Гартман</footer>
         </div>
 
+        {/* Community benefits */}
         <div className="space-y-8">
-          <h3 className="text-2xl md:text-3xl font-display font-bold">Что дает сообщество (реально):</h3>
-          <p className="text-lg text-muted-foreground">
+          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Что дает сообщество:</h3>
+          <p className="text-muted-foreground text-sm">
             Сообщество — это все кто когда-то был на кэмпе.
           </p>
-
-          <div className="space-y-4">
+          <div className="space-y-6">
             {benefits.map((benefit, index) => (
-              <div key={index} className="p-6 border-2 border-primary hover:bg-muted transition-colors">
-                <h4 className="text-2xl font-bold mb-3">{benefit.title}</h4>
-                <p className="text-lg">{benefit.description}</p>
+              <div key={index} className="border-b border-border pb-4">
+                <h4 className="font-bold mb-2">{benefit.title}</h4>
+                <p className="text-muted-foreground text-sm">{benefit.description}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="p-8 border-2 border-destructive bg-destructive/5">
-          <h4 className="text-2xl font-bold mb-4">⚠️ Последнее предупреждение</h4>
-          <div className="space-y-3 text-lg">
+        {/* Warning */}
+        <div className="border-l-2 border-destructive pl-6 space-y-3">
+          <h4 className="font-bold">Последнее предупреждение</h4>
+          <div className="space-y-2 text-muted-foreground text-sm">
             <p>
               Не все получают то, что ожидают. Кто-то едет за связями и злится, что люди говорят о чувствах. 
               Кто-то ждет решения проблем и обнаруживает, что мы не умеем их решать.
             </p>
-            <p className="font-bold">
+            <p className="font-medium text-foreground">
               Мы не знаем, что вам нужно. Знаем только, как создать место, где можно перестать притворяться. 
               Дальше — ваша ответственность.
             </p>
           </div>
         </div>
 
-        <div className="space-y-8 bg-highlight text-highlight-foreground p-12 border-4 border-primary">
-          <h3 className="text-2xl md:text-3xl font-display font-bold">Как попасть (если мы не смогли вас отговорить)</h3>
-          <div className="space-y-4 text-lg">
-            <div className="flex items-start gap-4">
-              <span className="text-3xl font-black shrink-0">1.</span>
-              <p className="pt-1">
-                <span className="font-bold">Найти номинатора.</span> Если вы это читаете — у вас уже есть такой друг. 
-                (Ставим галочку)
-              </p>
+        {/* How to join */}
+        <div className="bg-highlight text-highlight-foreground p-8 space-y-6">
+          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Как попасть:</h3>
+          <div className="space-y-4">
+            <div className="flex gap-4">
+              <span className="font-bold text-xl">1.</span>
+              <p><span className="font-bold">Найти номинатора.</span> Если вы это читаете — у вас уже есть такой друг.</p>
             </div>
-            <div className="flex items-start gap-4">
-              <span className="text-3xl font-black shrink-0">2.</span>
-              <p className="pt-1">
-                <span className="font-bold">Решиться на интервью.</span> Час искреннего разговора о том, что вас интересует
-              </p>
+            <div className="flex gap-4">
+              <span className="font-bold text-xl">2.</span>
+              <p><span className="font-bold">Решиться на интервью.</span> Час искреннего разговора о том, что вас интересует</p>
             </div>
-            <div className="flex items-start gap-4">
-              <span className="text-3xl font-black shrink-0">3.</span>
-              <p className="pt-1">
-                <span className="font-bold">Получить решение.</span> Мы помучаемся неделю или две, потом напишем
-              </p>
+            <div className="flex gap-4">
+              <span className="font-bold text-xl">3.</span>
+              <p><span className="font-bold">Получить решение.</span> Мы помучаемся неделю или две, потом напишем</p>
             </div>
           </div>
-
-          <div className="pt-8 border-t-2 border-primary">
-            <p className="text-xl font-bold">Ближайший дедлайн</p>
-            <p className="text-lg mt-2">
+          <div className="pt-6 border-t border-highlight-foreground/20">
+            <p className="font-bold">Ближайший дедлайн</p>
+            <p className="text-sm mt-1">
               дождаться когда мы объявим следующий. если вас номинировали, мы с вами свяжемся, у нас есть ваши контакты
             </p>
           </div>

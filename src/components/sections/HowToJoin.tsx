@@ -1,5 +1,3 @@
-import campConversation from "@/assets/camp-conversation-1.jpg";
-
 const HowToJoin = () => {
   const steps = [
     {
@@ -17,45 +15,41 @@ const HowToJoin = () => {
   ];
 
   return (
-    <section className="py-32 px-6 relative">
-      {/* Background Image */}
-      <div className="absolute inset-0 -z-10">
-        <img src={campConversation} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/70" />
-      </div>
-      
-      <div className="max-w-3xl mx-auto space-y-20 text-white">
-        <div className="space-y-8">
-          <h2 className="text-4xl md:text-5xl font-display font-bold">Как мне попасть на кэмп?</h2>
+    <section className="py-24 px-6 bg-background">
+      <div className="max-w-3xl mx-auto space-y-16">
+        {/* Section Header */}
+        <div className="space-y-6">
+          <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
+            Как попасть
+          </span>
+          <blockquote className="text-2xl md:text-3xl font-display italic">
+            «Интервью само по себе прикольное. Меня именно интервью вдохновило ехать»
+            <footer className="text-base mt-4 not-italic font-mono text-muted-foreground">
+              — Оля Силина
+            </footer>
+          </blockquote>
         </div>
 
+        {/* Steps */}
         <div className="space-y-8">
-          <h3 className="text-2xl md:text-3xl font-display font-bold">Как проходит отбор</h3>
-          <blockquote className="text-xl italic border-l-4 border-highlight pl-6 text-white/70">
-            Интервью само по себе прикольное. Меня именно интервью вдохновило ехать
-            <footer className="mt-2 not-italic">© Оля Силина</footer>
-          </blockquote>
-
+          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Как проходит отбор:</h3>
           <div className="space-y-6">
             {steps.map((step, index) => (
               <div key={index} className="flex gap-6">
-                <div className="shrink-0">
-                  <div className="w-16 h-16 bg-highlight text-highlight-foreground flex items-center justify-center text-3xl font-black">
-                    {index + 1}
-                  </div>
-                </div>
-                <div className="pt-2 space-y-2">
-                  <h4 className="text-2xl font-bold">{step.title}</h4>
-                  <p className="text-lg text-white/80">{step.description}</p>
+                <span className="font-mono text-2xl font-bold text-highlight">{index + 1}</span>
+                <div>
+                  <h4 className="font-bold mb-1">{step.title}</h4>
+                  <p className="text-muted-foreground">{step.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="space-y-8">
-          <h3 className="text-2xl md:text-3xl font-display font-bold">Зачем интервью</h3>
-          <div className="space-y-6 text-lg text-white/80">
+        {/* Why interview */}
+        <div className="space-y-6">
+          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Зачем интервью:</h3>
+          <div className="space-y-4 text-muted-foreground">
             <p>
               Мы боимся. Боимся пустить людей, которые не умеют слушать или превращают любой разговор 
               в презентацию своих достижений. Боимся тех, кто разрушит то хрупкое доверие, которое мы пытаемся создать.
@@ -71,9 +65,10 @@ const HowToJoin = () => {
           </div>
         </div>
 
-        <div className="space-y-8">
-          <h3 className="text-2xl md:text-3xl font-display font-bold">Что происходит на интервью</h3>
-          <div className="space-y-6 text-lg text-white/80">
+        {/* What happens */}
+        <div className="space-y-6">
+          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Что происходит на интервью:</h3>
+          <div className="space-y-4 text-muted-foreground">
             <p>
               Мы предлагаем вам ситуацию, и смотрим на то, как вы рассуждаете, какие аргументы вам кажутся важными. 
               Мы пытаемся вытащить наружу то, что делает вас интересным, увлечься вами.
@@ -81,26 +76,23 @@ const HowToJoin = () => {
             <p>
               Честно сказать, мы просто хотим понять что вокруг вас будет происходить на кэмпе. И понравится ли это вам, и нам.
             </p>
-            <p>
-              Например, мы не пытаемся найти селебрити, или самых харизматичных людей. Интервью — не оценка того, 
-              хороший вы или плохой, а попытка почувствовать как вы впишетесь.
+          </div>
+          <div className="border-l-2 border-highlight pl-6 text-sm">
+            <p className="font-bold mb-2">Темы которые мы предлагали раньше:</p>
+            <p className="italic text-muted-foreground">
+              представьте, что пришел к вам волшебник и говорит: "Я могу сделать так, чтобы ты не умирал. 
+              Что вы про это думаете? Согласились ли бы вы? А другие люди согласятся или нет, как вы думаете?"
             </p>
-            <div className="p-6 bg-white/10 border-l-4 border-highlight">
-              <p className="font-bold mb-2 text-white">Темы которые мы предлагали раньше:</p>
-              <p className="italic">
-                представьте, что пришел к вам волшебник и говорит: "Я могу сделать так, чтобы ты не умирал. 
-                Что вы про это думаете? Согласились ли бы вы? А другие люди согласятся или нет, как вы думаете?"
-              </p>
-              <p className="text-sm mt-4 text-white/60">
-                (Это просто пример, такого вопроса не будет на собеседовании)
-              </p>
-            </div>
+            <p className="text-xs mt-3 text-muted-foreground">
+              (Это просто пример, такого вопроса не будет на собеседовании)
+            </p>
           </div>
         </div>
 
-        <div className="p-8 border-2 border-red-400 bg-red-500/20">
-          <h4 className="text-2xl font-bold mb-4">⚠️ Про стресс интервью</h4>
-          <div className="space-y-3 text-lg text-white/80">
+        {/* Stress warning */}
+        <div className="border-l-2 border-destructive pl-6 space-y-3">
+          <h4 className="font-bold">Про стресс интервью</h4>
+          <div className="space-y-2 text-muted-foreground text-sm">
             <p>
               Да, это волнительно. Мы стараемся создать безопасную атмосферу, но час — это мало, чтобы понять человека.
             </p>

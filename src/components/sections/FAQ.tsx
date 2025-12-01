@@ -19,20 +19,20 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 px-6 border-b border-foreground">
-      <div className="max-w-5xl mx-auto space-y-16">
+    <section className="py-24 px-6 bg-background">
+      <div className="max-w-3xl mx-auto space-y-12">
         <div className="space-y-4">
-          <span className="font-mono text-xs uppercase tracking-[0.3em] bg-primary text-primary-foreground px-3 py-1.5 inline-block">
+          <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             FAQ
           </span>
-          <p className="text-lg text-muted-foreground font-body">(честные ответы)</p>
+          <p className="text-sm text-muted-foreground">(честные ответы)</p>
         </div>
 
-        <div className="divide-y divide-foreground border-y border-foreground">
+        <div className="space-y-8">
           {questions.map((item, index) => (
-            <div key={index} className="py-8 grid md:grid-cols-2 gap-6">
-              <h3 className="text-xl md:text-2xl font-display">{item.q}</h3>
-              <p className="text-lg font-body text-muted-foreground leading-relaxed">{item.a}</p>
+            <div key={index} className="border-b border-border pb-6">
+              <h3 className="text-lg font-bold mb-3">{item.q}</h3>
+              <p className="text-muted-foreground">{item.a}</p>
             </div>
           ))}
         </div>
