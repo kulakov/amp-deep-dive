@@ -201,10 +201,10 @@ const WhatHappens = () => {
           </div>
         </div>
 
-        {/* Not for everyone */}
-        <div className="space-y-4 border-l-2 border-foreground pl-6">
-          <p className="font-bold">Это подходит не всем.</p>
-          <div className="space-y-3 text-muted-foreground text-sm">
+        {/* Not for everyone - callout style */}
+        <div className="bg-muted p-6 font-mono text-sm space-y-3">
+          <h4 className="font-bold">Это подходит не всем.</h4>
+          <div className="space-y-2 text-muted-foreground">
             <p>
               Если вы ждете только легких разговоров и полезных контактов — вам не зайдет. 
               Здесь люди делятся переживаниями и сомнениями.
