@@ -5,16 +5,10 @@ interface SillyWordProps {
 }
 
 const SILLY_FONTS = [
-  "font-silly-1 text-[1.4em]",   // Caveat - рукописный
-  "font-silly-2 text-[1.15em] italic", // Cormorant Garamond - элегантный
-  "font-silly-3 text-[0.85em]", // Unbounded - геометричный
-  "font-silly-4 text-[1em] italic",    // Lora - классический
-  "font-silly-5 text-[1em] uppercase tracking-wide", // Oswald - узкий
-  "font-silly-6 text-[1em] font-light tracking-widest", // Raleway - лёгкий
-  "font-silly-7 text-[0.95em] font-black uppercase", // Montserrat - жирный
-  "font-silly-8 text-[1em] font-medium", // Jost - геометричный
-  "font-silly-9 text-[0.95em]", // Manrope - современный
-  "font-silly-10 text-[0.9em]", // JetBrains Mono - код
+  "font-silly-1 text-[1.1em]",   // Oi - playful
+  "font-silly-2 text-[1.4em]",   // Comforter Brush - artistic
+  "font-silly-3 text-[1.3em]",   // Bad Script - childlike
+  "font-silly-4 text-[0.7em]",   // Tiny5 - pixel
 ];
 
 const SillyWord = ({ children }: SillyWordProps) => {

@@ -29,7 +29,7 @@ const Hero = () => {
             
             <div className="space-y-4 max-w-2xl mx-auto">
               <h1 className="text-3xl md:text-5xl font-display font-bold leading-tight text-white">
-                Место, где умные взрослые разрешают себе <SillyWord>дурачиться</SillyWord>
+                Место, где умные взрослые разрешают себе{" "}<SillyWord>дурачиться</SillyWord>
               </h1>
               <p className="text-lg md:text-xl text-white/80 font-body">
                 Три дня и 65 человек, с которыми можно искренне говорить о важном
