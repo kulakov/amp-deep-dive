@@ -52,7 +52,7 @@ const Hero = () => {
             
             <div className="space-y-4 max-w-2xl mx-auto">
               {showScoldMessage ? (
-                <h1 className="text-xl md:text-2xl font-silly-3 leading-relaxed text-highlight animate-silly-shake">
+                <h1 className="text-3xl md:text-5xl font-silly-1 leading-relaxed text-highlight animate-silly-shake">
                   ХВАТИТ БАЛОВАТЬСЯ, ЛИСТАЙ УЖЕ!
                 </h1>
               ) : (
