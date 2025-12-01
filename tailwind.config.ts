@@ -19,7 +19,7 @@ export default {
         mono: ["JetBrains Mono", "monospace"],
         "silly-2": ["Comforter Brush", "cursive"],
         "silly-3": ["Bad Script", "cursive"],
-        "silly-4": ["Tiny5", "sans-serif"],
+        "silly-4": ["Press Start 2P", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
