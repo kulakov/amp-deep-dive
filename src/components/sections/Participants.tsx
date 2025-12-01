@@ -60,15 +60,15 @@ const Participants = () => {
 
   // Positions and colors for scattered cards
   const cardPositions = [
-    { rotate: -3, top: "0%", left: "0%", hoverColor: "#FF6B6B" },
-    { rotate: 2, top: "2%", left: "35%", hoverColor: "#4ECDC4" },
-    { rotate: -2, top: "0%", left: "68%", hoverColor: "#FFE66D" },
-    { rotate: 3, top: "28%", left: "5%", hoverColor: "#95E1D3" },
-    { rotate: -4, top: "30%", left: "38%", hoverColor: "#F38181" },
-    { rotate: 2, top: "27%", left: "70%", hoverColor: "#AA96DA" },
-    { rotate: -2, top: "56%", left: "0%", hoverColor: "#FCBAD3" },
-    { rotate: 4, top: "58%", left: "33%", hoverColor: "#A8D8EA" },
-    { rotate: -3, top: "55%", left: "66%", hoverColor: "#FFFFD2" },
+    { rotate: -3, top: "0%", left: "0%", hoverColor: "#FF3366" },
+    { rotate: 2, top: "2%", left: "35%", hoverColor: "#00D4AA" },
+    { rotate: -2, top: "0%", left: "68%", hoverColor: "#FFD000" },
+    { rotate: 3, top: "28%", left: "5%", hoverColor: "#00CC88" },
+    { rotate: -4, top: "30%", left: "38%", hoverColor: "#FF4466" },
+    { rotate: 2, top: "27%", left: "70%", hoverColor: "#9966FF" },
+    { rotate: -2, top: "56%", left: "0%", hoverColor: "#FF66AA" },
+    { rotate: 4, top: "58%", left: "33%", hoverColor: "#00AAFF" },
+    { rotate: -3, top: "55%", left: "66%", hoverColor: "#FFAA00" },
   ];
 
   return (
@@ -101,12 +101,14 @@ const Participants = () => {
                 e.currentTarget.style.zIndex = '100';
                 e.currentTarget.style.backgroundColor = cardPositions[i].hoverColor;
                 e.currentTarget.style.borderColor = cardPositions[i].hoverColor;
+                e.currentTarget.style.color = 'white';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = `rotate(${cardPositions[i].rotate}deg)`;
                 e.currentTarget.style.zIndex = String(i + 1);
                 e.currentTarget.style.backgroundColor = '';
                 e.currentTarget.style.borderColor = '';
+                e.currentTarget.style.color = '';
               }}
             >
               <h3 className="text-xl font-bold mb-3 text-highlight">{person.name}</h3>
