@@ -201,6 +201,56 @@ const WhatHappens = () => {
           </div>
         </div>
 
+        {/* Formats - scattered cards gallery */}
+        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8">
+          {/* Pink skewed background */}
+          <div 
+            className="absolute inset-0 bg-highlight -z-10"
+            style={{ transform: 'skewY(2deg)' }}
+          />
+          
+          <div className="text-highlight-foreground">
+            <h3 className="font-mono text-sm uppercase tracking-[0.2em] mb-8">Наши форматы:</h3>
+            
+            {/* Scattered cards */}
+            <div className="relative h-[550px] md:h-[500px]">
+              {[
+                { name: "Google game", desc: "я буду называть тебе запрос, как в Google, про тебя. Например «ты и детские страхи», или «ты и закатное небо», а ты рассказываешь, столько сколько хочешь.", rotate: -4, top: "0%", left: "0%", width: "w-64 md:w-72", img: campConversation },
+                { name: "Я не знаю про тебя…", desc: "я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека", rotate: 3, top: "5%", left: "45%", width: "w-60 md:w-80", img: campSocializing },
+                { name: "Круги Котова", desc: "это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми", rotate: -2, top: "48%", left: "5%", width: "w-56 md:w-64", img: campWorkshop },
+                { name: "Fuck-up night", desc: "тут просто все по очереди рассказывают о ситуации, когда они облажались", rotate: 5, top: "52%", left: "50%", width: "w-52 md:w-60", img: campTalk },
+              ].map((card, i) => (
+                <div 
+                  key={i}
+                  className={`absolute ${card.width} bg-background text-foreground shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:z-50 overflow-hidden`}
+                  style={{ 
+                    transform: `rotate(${card.rotate}deg)`,
+                    top: card.top,
+                    left: card.left,
+                    zIndex: i + 1,
+                  }}
+                >
+                  <div className="h-20 overflow-hidden">
+                    <img 
+                      src={card.img} 
+                      alt={card.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-sm italic text-highlight-foreground/70 mt-4">
+              У нас еще много, все разные и классные.
+            </p>
+          </div>
+        </div>
+
         {/* Not for everyone - callout style */}
         <div className="bg-callout border border-callout-border p-6 font-mono text-sm space-y-3">
           <h4 className="font-bold text-foreground">Это подходит не всем.</h4>

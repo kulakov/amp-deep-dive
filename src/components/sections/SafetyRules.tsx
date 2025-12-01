@@ -7,25 +7,6 @@ const SafetyRules = () => {
     "Опираемся на критическое мышление"
   ];
 
-  const formats = [
-    {
-      name: "Google game",
-      description: "я буду называть тебе запрос, как в Google, про тебя. Например «ты и детские страхи», или «ты и закатное небо», а ты рассказываешь, столько сколько хочешь."
-    },
-    {
-      name: "Я не знаю про тебя…",
-      description: "я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека"
-    },
-    {
-      name: "Круги Котова",
-      description: "это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми"
-    },
-    {
-      name: "Fuck-up night",
-      description: "тут просто все по очереди рассказывают о ситуации, когда они облажались"
-    }
-  ];
-
   const notDoing = [
     "Не заставляем участвовать (можно не ходить на любое из мероприятий. можно уходить всегда когда не ок)",
     "Не продаем методики (это не бизнес)",
@@ -52,74 +33,18 @@ const SafetyRules = () => {
           ))}
         </div>
 
-        {/* Intro text + Formats gallery wrapper */}
-        <div>
-          <div className="space-y-4 text-lg font-body leading-relaxed text-muted-foreground mb-6">
-            <p>
-              Мы не знаем наверняка, как это делать правильно. У нас нет формулы дружбы или секрета общения. 
-              Мы просто собираем людей и создаем форматы, которые помогают начать разговаривать искренне.
-            </p>
-            <p>
-              Мы не будем вам навязывать как общаться правильно. У нас нет канона или секретной формулы дружбы. 
-              Зато у нас есть куча Микро-форматов.
-            </p>
-          </div>
-
-          {/* Formats - scattered cards gallery */}
-          <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8">
-            {/* Pink skewed background */}
-            <div 
-              className="absolute inset-0 bg-highlight -z-10"
-              style={{ transform: 'skewY(2deg)' }}
-            />
-            
-            <div className="text-highlight-foreground">
-              <h3 className="font-mono text-sm uppercase tracking-[0.2em] mb-8">Наши форматы:</h3>
-              
-              {/* Scattered cards */}
-              <div className="relative h-[550px] md:h-[500px]">
-                {[
-                  { name: formats[0].name, desc: formats[0].description, rotate: -4, top: "0%", left: "0%", width: "w-64 md:w-72", img: "/src/assets/camp-conversation-1.jpg" },
-                  { name: formats[1].name, desc: formats[1].description, rotate: 3, top: "5%", left: "45%", width: "w-60 md:w-80", img: "/src/assets/camp-socializing.jpg" },
-                  { name: formats[2].name, desc: formats[2].description, rotate: -2, top: "48%", left: "5%", width: "w-56 md:w-64", img: "/src/assets/camp-workshop.jpg" },
-                  { name: formats[3].name, desc: formats[3].description, rotate: 5, top: "52%", left: "50%", width: "w-52 md:w-60", img: "/src/assets/camp-talk.jpg" },
-                ].map((card, i) => (
-                  <div 
-                    key={i}
-                    className={`absolute ${card.width} bg-background text-foreground shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:z-50 overflow-hidden`}
-                    style={{ 
-                      transform: `rotate(${card.rotate}deg)`,
-                      top: card.top,
-                      left: card.left,
-                      zIndex: i + 1,
-                    }}
-                  >
-                    <div className="h-20 overflow-hidden">
-                      <img 
-                        src={card.img} 
-                        alt={card.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <p className="text-sm italic text-highlight-foreground/70 mt-4">
-                У нас еще много, все разные и классные.
-              </p>
-            </div>
-          </div>
-
-          {/* Camp philosophy */}
-          <p className="text-xl font-display italic mt-6">
-            Кэмп делается участниками для участников, без привкуса бизнеса
+        {/* Intro text */}
+        <div className="space-y-4 text-lg font-body leading-relaxed text-muted-foreground">
+          <p>
+            Мы не знаем наверняка, как это делать правильно. У нас нет формулы дружбы или секрета общения. 
+            Мы просто собираем людей и создаем форматы, которые помогают начать разговаривать искренне.
           </p>
         </div>
+
+        {/* Camp philosophy */}
+        <p className="text-xl font-display italic">
+          Кэмп делается участниками для участников, без привкуса бизнеса
+        </p>
 
         {/* Not doing */}
         <div className="space-y-6">
