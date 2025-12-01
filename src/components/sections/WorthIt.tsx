@@ -1,4 +1,6 @@
 import campHandsUp from "@/assets/camp-hands-up.jpg";
+import campHug from "@/assets/camp-hug.jpg";
+import campConnection from "@/assets/camp-connection.jpg";
 import doodleFriends from "@/assets/doodle-friends.png";
 import doodleBook from "@/assets/doodle-book.png";
 import doodleHouse from "@/assets/doodle-house.png";
@@ -87,18 +89,8 @@ const WorthIt = () => {
         </div>
       </div>
 
-      {/* Community benefits - with photo background */}
-      <div className="relative -mx-6 md:-mx-0 my-16">
-        {/* Background photo */}
-        <div className="absolute inset-0 -z-10">
-          <img 
-            src={campHandsUp} 
-            alt="" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-background/95" />
-        </div>
-        
+      {/* Community benefits */}
+      <div className="bg-background my-16 -mx-6 md:mx-0">
         <div className="max-w-6xl mx-auto px-6 py-16 space-y-8">
           <h2 className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Что дает сообщество
@@ -154,48 +146,39 @@ const WorthIt = () => {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto space-y-16">
-        {/* Warning - code block style */}
-        <div className="bg-callout border border-callout-border p-6 font-mono text-sm space-y-3">
-          <h4 className="font-bold text-foreground">Последнее предупреждение</h4>
-          <div className="space-y-2 text-callout-foreground">
-            <p>
-              Не все получают то, что ожидают. Кто-то едет за связями и злится, что люди говорят о чувствах. 
-              Кто-то ждет решения проблем и обнаруживает, что мы не умеем их решать.
-            </p>
-            <p className="font-medium text-foreground">
-              Мы не знаем, что вам нужно. Знаем только, как создать место, где можно перестать притворяться. 
-              Дальше — ваша ответственность.
-            </p>
-          </div>
+      {/* How to join - CTA with photos */}
+      <div className="relative -mx-6 md:mx-0 overflow-hidden">
+        {/* Photo collage background */}
+        <div className="absolute inset-0 grid grid-cols-3 -z-10">
+          <img src={campHandsUp} alt="" className="w-full h-full object-cover" />
+          <img src={campHug} alt="" className="w-full h-full object-cover" />
+          <img src={campConnection} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-highlight/90" />
         </div>
-
-        {/* How to join - CTA */}
-        <div className="bg-highlight text-highlight-foreground p-10 md:p-16 space-y-8 -mx-6 md:mx-0">
-          <h2 className="font-display text-4xl md:text-6xl font-bold leading-tight">
+        
+        <div className="max-w-3xl mx-auto px-6 py-16 md:py-24 text-highlight-foreground space-y-8">
+          <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight">
             Как попасть
           </h2>
-          <div className="space-y-6 text-lg">
+          <div className="space-y-5">
             <div className="flex gap-4 items-start">
-              <input type="checkbox" checked disabled className="mt-2 w-6 h-6 accent-highlight-foreground" />
+              <input type="checkbox" checked disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
               <p><span className="font-bold line-through opacity-60">Найти номинатора.</span> Если вы это читаете — у вас уже есть такой друг.</p>
             </div>
             <div className="flex gap-4 items-start">
-              <input type="checkbox" disabled className="mt-2 w-6 h-6 accent-highlight-foreground" />
+              <input type="checkbox" disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
               <p><span className="font-bold">Решиться на интервью.</span> Час искреннего разговора о том, что вас интересует</p>
             </div>
             <div className="flex gap-4 items-start">
-              <input type="checkbox" disabled className="mt-2 w-6 h-6 accent-highlight-foreground" />
+              <input type="checkbox" disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
               <p><span className="font-bold">Получить решение.</span> Мы помучаемся неделю или две, потом напишем</p>
             </div>
           </div>
-          <div className="pt-8 border-t border-highlight-foreground/30 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div>
-              <p className="font-bold text-xl">Ближайший дедлайн</p>
-              <p className="text-base mt-2 opacity-90">
-                дождаться когда мы объявим следующий. если вас номинировали, мы с вами свяжемся, у нас есть ваши контакты
-              </p>
-            </div>
+          <div className="pt-6 border-t border-highlight-foreground/30">
+            <p className="font-bold text-lg">Ближайший дедлайн</p>
+            <p className="mt-2 opacity-90">
+              дождаться когда мы объявим следующий. если вас номинировали, мы с вами свяжемся, у нас есть ваши контакты
+            </p>
           </div>
         </div>
       </div>
