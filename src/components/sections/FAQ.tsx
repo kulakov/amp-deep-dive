@@ -26,11 +26,14 @@ const FAQ = () => {
           <p className="text-2xl text-muted-foreground">(честные ответы)</p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-5">
           {questions.map((item, index) => (
-            <div key={index} className="border-2 border-primary p-8 hover:bg-muted transition-colors">
+            <div 
+              key={index} 
+              className="p-8 rounded-3xl bg-card hover:bg-secondary/50 transition-all duration-300 hover:scale-[1.02] shadow-md hover:shadow-lg"
+            >
               <h3 className="text-2xl font-bold mb-4">{item.q}</h3>
-              <p className="text-lg">{item.a}</p>
+              <p className="text-lg text-muted-foreground">{item.a}</p>
             </div>
           ))}
         </div>
