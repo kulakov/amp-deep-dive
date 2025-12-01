@@ -63,12 +63,12 @@ const Participants = () => {
     { rotate: -3, top: "0%", left: "0%", hoverColor: "#FF6B6B" },
     { rotate: 2, top: "2%", left: "35%", hoverColor: "#4ECDC4" },
     { rotate: -2, top: "0%", left: "68%", hoverColor: "#FFE66D" },
-    { rotate: 3, top: "22%", left: "5%", hoverColor: "#95E1D3" },
-    { rotate: -4, top: "24%", left: "38%", hoverColor: "#F38181" },
-    { rotate: 2, top: "21%", left: "70%", hoverColor: "#AA96DA" },
-    { rotate: -2, top: "44%", left: "0%", hoverColor: "#FCBAD3" },
-    { rotate: 4, top: "46%", left: "33%", hoverColor: "#A8D8EA" },
-    { rotate: -3, top: "43%", left: "66%", hoverColor: "#FFFFD2" },
+    { rotate: 3, top: "28%", left: "5%", hoverColor: "#95E1D3" },
+    { rotate: -4, top: "30%", left: "38%", hoverColor: "#F38181" },
+    { rotate: 2, top: "27%", left: "70%", hoverColor: "#AA96DA" },
+    { rotate: -2, top: "56%", left: "0%", hoverColor: "#FCBAD3" },
+    { rotate: 4, top: "58%", left: "33%", hoverColor: "#A8D8EA" },
+    { rotate: -3, top: "55%", left: "66%", hoverColor: "#FFFFD2" },
   ];
 
   return (
@@ -85,7 +85,7 @@ const Participants = () => {
         </div>
 
         {/* Participants scattered gallery */}
-        <div className="relative h-[1400px] md:h-[900px]">
+        <div className="relative h-[1400px] md:h-[1100px]">
           {participants.map((person, i) => (
             <div 
               key={i}
@@ -99,14 +99,14 @@ const Participants = () => {
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
                 e.currentTarget.style.zIndex = '100';
+                e.currentTarget.style.backgroundColor = cardPositions[i].hoverColor;
                 e.currentTarget.style.borderColor = cardPositions[i].hoverColor;
-                e.currentTarget.style.boxShadow = `0 10px 40px ${cardPositions[i].hoverColor}40`;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = `rotate(${cardPositions[i].rotate}deg)`;
                 e.currentTarget.style.zIndex = String(i + 1);
+                e.currentTarget.style.backgroundColor = '';
                 e.currentTarget.style.borderColor = '';
-                e.currentTarget.style.boxShadow = '';
               }}
             >
               <h3 className="text-xl font-bold mb-3 text-highlight">{person.name}</h3>
