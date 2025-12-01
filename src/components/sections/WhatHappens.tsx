@@ -156,7 +156,7 @@ const WhatHappens = () => {
         </div>
 
         {/* Not a conference - highlighted block */}
-        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-16 my-8">
+        <div id="not-conference" className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-16 my-8">
           {/* Skewed container with photo and overlay */}
           <div 
             className="absolute inset-0 -z-10 overflow-hidden"
