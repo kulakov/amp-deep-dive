@@ -130,7 +130,7 @@ const WhatHappens = () => {
         </div>
 
         {/* Comparison */}
-        <div className="space-y-6">
+        <div className="bg-muted p-8 -mx-6 md:mx-0">
           <div className="grid grid-cols-2 gap-8 text-sm">
             <div>
               <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Другие ивенты</p>
