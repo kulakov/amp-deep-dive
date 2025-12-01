@@ -12,20 +12,16 @@ const sections = [
 const StickyNav = () => {
   const [activeSection, setActiveSection] = useState("");
   const [isSticky, setIsSticky] = useState(false);
-  const navRef = useRef<HTMLDivElement>(null);
-  const [navHeight, setNavHeight] = useState(0);
-
-  useEffect(() => {
-    if (navRef.current) {
-      setNavHeight(navRef.current.offsetHeight);
-    }
-  }, []);
+  const navRef = useRef<HTMLElement>(null);
+  const placeholderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check if we should be sticky (past hero section)
-      const heroHeight = window.innerHeight;
-      setIsSticky(window.scrollY > heroHeight - 100);
+      if (!placeholderRef.current) return;
+      
+      // Sticky when placeholder reaches top of viewport
+      const placeholderRect = placeholderRef.current.getBoundingClientRect();
+      setIsSticky(placeholderRect.top <= 0);
 
       // Find active section
       const scrollPosition = window.scrollY + 150;
@@ -47,20 +43,20 @@ const StickyNav = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80;
+      const offset = 60;
       const top = element.offsetTop - offset;
       window.scrollTo({ top, behavior: "smooth" });
     }
   };
 
   return (
-    <>
-      {/* Placeholder when nav is sticky */}
-      {isSticky && <div style={{ height: navHeight }} />}
+    <div ref={placeholderRef} className="h-12">
       <nav
         ref={navRef}
-        className={`w-full bg-background/95 backdrop-blur-sm border-b border-foreground/10 z-50 transition-all duration-300 ${
-          isSticky ? "fixed top-0 left-0" : "relative"
+        className={`w-full z-50 transition-all duration-200 ${
+          isSticky 
+            ? "fixed top-0 left-0 bg-background/95 backdrop-blur-sm border-b border-foreground/10" 
+            : "absolute"
         }`}
       >
         <div className="max-w-6xl mx-auto px-4">
@@ -72,7 +68,9 @@ const StickyNav = () => {
                 className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider whitespace-nowrap transition-colors ${
                   activeSection === section.id
                     ? "bg-highlight text-highlight-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    : isSticky 
+                      ? "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      : "text-white/70 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {section.label}
@@ -81,7 +79,7 @@ const StickyNav = () => {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   );
 };
 
