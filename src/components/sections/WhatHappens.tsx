@@ -98,7 +98,7 @@ const WhatHappens = () => {
           { img: campAtmosphere, rotate: 8, top: "3%", left: "58%", size: "w-40", z: 1, caption: "замечаем друг-друга" },
           { img: campConnection, rotate: -4, top: "8%", left: "78%", size: "w-36", z: 2, caption: "общаемся" },
           { img: campEnergy, rotate: 7, top: "32%", left: "0%", size: "w-44", z: 4, caption: "двигаемся" },
-          { img: campConversation, rotate: -5, top: "28%", left: "20%", size: "w-46", z: 5, caption: "восхищаемся" },
+          { img: campConversation, rotate: -5, top: "28%", left: "20%", size: "w-44", z: 5, caption: "восхищаемся" },
           { img: campTalk, rotate: 2, top: "35%", left: "42%", size: "w-40", z: 3, caption: "знакомимся" },
           { img: campSocializing, rotate: -8, top: "30%", left: "65%", size: "w-44", z: 4, caption: "дружим" },
         ].map((item, i) => {
