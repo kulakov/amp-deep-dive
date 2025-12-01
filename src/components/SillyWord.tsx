@@ -25,11 +25,13 @@ const SillyWord = ({ children }: SillyWordProps) => {
   const handleHover = useCallback(() => {
     if (phase !== "idle" && phase !== "silly") return;
     
+    const isFast = fontIndex >= 0; // Быстрее если шрифт уже изменён
+    
     setPhase("shake");
     
     setTimeout(() => {
       setPhase("bounce");
-    }, 700);
+    }, isFast ? 400 : 700);
     
     setTimeout(() => {
       setFontIndex((prev) => {
@@ -37,23 +39,24 @@ const SillyWord = ({ children }: SillyWordProps) => {
         return prev + 1;
       });
       setPhase("return");
-    }, 1400);
+    }, isFast ? 800 : 1400);
     
     setTimeout(() => {
       setPhase("silly");
-    }, 2200);
-  }, [phase]);
+    }, isFast ? 1300 : 2200);
+  }, [phase, fontIndex]);
 
   const getAnimationClass = () => {
     const fontClass = fontIndex >= 0 ? SILLY_FONTS[fontIndex] : "";
+    const speedClass = fontIndex >= 0 ? "[animation-duration:0.4s]" : "";
     
     switch (phase) {
       case "shake":
-        return `animate-silly-shake ${fontIndex >= 0 ? fontClass : ""}`;
+        return `animate-silly-shake ${speedClass} ${fontIndex >= 0 ? fontClass : ""}`;
       case "bounce":
-        return `animate-silly-bounce-away ${fontIndex >= 0 ? fontClass : ""}`;
+        return `animate-silly-bounce-away ${speedClass} ${fontIndex >= 0 ? fontClass : ""}`;
       case "return":
-        return `animate-silly-return ${fontClass}`;
+        return `animate-silly-return ${speedClass} ${fontClass}`;
       case "silly":
         return fontClass;
       default:
