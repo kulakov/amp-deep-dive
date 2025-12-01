@@ -32,6 +32,11 @@
     --highlight: 316 100% 50%;
     --highlight-foreground: 0 0% 100%;
 
+    /* Callout - pale pink */
+    --callout: 316 30% 96%;
+    --callout-border: 316 20% 80%;
+    --callout-foreground: 0 0% 25%;
+
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 

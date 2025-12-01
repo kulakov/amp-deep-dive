@@ -51,6 +51,11 @@ export default {
           DEFAULT: "hsl(var(--highlight))",
           foreground: "hsl(var(--highlight-foreground))",
         },
+        callout: {
+          DEFAULT: "hsl(var(--callout))",
+          border: "hsl(var(--callout-border))",
+          foreground: "hsl(var(--callout-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
