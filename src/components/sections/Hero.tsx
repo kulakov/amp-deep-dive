@@ -57,7 +57,7 @@ const Hero = () => {
                 </h1>
               ) : (
                 <h1 className="text-3xl md:text-5xl font-display font-bold leading-tight text-white">
-                  Место, где умные взрослые разрешают себе {" "}<SillyWord onCycleComplete={handleCycleComplete}>дурачиться</SillyWord>
+                  Место, где умные взрослые разрешают себе<SillyWord onCycleComplete={handleCycleComplete}>дурачиться</SillyWord>
                 </h1>
               )}
               <p className="text-lg md:text-xl text-white/80 font-body">
