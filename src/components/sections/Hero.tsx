@@ -1,13 +1,12 @@
 import { ArrowDown } from "lucide-react";
+import Logo from "@/components/Logo";
 
 const Hero = () => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative">
       <div className="max-w-5xl mx-auto text-center space-y-12">
-        <div className="space-y-6">
-          <h1 className="text-7xl md:text-9xl font-black tracking-tight">
-            AMP Camp
-          </h1>
+        <div className="space-y-8">
+          <Logo className="w-full max-w-2xl mx-auto h-auto text-foreground" />
           <div className="space-y-4">
             <p className="text-2xl md:text-4xl font-medium text-balance max-w-3xl mx-auto">
               Место, где умные взрослые разрешают себе дурачиться
