@@ -19,21 +19,20 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-32 px-6">
-      <div className="max-w-5xl mx-auto space-y-20">
-        <div className="space-y-8">
-          <h2 className="text-5xl md:text-7xl font-black">FAQ</h2>
-          <p className="text-2xl text-muted-foreground">(честные ответы)</p>
+    <section className="py-24 px-6 border-b border-foreground">
+      <div className="max-w-5xl mx-auto space-y-16">
+        <div className="space-y-4">
+          <span className="font-mono text-xs uppercase tracking-[0.3em] bg-primary text-primary-foreground px-3 py-1.5 inline-block">
+            FAQ
+          </span>
+          <p className="text-lg text-muted-foreground font-body">(честные ответы)</p>
         </div>
 
-        <div className="space-y-5">
+        <div className="divide-y divide-foreground border-y border-foreground">
           {questions.map((item, index) => (
-            <div 
-              key={index} 
-              className="p-8 rounded-3xl bg-card hover:bg-secondary/50 transition-all duration-300 hover:scale-[1.02] shadow-md hover:shadow-lg"
-            >
-              <h3 className="text-2xl font-bold mb-4">{item.q}</h3>
-              <p className="text-lg text-muted-foreground">{item.a}</p>
+            <div key={index} className="py-8 grid md:grid-cols-2 gap-6">
+              <h3 className="text-xl md:text-2xl font-display">{item.q}</h3>
+              <p className="text-lg font-body text-muted-foreground leading-relaxed">{item.a}</p>
             </div>
           ))}
         </div>
