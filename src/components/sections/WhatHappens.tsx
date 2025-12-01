@@ -22,15 +22,35 @@ const WhatHappens = () => {
             </blockquote>
           </div>
 
-          {/* Photo Grid - Editorial style */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-1">
-            {[campWorkshop, campHug, campHandsUp, campConnection, campEnergy, campSocializing].map((img, i) => (
-              <div key={i} className="aspect-square overflow-hidden">
-                <img 
-                  src={img} 
-                  alt="" 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                />
+          {/* Photo Grid - Scattered polaroid style */}
+          <div className="relative h-[500px] md:h-[600px] my-8">
+            {[
+              { img: campWorkshop, rotate: "-6deg", top: "5%", left: "2%", size: "w-40 md:w-52", z: 1 },
+              { img: campHug, rotate: "4deg", top: "15%", left: "35%", size: "w-36 md:w-48", z: 3 },
+              { img: campHandsUp, rotate: "-3deg", top: "8%", right: "5%", size: "w-44 md:w-56", z: 2 },
+              { img: campConnection, rotate: "7deg", top: "45%", left: "8%", size: "w-38 md:w-50", z: 4 },
+              { img: campEnergy, rotate: "-5deg", top: "50%", left: "40%", size: "w-40 md:w-52", z: 5 },
+              { img: campSocializing, rotate: "3deg", top: "40%", right: "3%", size: "w-36 md:w-44", z: 2 },
+            ].map((item, i) => (
+              <div 
+                key={i} 
+                className={`absolute ${item.size} bg-white p-2 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:z-50 cursor-pointer`}
+                style={{ 
+                  transform: `rotate(${item.rotate})`,
+                  top: item.top,
+                  left: item.left,
+                  right: item.right,
+                  zIndex: item.z,
+                }}
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={item.img} 
+                    alt="" 
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  />
+                </div>
+                <div className="h-6 md:h-8" />
               </div>
             ))}
           </div>
