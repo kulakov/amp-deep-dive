@@ -115,10 +115,10 @@ const SafetyRules = () => {
           </div>
         </div>
 
-        {/* Warning */}
-        <div className="border-l-2 border-destructive pl-6 space-y-3">
+        {/* Warning - code block style */}
+        <div className="bg-muted p-6 font-mono text-sm space-y-3">
           <h4 className="font-bold">Что может не сработать</h4>
-          <div className="space-y-2 text-muted-foreground text-sm">
+          <div className="space-y-2 text-muted-foreground">
             <p>Любой формат может вам не зайти.</p>
             <p>Иногда в программу пролезают не слишком удачные форматы.</p>
             <p>Иногда мы перестраховываемся.</p>
