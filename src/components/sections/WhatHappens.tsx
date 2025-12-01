@@ -49,6 +49,11 @@ const WhatHappens = () => {
               — Даня Рубинштейн
             </footer>
           </blockquote>
+          <p className="text-lg font-body leading-relaxed">
+            Мы собираем в одном месте людей, которым точно захочется искренне и глубоко пообщаться. 
+            Искать таких сложно. Вы можете делать это сами, но на это вечно не хватает времени. 
+            А еще не понятно где их брать. Поэтому их надо собрать их в кучу. Вот мы и собрали.
+          </p>
         </div>
       </div>
 
@@ -105,12 +110,6 @@ const WhatHappens = () => {
 
       {/* Text content below gallery */}
       <div className="max-w-3xl mx-auto space-y-20">
-        <p className="text-lg font-body leading-relaxed">
-          Мы собираем в одном месте людей, которым точно захочется искренне и глубоко пообщаться. 
-          Искать таких сложно. Вы можете делать это сами, но на это вечно не хватает времени. 
-          А еще не понятно где их брать. Поэтому их надо собрать их в кучу. Вот мы и собрали.
-        </p>
-
         {/* What is it */}
         <div className="space-y-6">
           <p className="text-lg font-body leading-relaxed">
