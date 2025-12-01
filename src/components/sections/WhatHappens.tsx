@@ -54,23 +54,22 @@ const WhatHappens = () => {
           {/* Photo Grid - Scattered polaroid style */}
           <div ref={galleryRef} className="relative h-[450px] md:h-[500px]">
             {[
-              { img: campWorkshop, rotate: -6, top: "0%", left: "5%", size: "w-28 md:w-36", z: 1 },
-              { img: campHug, rotate: 4, top: "5%", left: "25%", size: "w-36 md:w-48", z: 3 },
-              { img: campHandsUp, rotate: -3, top: "2%", left: "50%", size: "w-40 md:w-52", z: 2 },
-              { img: campAtmosphere, rotate: 8, top: "8%", left: "75%", size: "w-24 md:w-32", z: 1 },
-              { img: campConnection, rotate: 7, top: "30%", left: "0%", size: "w-32 md:w-40", z: 4 },
-              { img: campEnergy, rotate: -5, top: "28%", left: "22%", size: "w-34 md:w-44", z: 5 },
-              { img: campConversation, rotate: 2, top: "32%", left: "48%", size: "w-36 md:w-46", z: 3 },
-              { img: campTalk, rotate: -8, top: "55%", left: "10%", size: "w-32 md:w-40", z: 2 },
-              { img: campSocializing, rotate: 5, top: "58%", left: "38%", size: "w-28 md:w-36", z: 4 },
+              { img: campWorkshop, rotate: -6, top: "0%", left: "5%", size: "w-28 md:w-36", z: 1, caption: "вдохновляемся" },
+              { img: campHug, rotate: 4, top: "5%", left: "25%", size: "w-36 md:w-48", z: 3, caption: "обнимаемся" },
+              { img: campHandsUp, rotate: -3, top: "2%", left: "50%", size: "w-40 md:w-52", z: 2, caption: "включаемся" },
+              { img: campAtmosphere, rotate: 8, top: "8%", left: "75%", size: "w-24 md:w-32", z: 1, caption: "замечаем друг-друга" },
+              { img: campConnection, rotate: 7, top: "30%", left: "0%", size: "w-32 md:w-40", z: 4, caption: "общаемся" },
+              { img: campEnergy, rotate: -5, top: "28%", left: "22%", size: "w-34 md:w-44", z: 5, caption: "двигаемся" },
+              { img: campConversation, rotate: 2, top: "32%", left: "48%", size: "w-36 md:w-46", z: 3, caption: "восхищаемся" },
+              { img: campTalk, rotate: -8, top: "55%", left: "10%", size: "w-32 md:w-40", z: 2, caption: "знакомимся" },
+              { img: campSocializing, rotate: 5, top: "58%", left: "38%", size: "w-28 md:w-36", z: 4, caption: "дружим" },
             ].map((item, i) => {
               const isVisible = visiblePhotos.includes(i);
               return (
                 <div 
                   key={i} 
-                  className={`absolute ${item.size} bg-white p-2 shadow-xl cursor-pointer transition-all duration-300 ease-out
-                    ${isVisible ? "opacity-100" : "opacity-0 translate-y-8"}
-                    hover:!scale-150 hover:!z-[100] hover:shadow-2xl`}
+                  className={`absolute ${item.size} bg-white p-2 shadow-xl cursor-pointer transition-all duration-300 ease-out group
+                    ${isVisible ? "opacity-100" : "opacity-0 translate-y-8"}`}
                   style={{ 
                     transform: `rotate(${item.rotate}deg)`,
                     top: item.top,
@@ -89,11 +88,15 @@ const WhatHappens = () => {
                   <div className="aspect-square overflow-hidden">
                     <img 
                       src={item.img} 
-                      alt="" 
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                      alt={item.caption} 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                     />
                   </div>
-                  <div className="h-5 md:h-6" />
+                  <div className="h-5 md:h-6 flex items-center justify-center">
+                    <span className="text-[8px] md:text-[10px] text-gray-600 font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                      {item.caption}
+                    </span>
+                  </div>
                 </div>
               );
             })}
