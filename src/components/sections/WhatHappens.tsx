@@ -127,21 +127,21 @@ const WhatHappens = () => {
         <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-16">
           {/* Skewed background */}
           <div 
-            className="absolute inset-0 bg-foreground -z-10"
+            className="absolute inset-0 bg-highlight -z-10"
             style={{ transform: 'skewY(-2deg)' }}
           />
           
-          <div className="space-y-12 text-background">
+          <div className="space-y-12 text-highlight-foreground">
             <div className="space-y-4">
               <p className="text-xl font-display italic">Мы НЕ конференция</p>
-              <p className="text-background/70">и у нас аллергия на банальность и неряшливое мышление.</p>
+              <p className="text-highlight-foreground/70">и у нас аллергия на банальность и неряшливое мышление.</p>
             </div>
 
             {/* Comparison */}
             <div className="grid grid-cols-2 gap-8 text-sm">
               <div>
-                <p className="font-mono text-xs uppercase tracking-wider text-background/50 mb-4">Другие ивенты</p>
-                <div className="space-y-2 text-background/60">
+                <p className="font-mono text-xs uppercase tracking-wider text-highlight-foreground/50 mb-4">Другие ивенты</p>
+                <div className="space-y-2 text-highlight-foreground/60">
                   <p>Рассказываешь о достижениях</p>
                   <p>Произвести впечатление</p>
                   <p>Показываешь, какой ты крутой</p>
@@ -150,7 +150,7 @@ const WhatHappens = () => {
                 </div>
               </div>
               <div>
-                <p className="font-mono text-xs uppercase tracking-wider text-highlight mb-4">AmpCamp</p>
+                <p className="font-mono text-xs uppercase tracking-wider mb-4">AmpCamp</p>
                 <div className="space-y-2 font-medium">
                   <p>Признаешься в сомнениях</p>
                   <p>Снимаешь маску</p>
