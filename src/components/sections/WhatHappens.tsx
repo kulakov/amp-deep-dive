@@ -202,9 +202,9 @@ const WhatHappens = () => {
         </div>
 
         {/* Not for everyone - callout style */}
-        <div className="bg-muted p-6 font-mono text-sm space-y-3">
-          <h4 className="font-bold">Это подходит не всем.</h4>
-          <div className="space-y-2 text-muted-foreground">
+        <div className="bg-callout border border-callout-border p-6 font-mono text-sm space-y-3">
+          <h4 className="font-bold text-foreground">Это подходит не всем.</h4>
+          <div className="space-y-2 text-callout-foreground">
             <p>
               Если вы ждете только легких разговоров и полезных контактов — вам не зайдет. 
               Здесь люди делятся переживаниями и сомнениями.

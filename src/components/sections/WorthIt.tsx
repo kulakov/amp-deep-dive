@@ -86,9 +86,9 @@ const WorthIt = () => {
         </div>
 
         {/* Warning - code block style */}
-        <div className="bg-muted p-6 font-mono text-sm space-y-3">
-          <h4 className="font-bold">Последнее предупреждение</h4>
-          <div className="space-y-2 text-muted-foreground">
+        <div className="bg-callout border border-callout-border p-6 font-mono text-sm space-y-3">
+          <h4 className="font-bold text-foreground">Последнее предупреждение</h4>
+          <div className="space-y-2 text-callout-foreground">
             <p>
               Не все получают то, что ожидают. Кто-то едет за связями и злится, что люди говорят о чувствах. 
               Кто-то ждет решения проблем и обнаруживает, что мы не умеем их решать.
