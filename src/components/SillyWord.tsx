@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, useEffect } from "react";
 
 interface SillyWordProps {
   children: string;
+  onCycleComplete?: () => void;
 }
 
 const SILLY_FONTS = [
@@ -10,9 +11,10 @@ const SILLY_FONTS = [
   "font-silly-4 text-[0.7em]",   // Tiny5 - pixel
 ];
 
-const SillyWord = ({ children }: SillyWordProps) => {
+const SillyWord = ({ children, onCycleComplete }: SillyWordProps) => {
   const [phase, setPhase] = useState<"idle" | "shake" | "bounce" | "return" | "silly">("idle");
   const [fontIndex, setFontIndex] = useState(-1);
+  const [cycleCompleted, setCycleCompleted] = useState(false);
   const [fixedWidth, setFixedWidth] = useState<number | null>(null);
   const spanRef = useRef<HTMLSpanElement>(null);
 
@@ -25,7 +27,13 @@ const SillyWord = ({ children }: SillyWordProps) => {
   const handleHover = useCallback(() => {
     if (phase !== "idle" && phase !== "silly") return;
     
-    const isFast = fontIndex >= 0; // Быстрее если шрифт уже изменён
+    // Если цикл завершен и пользователь наводит снова — вызываем колбэк
+    if (cycleCompleted) {
+      onCycleComplete?.();
+      return;
+    }
+    
+    const isFast = fontIndex >= 0;
     
     setPhase("shake");
     
@@ -35,8 +43,13 @@ const SillyWord = ({ children }: SillyWordProps) => {
     
     setTimeout(() => {
       setFontIndex((prev) => {
-        if (prev >= SILLY_FONTS.length - 1) return -1;
-        return prev + 1;
+        const newIndex = prev + 1;
+        // Если дошли до конца — помечаем цикл завершённым
+        if (newIndex >= SILLY_FONTS.length) {
+          setCycleCompleted(true);
+          return prev; // Остаёмся на последнем шрифте
+        }
+        return newIndex;
       });
       setPhase("return");
     }, isFast ? 800 : 1400);
@@ -44,7 +57,7 @@ const SillyWord = ({ children }: SillyWordProps) => {
     setTimeout(() => {
       setPhase("silly");
     }, isFast ? 1300 : 2200);
-  }, [phase, fontIndex]);
+  }, [phase, fontIndex, cycleCompleted, onCycleComplete]);
 
   const getAnimationClass = () => {
     const fontClass = fontIndex >= 0 ? SILLY_FONTS[fontIndex] : "";
