@@ -58,17 +58,17 @@ const Participants = () => {
     }
   ];
 
-  // Positions for scattered cards - 3 rows of 3 cards
+  // Positions and colors for scattered cards
   const cardPositions = [
-    { rotate: -3, top: "0%", left: "0%" },
-    { rotate: 2, top: "2%", left: "35%" },
-    { rotate: -2, top: "0%", left: "68%" },
-    { rotate: 3, top: "34%", left: "5%" },
-    { rotate: -4, top: "36%", left: "38%" },
-    { rotate: 2, top: "33%", left: "70%" },
-    { rotate: -2, top: "67%", left: "0%" },
-    { rotate: 4, top: "68%", left: "33%" },
-    { rotate: -3, top: "66%", left: "66%" },
+    { rotate: -3, top: "0%", left: "0%", hoverColor: "#FF6B6B" },
+    { rotate: 2, top: "2%", left: "35%", hoverColor: "#4ECDC4" },
+    { rotate: -2, top: "0%", left: "68%", hoverColor: "#FFE66D" },
+    { rotate: 3, top: "34%", left: "5%", hoverColor: "#95E1D3" },
+    { rotate: -4, top: "36%", left: "38%", hoverColor: "#F38181" },
+    { rotate: 2, top: "33%", left: "70%", hoverColor: "#AA96DA" },
+    { rotate: -2, top: "67%", left: "0%", hoverColor: "#FCBAD3" },
+    { rotate: 4, top: "68%", left: "33%", hoverColor: "#A8D8EA" },
+    { rotate: -3, top: "66%", left: "66%", hoverColor: "#FFFFD2" },
   ];
 
   return (
@@ -89,7 +89,7 @@ const Participants = () => {
           {participants.map((person, i) => (
             <div 
               key={i}
-              className="absolute w-[85%] md:w-[30%] bg-background border border-border p-6 shadow-lg cursor-pointer transition-all duration-300 group"
+              className="absolute w-[85%] md:w-[30%] bg-background border-2 border-highlight p-6 shadow-lg cursor-pointer transition-all duration-300 group"
               style={{ 
                 transform: `rotate(${cardPositions[i].rotate}deg)`,
                 top: cardPositions[i].top,
@@ -99,10 +99,14 @@ const Participants = () => {
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
                 e.currentTarget.style.zIndex = '100';
+                e.currentTarget.style.borderColor = cardPositions[i].hoverColor;
+                e.currentTarget.style.boxShadow = `0 10px 40px ${cardPositions[i].hoverColor}40`;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = `rotate(${cardPositions[i].rotate}deg)`;
                 e.currentTarget.style.zIndex = String(i + 1);
+                e.currentTarget.style.borderColor = '';
+                e.currentTarget.style.boxShadow = '';
               }}
             >
               <h3 className="text-xl font-bold mb-3 text-highlight">{person.name}</h3>
