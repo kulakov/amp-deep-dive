@@ -96,11 +96,13 @@ const WorthIt = () => {
             alt="" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-highlight/10" />
+          <div className="absolute inset-0 bg-background/95" />
         </div>
         
         <div className="max-w-6xl mx-auto px-6 py-16 space-y-8">
-          <h2 className="font-display text-4xl md:text-5xl font-bold">Что дает сообщество</h2>
+          <h2 className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
+            Что дает сообщество
+          </h2>
           <p className="text-muted-foreground text-sm max-w-xl">
             Сообщество — это все кто когда-то был на кэмпе.
           </p>
