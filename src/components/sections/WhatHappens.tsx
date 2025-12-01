@@ -58,7 +58,7 @@ const WhatHappens = () => {
       </div>
 
       {/* Photo Grid - Full width scattered polaroid style */}
-      <div ref={galleryRef} className="relative h-[500px] md:h-[600px] max-w-6xl mx-auto mb-4">
+      <div ref={galleryRef} className="relative h-[380px] md:h-[450px] max-w-6xl mx-auto">
         {[
           { img: campWorkshop, rotate: -6, top: "0%", left: "2%", size: "w-32 md:w-44", z: 1, caption: "вдохновляемся" },
           { img: campHug, rotate: 4, top: "5%", left: "18%", size: "w-36 md:w-48", z: 3, caption: "обнимаемся" },
