@@ -21,7 +21,7 @@ const Logo = ({ className }: LogoProps) => {
             }
           }
           .flag-gradient-wave {
-            animation: gradient-wave 4s ease-in-out infinite;
+            animation: gradient-wave 8s ease-in-out infinite;
           }
         `}
       </style>
