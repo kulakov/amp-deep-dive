@@ -137,20 +137,20 @@ const WhatHappens = () => {
               className="w-full h-full object-cover"
               style={{ transform: 'skewY(2deg) scale(1.1)' }}
             />
-            <div className="absolute inset-0 bg-highlight/95" />
+            <div className="absolute inset-0 bg-highlight/[0.97]" />
           </div>
           
-          <div className="space-y-12 text-highlight-foreground">
+          <div className="space-y-12 text-white">
             <div className="space-y-4">
               <p className="text-xl font-display italic">Мы НЕ конференция</p>
-              <p className="text-highlight-foreground/70">и у нас аллергия на банальность и неряшливое мышление.</p>
+              <p className="text-white/70">и у нас аллергия на банальность и неряшливое мышление.</p>
             </div>
 
             {/* Comparison */}
             <div className="grid grid-cols-2 gap-8 text-sm">
               <div>
-                <p className="font-mono text-xs uppercase tracking-wider text-highlight-foreground/50 mb-4">Другие ивенты</p>
-                <div className="space-y-2 text-highlight-foreground/60">
+                <p className="font-mono text-xs uppercase tracking-wider text-white/50 mb-4">Другие ивенты</p>
+                <div className="space-y-2 text-white/60">
                   <p>Рассказываешь о достижениях</p>
                   <p>Произвести впечатление</p>
                   <p>Показываешь, какой ты крутой</p>
