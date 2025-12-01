@@ -58,11 +58,24 @@ const Participants = () => {
     }
   ];
 
+  // Positions for scattered cards - 3 rows of 3 cards
+  const cardPositions = [
+    { rotate: -3, top: "0%", left: "0%" },
+    { rotate: 2, top: "2%", left: "35%" },
+    { rotate: -2, top: "0%", left: "68%" },
+    { rotate: 3, top: "34%", left: "5%" },
+    { rotate: -4, top: "36%", left: "38%" },
+    { rotate: 2, top: "33%", left: "70%" },
+    { rotate: -2, top: "67%", left: "0%" },
+    { rotate: 4, top: "68%", left: "33%" },
+    { rotate: -3, top: "66%", left: "66%" },
+  ];
+
   return (
     <section className="py-24 px-6 bg-background">
-      <div className="max-w-3xl mx-auto space-y-16">
+      <div className="max-w-6xl mx-auto space-y-16">
         {/* Section Header */}
-        <div className="space-y-6">
+        <div className="max-w-3xl mx-auto space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Кто приезжает
           </span>
@@ -71,19 +84,36 @@ const Participants = () => {
           </blockquote>
         </div>
 
-        {/* Participants Grid */}
-        <div className="space-y-8">
-          {participants.map((person, index) => (
-            <div key={index} className="border-b border-border pb-6">
-              <h3 className="text-lg font-bold mb-2">{person.name}</h3>
-              <p className="text-base text-muted-foreground mb-3">{person.description}</p>
-              <p className="text-base italic">{person.insight}</p>
+        {/* Participants scattered gallery */}
+        <div className="relative h-[1800px] md:h-[1400px]">
+          {participants.map((person, i) => (
+            <div 
+              key={i}
+              className="absolute w-[85%] md:w-[30%] bg-background border border-border p-6 shadow-lg cursor-pointer transition-all duration-300 group"
+              style={{ 
+                transform: `rotate(${cardPositions[i].rotate}deg)`,
+                top: cardPositions[i].top,
+                left: cardPositions[i].left,
+                zIndex: i + 1,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
+                e.currentTarget.style.zIndex = '100';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = `rotate(${cardPositions[i].rotate}deg)`;
+                e.currentTarget.style.zIndex = String(i + 1);
+              }}
+            >
+              <h3 className="text-xl font-bold mb-3 text-highlight">{person.name}</h3>
+              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{person.description}</p>
+              <p className="text-sm italic leading-relaxed">{person.insight}</p>
             </div>
           ))}
         </div>
 
         {/* Stories */}
-        <div className="space-y-12">
+        <div className="max-w-3xl mx-auto space-y-12">
           {stories.map((story, index) => (
             <div key={index} className="space-y-4">
               <h3 className="font-mono text-sm uppercase tracking-wider">{story.name}</h3>
