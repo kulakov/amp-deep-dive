@@ -33,6 +33,9 @@ const SafetyRules = () => {
           <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Техника безопасности
           </span>
+          <p className="text-xl font-display italic">
+            Кэмп делается участниками для участников, без привкуса бизнеса
+          </p>
         </div>
 
         {/* Rules */}
@@ -52,11 +55,6 @@ const SafetyRules = () => {
             Мы просто собираем людей и создаем форматы, которые помогают начать разговаривать искренне.
           </p>
         </div>
-
-        {/* Camp philosophy */}
-        <p className="text-xl font-display italic">
-          Кэмп делается участниками для участников, без привкуса бизнеса
-        </p>
 
         {/* Not doing */}
         <div className="space-y-6">
