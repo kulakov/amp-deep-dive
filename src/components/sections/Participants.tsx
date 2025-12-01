@@ -89,7 +89,7 @@ const Participants = () => {
           {participants.map((person, i) => (
             <div 
               key={i}
-              className="absolute w-[85%] md:w-[30%] bg-background border border-highlight p-6 shadow-lg cursor-pointer transition-all duration-300 group"
+              className="absolute w-[85%] md:w-[30%] bg-[#FFFEF5] border border-foreground/20 p-6 shadow-lg cursor-pointer transition-all duration-300 group"
               style={{ 
                 transform: `rotate(${cardPositions[i].rotate}deg)`,
                 top: cardPositions[i].top,
@@ -106,14 +106,14 @@ const Participants = () => {
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = `rotate(${cardPositions[i].rotate}deg)`;
                 e.currentTarget.style.zIndex = String(i + 1);
-                e.currentTarget.style.backgroundColor = '';
+                e.currentTarget.style.backgroundColor = '#FFFEF5';
                 e.currentTarget.style.borderColor = '';
                 e.currentTarget.style.color = '';
               }}
             >
-              <h3 className="text-xl font-bold mb-3 text-highlight">{person.name}</h3>
-              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{person.description}</p>
-              <p className="text-sm italic leading-relaxed">{person.insight}</p>
+              <h3 className="text-xl font-bold mb-3 text-foreground">{person.name}</h3>
+              <p className="text-sm text-foreground/70 mb-4 leading-relaxed">{person.description}</p>
+              <p className="text-sm italic leading-relaxed text-foreground/90">{person.insight}</p>
             </div>
           ))}
         </div>
