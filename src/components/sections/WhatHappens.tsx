@@ -43,53 +43,60 @@ const WhatHappens = () => {
             <span className="font-mono text-xs uppercase tracking-[0.3em] bg-accent text-accent-foreground px-3 py-1.5 inline-block">
               Что здесь происходит
             </span>
-            <blockquote className="text-2xl md:text-4xl font-display italic max-w-3xl">
+            <blockquote className="text-xl md:text-2xl font-display italic max-w-2xl">
               «Никогда не видел в одном месте столько нормальных людей»
-              <footer className="text-base md:text-lg mt-4 not-italic font-mono text-muted-foreground">
+              <footer className="text-sm md:text-base mt-3 not-italic font-mono text-muted-foreground">
                 — Даня Рубинштейн
               </footer>
             </blockquote>
           </div>
 
           {/* Photo Grid - Scattered polaroid style */}
-          <div ref={galleryRef} className="relative h-[650px] md:h-[750px] my-8">
+          <div ref={galleryRef} className="relative h-[450px] md:h-[500px]">
             {[
-              { img: campWorkshop, rotate: "-6deg", top: "2%", left: "0%", size: "w-28 md:w-40", z: 1 },
-              { img: campHug, rotate: "4deg", top: "8%", left: "28%", size: "w-40 md:w-56", z: 3 },
-              { img: campHandsUp, rotate: "-3deg", top: "0%", right: "2%", size: "w-44 md:w-64", z: 2 },
-              { img: campAtmosphere, rotate: "8deg", top: "5%", left: "58%", size: "w-24 md:w-32", z: 1 },
-              { img: campConnection, rotate: "7deg", top: "35%", left: "2%", size: "w-32 md:w-44", z: 4 },
-              { img: campEnergy, rotate: "-5deg", top: "32%", left: "32%", size: "w-36 md:w-48", z: 5 },
-              { img: campConversation, rotate: "2deg", top: "38%", right: "5%", size: "w-40 md:w-52", z: 3 },
-              { img: campTalk, rotate: "-8deg", top: "62%", left: "8%", size: "w-36 md:w-48", z: 2 },
-              { img: campSocializing, rotate: "5deg", top: "65%", left: "45%", size: "w-28 md:w-36", z: 4 },
-            ].map((item, i) => (
-              <div 
-                key={i} 
-                className={`absolute ${item.size} bg-white p-2 shadow-xl transition-all duration-500 cursor-pointer ${
-                  visiblePhotos.includes(i) 
-                    ? "opacity-100 translate-y-0" 
-                    : "opacity-0 translate-y-8"
-                } hover:scale-150 hover:z-50 hover:shadow-2xl`}
-                style={{ 
-                  transform: `rotate(${item.rotate})${visiblePhotos.includes(i) ? "" : " translateY(2rem)"}`,
-                  top: item.top,
-                  left: item.left,
-                  right: item.right,
-                  zIndex: item.z,
-                  transitionDelay: visiblePhotos.includes(i) ? "0ms" : `${i * 100}ms`,
-                }}
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img 
-                    src={item.img} 
-                    alt="" 
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                  />
+              { img: campWorkshop, rotate: -6, top: "0%", left: "5%", size: "w-28 md:w-36", z: 1 },
+              { img: campHug, rotate: 4, top: "5%", left: "25%", size: "w-36 md:w-48", z: 3 },
+              { img: campHandsUp, rotate: -3, top: "2%", left: "50%", size: "w-40 md:w-52", z: 2 },
+              { img: campAtmosphere, rotate: 8, top: "8%", left: "75%", size: "w-24 md:w-32", z: 1 },
+              { img: campConnection, rotate: 7, top: "30%", left: "0%", size: "w-32 md:w-40", z: 4 },
+              { img: campEnergy, rotate: -5, top: "28%", left: "22%", size: "w-34 md:w-44", z: 5 },
+              { img: campConversation, rotate: 2, top: "32%", left: "48%", size: "w-36 md:w-46", z: 3 },
+              { img: campTalk, rotate: -8, top: "55%", left: "10%", size: "w-32 md:w-40", z: 2 },
+              { img: campSocializing, rotate: 5, top: "58%", left: "38%", size: "w-28 md:w-36", z: 4 },
+            ].map((item, i) => {
+              const isVisible = visiblePhotos.includes(i);
+              return (
+                <div 
+                  key={i} 
+                  className={`absolute ${item.size} bg-white p-2 shadow-xl cursor-pointer transition-all duration-300 ease-out
+                    ${isVisible ? "opacity-100" : "opacity-0 translate-y-8"}
+                    hover:!scale-150 hover:!z-[100] hover:shadow-2xl`}
+                  style={{ 
+                    transform: `rotate(${item.rotate}deg)`,
+                    top: item.top,
+                    left: item.left,
+                    zIndex: item.z,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = `rotate(0deg) scale(1.5)`;
+                    e.currentTarget.style.zIndex = '100';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = `rotate(${item.rotate}deg)`;
+                    e.currentTarget.style.zIndex = String(item.z);
+                  }}
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src={item.img} 
+                      alt="" 
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                    />
+                  </div>
+                  <div className="h-5 md:h-6" />
                 </div>
-                <div className="h-6 md:h-8" />
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <p className="text-lg md:text-xl max-w-3xl font-body leading-relaxed">
