@@ -10,21 +10,6 @@ const Logo = ({ className }: LogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <style>
-        {`
-          @keyframes gradient-wave {
-            0% {
-              transform: translateX(-100%);
-            }
-            100% {
-              transform: translateX(100%);
-            }
-          }
-          .flag-gradient-wave {
-            animation: gradient-wave 8s ease-in-out infinite;
-          }
-        `}
-      </style>
       <defs>
         {/* Base gradient - pink fading to transparent at bottom */}
         <linearGradient id="paint_base" x1="451.387" y1="339" x2="451.387" y2="480" gradientUnits="userSpaceOnUse">
@@ -65,7 +50,7 @@ const Logo = ({ className }: LogoProps) => {
       
       {/* Animated wave overlay with fade mask */}
       <g clipPath="url(#flag-clip)" mask="url(#wave_mask)">
-        <rect x="300" y="300" width="300" height="250" fill="url(#paint_wave)" className="flag-gradient-wave"/>
+        <rect x="300" y="300" width="300" height="250" fill="url(#paint_wave)" className="animate-flag-wave"/>
       </g>
       
       <path d="M276.81 339.318L84.1025 378.166V416.923H276.81V499.423H277.051V501.025H63.0771C28.2415 501.024 0.000203943 472.784 0 437.948V360.956C6.45505e-05 330.925 21.1738 305.058 50.6123 299.123L276.81 253.525V339.318Z" fill="currentColor"/>
