@@ -5,6 +5,9 @@ import campHandsUp from "@/assets/camp-hands-up.jpg";
 import campConnection from "@/assets/camp-connection.jpg";
 import campEnergy from "@/assets/camp-energy.jpg";
 import campSocializing from "@/assets/camp-socializing.jpg";
+import campAtmosphere from "@/assets/camp-atmosphere.jpg";
+import campConversation from "@/assets/camp-conversation-1.jpg";
+import campTalk from "@/assets/camp-talk.jpg";
 
 const WhatHappens = () => {
   const [visiblePhotos, setVisiblePhotos] = useState<number[]>([]);
@@ -15,15 +18,15 @@ const WhatHappens = () => {
       (entries) => {
         if (entries[0].isIntersecting) {
           // Stagger the photo animations
-          [0, 1, 2, 3, 4, 5].forEach((index) => {
+          Array.from({ length: 9 }, (_, i) => i).forEach((index) => {
             setTimeout(() => {
               setVisiblePhotos((prev) => [...prev, index]);
-            }, index * 150);
+            }, index * 120);
           });
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
     if (galleryRef.current) {
@@ -49,22 +52,25 @@ const WhatHappens = () => {
           </div>
 
           {/* Photo Grid - Scattered polaroid style */}
-          <div ref={galleryRef} className="relative h-[500px] md:h-[600px] my-8">
+          <div ref={galleryRef} className="relative h-[650px] md:h-[750px] my-8">
             {[
-              { img: campWorkshop, rotate: "-6deg", top: "5%", left: "2%", size: "w-32 md:w-44", z: 1 },
-              { img: campHug, rotate: "4deg", top: "10%", left: "32%", size: "w-44 md:w-60", z: 3 },
-              { img: campHandsUp, rotate: "-3deg", top: "3%", right: "5%", size: "w-48 md:w-64", z: 2 },
-              { img: campConnection, rotate: "7deg", top: "40%", left: "5%", size: "w-28 md:w-36", z: 4 },
-              { img: campEnergy, rotate: "-5deg", top: "38%", left: "35%", size: "w-44 md:w-56", z: 5 },
-              { img: campSocializing, rotate: "3deg", top: "42%", right: "8%", size: "w-32 md:w-40", z: 2 },
+              { img: campWorkshop, rotate: "-6deg", top: "2%", left: "0%", size: "w-28 md:w-40", z: 1 },
+              { img: campHug, rotate: "4deg", top: "8%", left: "28%", size: "w-40 md:w-56", z: 3 },
+              { img: campHandsUp, rotate: "-3deg", top: "0%", right: "2%", size: "w-44 md:w-64", z: 2 },
+              { img: campAtmosphere, rotate: "8deg", top: "5%", left: "58%", size: "w-24 md:w-32", z: 1 },
+              { img: campConnection, rotate: "7deg", top: "35%", left: "2%", size: "w-32 md:w-44", z: 4 },
+              { img: campEnergy, rotate: "-5deg", top: "32%", left: "32%", size: "w-36 md:w-48", z: 5 },
+              { img: campConversation, rotate: "2deg", top: "38%", right: "5%", size: "w-40 md:w-52", z: 3 },
+              { img: campTalk, rotate: "-8deg", top: "62%", left: "8%", size: "w-36 md:w-48", z: 2 },
+              { img: campSocializing, rotate: "5deg", top: "65%", left: "45%", size: "w-28 md:w-36", z: 4 },
             ].map((item, i) => (
               <div 
                 key={i} 
-                className={`absolute ${item.size} bg-white p-2 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:z-50 cursor-pointer ${
+                className={`absolute ${item.size} bg-white p-2 shadow-xl transition-all duration-500 cursor-pointer ${
                   visiblePhotos.includes(i) 
                     ? "opacity-100 translate-y-0" 
                     : "opacity-0 translate-y-8"
-                }`}
+                } hover:scale-150 hover:z-50 hover:shadow-2xl`}
                 style={{ 
                   transform: `rotate(${item.rotate})${visiblePhotos.includes(i) ? "" : " translateY(2rem)"}`,
                   top: item.top,
