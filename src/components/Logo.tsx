@@ -13,9 +13,9 @@ const Logo = ({ className }: LogoProps) => {
       <defs>
       {/* Base gradient - lime fading to transparent at bottom */}
         <linearGradient id="paint_base" x1="451.387" y1="339" x2="451.387" y2="480" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#D1E231"/>
-          <stop offset="0.5" stopColor="#D1E231" stopOpacity="0.5"/>
-          <stop offset="1" stopColor="#D1E231" stopOpacity="0"/>
+          <stop stopColor="#9ACD32"/>
+          <stop offset="0.5" stopColor="#9ACD32" stopOpacity="0.5"/>
+          <stop offset="1" stopColor="#9ACD32" stopOpacity="0"/>
         </linearGradient>
         
         {/* Wave highlight gradient */}
