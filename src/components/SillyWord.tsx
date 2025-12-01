@@ -14,7 +14,6 @@ const SILLY_FONTS = [
 const SillyWord = ({ children, onCycleComplete }: SillyWordProps) => {
   const [phase, setPhase] = useState<"idle" | "shake" | "bounce" | "return" | "silly">("idle");
   const [fontIndex, setFontIndex] = useState(-1);
-  const [cycleCompleted, setCycleCompleted] = useState(false);
   const [fixedWidth, setFixedWidth] = useState<number | null>(null);
   const spanRef = useRef<HTMLSpanElement>(null);
 
@@ -27,8 +26,8 @@ const SillyWord = ({ children, onCycleComplete }: SillyWordProps) => {
   const handleHover = useCallback(() => {
     if (phase !== "idle" && phase !== "silly") return;
     
-    // Если цикл завершен и пользователь наводит снова — вызываем колбэк
-    if (cycleCompleted) {
+    // Если уже на последнем шрифте — показываем сообщение
+    if (fontIndex === SILLY_FONTS.length - 1) {
       onCycleComplete?.();
       return;
     }
@@ -42,22 +41,14 @@ const SillyWord = ({ children, onCycleComplete }: SillyWordProps) => {
     }, isFast ? 400 : 700);
     
     setTimeout(() => {
-      setFontIndex((prev) => {
-        const newIndex = prev + 1;
-        // Если дошли до конца — помечаем цикл завершённым
-        if (newIndex >= SILLY_FONTS.length) {
-          setCycleCompleted(true);
-          return prev; // Остаёмся на последнем шрифте
-        }
-        return newIndex;
-      });
+      setFontIndex((prev) => prev + 1);
       setPhase("return");
     }, isFast ? 800 : 1400);
     
     setTimeout(() => {
       setPhase("silly");
     }, isFast ? 1300 : 2200);
-  }, [phase, fontIndex, cycleCompleted, onCycleComplete]);
+  }, [phase, fontIndex, onCycleComplete]);
 
   const getAnimationClass = () => {
     const fontClass = fontIndex >= 0 ? SILLY_FONTS[fontIndex] : "";
@@ -79,7 +70,7 @@ const SillyWord = ({ children, onCycleComplete }: SillyWordProps) => {
 
   return (
     <span
-      className="inline-flex justify-center items-baseline"
+      className="inline-flex justify-center items-baseline ml-[0.25em]"
       style={{ width: fixedWidth ? `${fixedWidth}px` : "auto" }}
     >
       <span
