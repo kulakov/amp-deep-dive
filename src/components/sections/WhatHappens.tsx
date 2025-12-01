@@ -26,11 +26,11 @@ const WhatHappens = () => {
           <div className="relative h-[500px] md:h-[600px] my-8">
             {[
               { img: campWorkshop, rotate: "-6deg", top: "5%", left: "2%", size: "w-40 md:w-52", z: 1 },
-              { img: campHug, rotate: "4deg", top: "15%", left: "35%", size: "w-36 md:w-48", z: 3 },
-              { img: campHandsUp, rotate: "-3deg", top: "8%", right: "5%", size: "w-44 md:w-56", z: 2 },
-              { img: campConnection, rotate: "7deg", top: "45%", left: "8%", size: "w-38 md:w-50", z: 4 },
-              { img: campEnergy, rotate: "-5deg", top: "50%", left: "40%", size: "w-40 md:w-52", z: 5 },
-              { img: campSocializing, rotate: "3deg", top: "40%", right: "3%", size: "w-36 md:w-44", z: 2 },
+              { img: campHug, rotate: "4deg", top: "12%", left: "35%", size: "w-36 md:w-48", z: 3 },
+              { img: campHandsUp, rotate: "-3deg", top: "5%", right: "5%", size: "w-44 md:w-56", z: 2 },
+              { img: campConnection, rotate: "7deg", top: "38%", left: "8%", size: "w-32 md:w-44", z: 4 },
+              { img: campEnergy, rotate: "-5deg", top: "42%", left: "38%", size: "w-40 md:w-52", z: 5 },
+              { img: campSocializing, rotate: "3deg", top: "35%", right: "8%", size: "w-36 md:w-44", z: 2 },
             ].map((item, i) => (
               <div 
                 key={i} 
