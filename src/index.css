@@ -28,13 +28,13 @@
     --accent: 54 100% 50%;
     --accent-foreground: 0 0% 0%;
 
-    /* Orange-red accent for highlights */
-    --highlight: 10 90% 55%;
-    --highlight-foreground: 0 0% 100%;
+    /* Lime accent for highlights */
+    --highlight: 66 75% 51%;
+    --highlight-foreground: 0 0% 0%;
 
-    /* Callout - pale orange */
-    --callout: 10 40% 96%;
-    --callout-border: 10 30% 85%;
+    /* Callout - pale lime */
+    --callout: 66 40% 96%;
+    --callout-border: 66 30% 85%;
     --callout-foreground: 0 0% 25%;
 
     --destructive: 0 84% 60%;

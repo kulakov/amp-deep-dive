@@ -11,11 +11,11 @@ const Logo = ({ className }: LogoProps) => {
       className={className}
     >
       <defs>
-      {/* Base gradient - orange-red fading to transparent at bottom */}
+      {/* Base gradient - lime fading to transparent at bottom */}
         <linearGradient id="paint_base" x1="451.387" y1="339" x2="451.387" y2="480" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#F34723"/>
-          <stop offset="0.5" stopColor="#F34723" stopOpacity="0.5"/>
-          <stop offset="1" stopColor="#F34723" stopOpacity="0"/>
+          <stop stopColor="#D1E231"/>
+          <stop offset="0.5" stopColor="#D1E231" stopOpacity="0.5"/>
+          <stop offset="1" stopColor="#D1E231" stopOpacity="0"/>
         </linearGradient>
         
         {/* Wave highlight gradient */}
