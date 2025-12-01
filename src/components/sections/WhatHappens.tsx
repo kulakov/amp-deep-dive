@@ -203,7 +203,7 @@ const WhatHappens = () => {
         </div>
 
         {/* Formats - scattered cards gallery */}
-        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8">
+        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8 overflow-hidden">
           {/* Pink skewed background */}
           <div 
             className="absolute inset-0 bg-highlight/10 -z-10"
@@ -226,7 +226,7 @@ const WhatHappens = () => {
                   <div 
                     key={i}
                     onClick={() => setExpandedFormat(isExpanded ? null : i)}
-                    className={`absolute bg-background text-foreground shadow-xl cursor-pointer transition-all duration-500 ease-out overflow-hidden
+                    className={`absolute bg-background text-foreground shadow-xl cursor-pointer transition-all duration-200 ease-out overflow-hidden
                       ${isExpanded ? 'w-[90%] md:w-[600px] z-[100] left-1/2 top-1/2' : `${card.width} hover:scale-105`}`}
                     style={{ 
                       transform: isExpanded 
