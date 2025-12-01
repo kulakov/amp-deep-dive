@@ -22,11 +22,11 @@ const Logo = ({ className }: LogoProps) => {
       <defs>
         <linearGradient id="paint0_linear_logo" x1="451.387" y1="295.325" x2="451.387" y2="501.024" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FF00C8"/>
-          <stop offset="0.65" stopColor="white"/>
+          <stop offset="0.65" stopColor="#FF00C8" stopOpacity="0"/>
         </linearGradient>
         <linearGradient id="paint1_linear_logo" x1="451.387" y1="295.325" x2="451.387" y2="501.024" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FF00C8"/>
-          <stop offset="0.65" stopColor="white"/>
+          <stop offset="0.65" stopColor="#FF00C8" stopOpacity="0"/>
         </linearGradient>
       </defs>
     </svg>
