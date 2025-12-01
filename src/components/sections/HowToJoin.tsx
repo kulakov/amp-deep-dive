@@ -32,7 +32,7 @@ const HowToJoin = () => {
             {steps.map((step, index) => (
               <div key={index} className="flex gap-6">
                 <div className="shrink-0">
-                  <div className="w-16 h-16 bg-accent text-accent-foreground flex items-center justify-center text-3xl font-black">
+                  <div className="w-16 h-16 bg-highlight text-highlight-foreground flex items-center justify-center text-3xl font-black">
                     {index + 1}
                   </div>
                 </div>

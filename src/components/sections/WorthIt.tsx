@@ -40,7 +40,7 @@ const WorthIt = () => {
                 Кэмп делается без прибыли, и мы не знаем, как его сделать дешевле.
               </p>
             </div>
-            <div className="p-8 bg-accent text-accent-foreground border-2 border-accent">
+            <div className="p-8 bg-highlight text-highlight-foreground border-2 border-highlight">
               <p className="text-lg">
                 <span className="text-3xl font-black block mb-4">800 евро</span>
                 это капец как дешево. Почти в три раза дешевле аналогичных коммерческих мероприятий, 
@@ -99,7 +99,7 @@ const WorthIt = () => {
           </div>
         </div>
 
-        <div className="space-y-8 bg-accent text-accent-foreground p-12 border-4 border-primary">
+        <div className="space-y-8 bg-highlight text-highlight-foreground p-12 border-4 border-primary">
           <h3 className="text-4xl font-bold">КАК ПОПАСТЬ (если мы не смогли вас отговорить)</h3>
           <div className="space-y-4 text-lg">
             <div className="flex items-start gap-4">

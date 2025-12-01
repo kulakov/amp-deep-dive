@@ -40,7 +40,7 @@ const WhatHappens = () => {
       <div className="max-w-3xl mx-auto space-y-20">
         <div className="space-y-12">
           <div className="space-y-6">
-            <span className="font-mono text-xs uppercase tracking-[0.3em] bg-accent text-accent-foreground px-3 py-1.5 inline-block">
+            <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
               Что здесь происходит
             </span>
             <blockquote className="text-xl md:text-2xl font-display italic max-w-2xl">
@@ -180,7 +180,7 @@ const WhatHappens = () => {
                 { tag: "игры и баловство", items: "комедийная импровизация, турнир по «шляпе», стратегическая игра в ООН, сеанс аукционной магии, художественный LARP" },
               ].map((cat) => (
                 <div key={cat.tag}>
-                  <span className="font-mono text-xs uppercase tracking-wider bg-accent text-accent-foreground px-2 py-1 inline-block mb-3">
+                  <span className="font-mono text-xs uppercase tracking-wider bg-highlight text-highlight-foreground px-2 py-1 inline-block mb-3">
                     #{cat.tag}
                   </span>
                   <p className="text-muted-foreground leading-relaxed">{cat.items}</p>
