@@ -27,9 +27,10 @@ const Logo = ({ className }: LogoProps) => {
       </style>
       <defs>
         {/* Base gradient - pink fading to transparent at bottom */}
-        <linearGradient id="paint_base" x1="451.387" y1="295.325" x2="451.387" y2="501.024" gradientUnits="userSpaceOnUse">
+        <linearGradient id="paint_base" x1="451.387" y1="339" x2="451.387" y2="480" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FF00C8"/>
-          <stop offset="0.8" stopColor="#FF00C8" stopOpacity="0.3"/>
+          <stop offset="0.5" stopColor="#FF00C8" stopOpacity="0.5"/>
+          <stop offset="1" stopColor="#FF00C8" stopOpacity="0"/>
         </linearGradient>
         
         {/* Wave highlight gradient */}
