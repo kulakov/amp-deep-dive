@@ -66,14 +66,14 @@ const HowToJoin = () => {
         </div>
 
         {/* What happens on interview - highlighted block like "Мы НЕ конференция" */}
-        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-16 my-8">
+        <div className="relative -mx-6 md:-mx-12 my-8 overflow-hidden">
           {/* Skewed background */}
           <div 
-            className="absolute inset-0 -z-10 bg-highlight"
-            style={{ transform: 'skewY(-2deg)' }}
+            className="absolute inset-0 bg-highlight"
+            style={{ transform: 'skewY(-2deg) scale(1.1)' }}
           />
           
-          <div className="space-y-12 text-white">
+          <div className="relative z-10 px-6 md:px-12 py-16 space-y-12 text-white">
             {/* What happens */}
             <div className="space-y-6">
               <p className="text-xl font-display italic">Что происходит на интервью</p>
