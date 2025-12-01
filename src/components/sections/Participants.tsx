@@ -68,40 +68,40 @@ const Participants = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [offsetX, setOffsetX] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll when section is in view
+  // Scroll-based card changing (mobile only)
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsAutoPlaying(true);
-        } else {
-          setIsAutoPlaying(false);
-        }
-      },
-      { threshold: 0.3 }
-    );
+    const handleScroll = () => {
+      if (!sectionRef.current || isDragging) return;
+      
+      // Only on mobile
+      if (window.innerWidth >= 768) return;
+      
+      const rect = sectionRef.current.getBoundingClientRect();
+      const sectionHeight = rect.height;
+      const viewportHeight = window.innerHeight;
+      
+      // Calculate how far we've scrolled through the section
+      // Start counting when section enters viewport, end when it leaves
+      const scrollStart = viewportHeight; // section top reaches bottom of viewport
+      const scrollEnd = -sectionHeight; // section bottom reaches top of viewport
+      const scrollRange = scrollStart - scrollEnd;
+      
+      const currentPosition = rect.top;
+      const scrollProgress = (scrollStart - currentPosition) / scrollRange;
+      
+      // Map scroll progress to card index
+      const cardIndex = Math.floor(scrollProgress * participants.length);
+      const clampedIndex = Math.max(0, Math.min(participants.length - 1, cardIndex));
+      
+      setCurrentCard(clampedIndex);
+    };
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Auto-advance cards
-  useEffect(() => {
-    if (!isAutoPlaying || isDragging) return;
-    
-    const interval = setInterval(() => {
-      setCurrentCard(prev => (prev + 1) % participants.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, isDragging, participants.length]);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isDragging, participants.length]);
 
   const handleDragStart = (clientX: number) => {
     setIsDragging(true);
