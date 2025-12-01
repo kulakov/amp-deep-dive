@@ -64,20 +64,45 @@ const SafetyRules = () => {
           </p>
         </div>
 
-        {/* Formats */}
-        <div className="space-y-8">
-          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Наши форматы:</h3>
-          <div className="space-y-6">
-            {formats.map((format, index) => (
-              <div key={index} className="border-l-2 border-highlight pl-6">
-                <h4 className="font-bold mb-2">«{format.name}»</h4>
-                <p className="text-muted-foreground">{format.description}</p>
-              </div>
-            ))}
+        {/* Formats - scattered cards gallery */}
+        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-16 my-8">
+          {/* Pink skewed background */}
+          <div 
+            className="absolute inset-0 bg-highlight -z-10"
+            style={{ transform: 'skewY(2deg)' }}
+          />
+          
+          <div className="text-highlight-foreground">
+            <h3 className="font-mono text-sm uppercase tracking-[0.2em] mb-12">Наши форматы:</h3>
+            
+            {/* Scattered cards */}
+            <div className="relative h-[500px] md:h-[450px]">
+              {[
+                { name: formats[0].name, desc: formats[0].description, rotate: -4, top: "0%", left: "0%", width: "w-64 md:w-72" },
+                { name: formats[1].name, desc: formats[1].description, rotate: 3, top: "5%", left: "45%", width: "w-60 md:w-80" },
+                { name: formats[2].name, desc: formats[2].description, rotate: -2, top: "45%", left: "5%", width: "w-56 md:w-64" },
+                { name: formats[3].name, desc: formats[3].description, rotate: 5, top: "50%", left: "50%", width: "w-52 md:w-60" },
+              ].map((card, i) => (
+                <div 
+                  key={i}
+                  className={`absolute ${card.width} bg-background text-foreground p-5 shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:z-50`}
+                  style={{ 
+                    transform: `rotate(${card.rotate}deg)`,
+                    top: card.top,
+                    left: card.left,
+                    zIndex: i + 1,
+                  }}
+                >
+                  <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-sm italic text-highlight-foreground/70 mt-8">
+              У нас еще много, все разные и классные.
+            </p>
           </div>
-          <p className="text-sm italic text-muted-foreground">
-            У нас еще много, все разные и классные.
-          </p>
         </div>
 
         {/* Camp philosophy */}
