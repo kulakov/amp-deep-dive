@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="py-24 px-6 bg-primary text-primary-foreground">
       <div className="max-w-5xl mx-auto space-y-16">
         <div className="space-y-8">
-          <span className="font-mono text-xs uppercase tracking-[0.3em] bg-accent text-accent-foreground px-3 py-1.5 inline-block">
+          <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Контакты
           </span>
           
