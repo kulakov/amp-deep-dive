@@ -1,6 +1,4 @@
 import campHandsUp from "@/assets/camp-hands-up.jpg";
-import campHug from "@/assets/camp-hug.jpg";
-import campConnection from "@/assets/camp-connection.jpg";
 import doodleFriends from "@/assets/doodle-friends.png";
 import doodleBook from "@/assets/doodle-book.png";
 import doodleHouse from "@/assets/doodle-house.png";
@@ -146,38 +144,39 @@ const WorthIt = () => {
         </div>
       </div>
 
-      {/* How to join - CTA with photos */}
-      <div className="relative -mx-6 md:mx-0 overflow-hidden bg-highlight">
-        {/* Photo collage background */}
-        <div className="absolute inset-0 grid grid-cols-3 opacity-20">
-          <img src={campHandsUp} alt="" className="w-full h-full object-cover" />
-          <img src={campHug} alt="" className="w-full h-full object-cover" />
-          <img src={campConnection} alt="" className="w-full h-full object-cover" />
+      {/* How to join - CTA */}
+      <div className="relative -mx-6 md:mx-0 mt-16">
+        {/* Skewed background with photo */}
+        <div className="absolute inset-0 overflow-hidden" style={{ transform: 'skewY(-2deg)', transformOrigin: 'top left' }}>
+          <img src={campHandsUp} alt="" className="w-full h-full object-cover scale-110" />
+          <div className="absolute inset-0 bg-highlight/95" />
         </div>
         
-        <div className="relative max-w-3xl mx-auto px-6 py-16 md:py-24 text-highlight-foreground space-y-8">
-          <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight">
-            Как попасть
-          </h2>
-          <div className="space-y-5">
-            <div className="flex gap-4 items-start">
-              <input type="checkbox" checked disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
-              <p><span className="font-bold line-through opacity-60">Найти номинатора.</span> Если вы это читаете — у вас уже есть такой друг.</p>
+        <div className="relative px-6 py-16 md:py-20" style={{ transform: 'skewY(-2deg)', transformOrigin: 'top left' }}>
+          <div className="max-w-3xl mx-auto space-y-8" style={{ transform: 'skewY(2deg)' }}>
+            <h2 className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight-foreground text-highlight px-3 py-1.5 inline-block">
+              Как попасть
+            </h2>
+            <div className="text-highlight-foreground space-y-5">
+              <div className="flex gap-4 items-start">
+                <input type="checkbox" checked disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
+                <p><span className="font-bold line-through opacity-60">Найти номинатора.</span> Если вы это читаете — у вас уже есть такой друг.</p>
+              </div>
+              <div className="flex gap-4 items-start">
+                <input type="checkbox" disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
+                <p><span className="font-bold">Решиться на интервью.</span> Час искреннего разговора о том, что вас интересует</p>
+              </div>
+              <div className="flex gap-4 items-start">
+                <input type="checkbox" disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
+                <p><span className="font-bold">Получить решение.</span> Мы помучаемся неделю или две, потом напишем</p>
+              </div>
             </div>
-            <div className="flex gap-4 items-start">
-              <input type="checkbox" disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
-              <p><span className="font-bold">Решиться на интервью.</span> Час искреннего разговора о том, что вас интересует</p>
+            <div className="pt-6 border-t border-highlight-foreground/30 text-highlight-foreground">
+              <p className="font-bold text-lg">Ближайший дедлайн</p>
+              <p className="mt-2 opacity-90">
+                дождаться когда мы объявим следующий. если вас номинировали, мы с вами свяжемся, у нас есть ваши контакты
+              </p>
             </div>
-            <div className="flex gap-4 items-start">
-              <input type="checkbox" disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
-              <p><span className="font-bold">Получить решение.</span> Мы помучаемся неделю или две, потом напишем</p>
-            </div>
-          </div>
-          <div className="pt-6 border-t border-highlight-foreground/30">
-            <p className="font-bold text-lg">Ближайший дедлайн</p>
-            <p className="mt-2 opacity-90">
-              дождаться когда мы объявим следующий. если вас номинировали, мы с вами свяжемся, у нас есть ваши контакты
-            </p>
           </div>
         </div>
       </div>
