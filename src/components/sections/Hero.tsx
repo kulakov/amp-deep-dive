@@ -1,46 +1,30 @@
 import { ArrowDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Logo from "@/components/Logo";
 import SillyWord from "@/components/SillyWord";
 import heroImage from "@/assets/camp-hands-up.jpg";
 
 const Hero = () => {
-  const [scrollY, setScrollY] = useState(0);
   const [showScoldMessage, setShowScoldMessage] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleCycleComplete = () => {
     setShowScoldMessage(true);
   };
 
   return (
-    <section className="min-h-screen relative border-b border-foreground overflow-hidden">
-      {/* Hero Image - Full Background with Parallax */}
-      <div 
-        className="absolute inset-0"
-        style={{ transform: `translateY(${scrollY * 0.4}px)` }}
-      >
+    <section className="min-h-screen relative border-b border-foreground">
+      {/* Hero Image - Fixed Background */}
+      <div className="fixed inset-0 -z-10">
         <img 
           src={heroImage} 
           alt="AMP Camp атмосфера" 
-          className="w-full h-[120%] object-cover"
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      {/* Content - Overlay with slower parallax */}
-      <div 
-        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-16"
-        style={{ transform: `translateY(${scrollY * 0.15}px)` }}
-      >
+      {/* Content */}
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-16">
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <div className="space-y-8">
             <div className="space-y-6">

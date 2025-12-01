@@ -7,7 +7,7 @@ import campSocializing from "@/assets/camp-socializing.jpg";
 
 const WhatHappens = () => {
   return (
-    <section className="py-24 px-6 border-b border-foreground">
+    <section className="py-24 px-6 border-b border-foreground bg-background relative z-10">
       <div className="max-w-5xl mx-auto space-y-20">
         <div className="space-y-12">
           <div className="space-y-6">
