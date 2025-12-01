@@ -23,14 +23,14 @@ const WorthIt = () => {
   ];
 
   return (
-    <section className="py-32 px-6 bg-card">
-      <div className="max-w-5xl mx-auto space-y-20">
+    <section className="py-32 px-6 bg-background">
+      <div className="max-w-3xl mx-auto space-y-20">
         <div className="space-y-8">
-          <h2 className="text-5xl md:text-7xl font-black">СТОИТ ЛИ МНЕ ТУДА ЕХАТЬ?</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold">Стоит ли мне туда ехать?</h2>
         </div>
 
         <div className="space-y-8">
-          <h3 className="text-4xl font-bold">Про деньги</h3>
+          <h3 className="text-2xl md:text-3xl font-display font-bold">Про деньги</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-8 border-2 border-primary">
               <p className="text-lg">
@@ -70,7 +70,7 @@ const WorthIt = () => {
         </div>
 
         <div className="space-y-8">
-          <h3 className="text-4xl font-bold">Что дает сообщество (реально):</h3>
+          <h3 className="text-2xl md:text-3xl font-display font-bold">Что дает сообщество (реально):</h3>
           <p className="text-lg text-muted-foreground">
             Сообщество — это все кто когда-то был на кэмпе.
           </p>
@@ -100,7 +100,7 @@ const WorthIt = () => {
         </div>
 
         <div className="space-y-8 bg-highlight text-highlight-foreground p-12 border-4 border-primary">
-          <h3 className="text-4xl font-bold">КАК ПОПАСТЬ (если мы не смогли вас отговорить)</h3>
+          <h3 className="text-2xl md:text-3xl font-display font-bold">Как попасть (если мы не смогли вас отговорить)</h3>
           <div className="space-y-4 text-lg">
             <div className="flex items-start gap-4">
               <span className="text-3xl font-black shrink-0">1.</span>
