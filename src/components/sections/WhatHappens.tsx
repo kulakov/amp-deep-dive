@@ -8,6 +8,7 @@ import campSocializing from "@/assets/camp-socializing.jpg";
 import campAtmosphere from "@/assets/camp-atmosphere.jpg";
 import campConversation from "@/assets/camp-conversation-1.jpg";
 import campTalk from "@/assets/camp-talk.jpg";
+import campConferenceBg from "@/assets/camp-conference-bg.jpg";
 
 const WhatHappens = () => {
   const [visiblePhotos, setVisiblePhotos] = useState<number[]>([]);
@@ -131,7 +132,7 @@ const WhatHappens = () => {
             style={{ transform: 'skewY(-2deg)' }}
           >
             <img 
-              src={campEnergy} 
+              src={campConferenceBg} 
               alt="" 
               className="w-full h-full object-cover"
               style={{ transform: 'skewY(2deg) scale(1.1)' }}
