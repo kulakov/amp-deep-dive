@@ -6,8 +6,7 @@ interface SillyWordProps {
 }
 
 const SILLY_FONTS = [
-  "font-silly-1 text-[1.4em]",   // Comforter Brush - artistic
-  "font-silly-2 text-[0.85em]",  // Dela Gothic One - geometric
+  "font-silly-1 text-[1.4em]",   // Comforter Brush - artistic - только один цикл
 ];
 
 const SillyWord = ({ children, onCycleComplete }: SillyWordProps) => {
