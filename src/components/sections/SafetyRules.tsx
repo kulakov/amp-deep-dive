@@ -65,7 +65,7 @@ const SafetyRules = () => {
         </div>
 
         {/* Formats - scattered cards gallery */}
-        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8 my-4">
+        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8 my-1">
           {/* Pink skewed background */}
           <div 
             className="absolute inset-0 bg-highlight -z-10"
