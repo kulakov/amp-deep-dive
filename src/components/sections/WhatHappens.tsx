@@ -255,7 +255,7 @@ const WhatHappens = () => {
               })}
             </div>
             
-            <p className="text-sm italic text-highlight-foreground/70 mt-4">
+            <p className="text-sm italic text-foreground mt-4">
               У нас еще много, все разные и классные.
             </p>
           </div>
