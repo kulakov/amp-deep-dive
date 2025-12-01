@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 
 interface SillyWordProps {
   children: string;
@@ -19,30 +19,34 @@ const SILLY_FONTS = [
 
 const SillyWord = ({ children }: SillyWordProps) => {
   const [phase, setPhase] = useState<"idle" | "shake" | "bounce" | "return" | "silly">("idle");
-  const [fontIndex, setFontIndex] = useState(-1); // -1 means original font
+  const [fontIndex, setFontIndex] = useState(-1);
+  const [fixedWidth, setFixedWidth] = useState<number | null>(null);
+  const spanRef = useRef<HTMLSpanElement>(null);
+
+  // Capture original width on mount
+  useEffect(() => {
+    if (spanRef.current && fixedWidth === null) {
+      setFixedWidth(spanRef.current.offsetWidth);
+    }
+  }, [fixedWidth]);
 
   const handleHover = useCallback(() => {
     if (phase !== "idle" && phase !== "silly") return;
     
-    // Phase 1: Shake
     setPhase("shake");
     
-    // Phase 2: Bounce away after shake
     setTimeout(() => {
       setPhase("bounce");
     }, 600);
     
-    // Phase 3: Return with new font
     setTimeout(() => {
       setFontIndex((prev) => {
-        // Cycle through fonts, then back to original (-1)
         if (prev >= SILLY_FONTS.length - 1) return -1;
         return prev + 1;
       });
       setPhase("return");
     }, 1400);
     
-    // Phase 4: Settle in silly state
     setTimeout(() => {
       setPhase("silly");
     }, 2000);
@@ -67,10 +71,16 @@ const SillyWord = ({ children }: SillyWordProps) => {
 
   return (
     <span
-      className={`inline-block cursor-pointer transition-colors hover:text-highlight ${getAnimationClass()}`}
-      onMouseEnter={handleHover}
+      className="inline-flex justify-center items-baseline"
+      style={{ width: fixedWidth ? `${fixedWidth}px` : "auto" }}
     >
-      {children}
+      <span
+        ref={spanRef}
+        className={`inline-block cursor-pointer transition-colors hover:text-highlight whitespace-nowrap ${getAnimationClass()}`}
+        onMouseEnter={handleHover}
+      >
+        {children}
+      </span>
     </span>
   );
 };
