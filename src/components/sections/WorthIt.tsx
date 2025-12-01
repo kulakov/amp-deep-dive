@@ -1,24 +1,41 @@
+import campHandsUp from "@/assets/camp-hands-up.jpg";
+import doodleFriends from "@/assets/doodle-friends.png";
+import doodleBook from "@/assets/doodle-book.png";
+import doodleHouse from "@/assets/doodle-house.png";
+import doodleChat from "@/assets/doodle-chat.png";
+import doodleHeart from "@/assets/doodle-heart.png";
+
 const WorthIt = () => {
   const benefits = [
     {
       title: "Друзей",
-      description: "Дружба — драгоценная редкость, которую сложно найти во взрослом возрасте. Не факт, что каждый найдет друзей с первого раза. Вряд ли вы один раз увиделись — и всё, друзья по гроб жизни. Но очень, очень многие из нас стали друзьями."
+      description: "Дружба — драгоценная редкость, которую сложно найти во взрослом возрасте. Не факт, что каждый найдет друзей с первого раза. Вряд ли вы один раз увиделись — и всё, друзья по гроб жизни. Но очень, очень многие из нас стали друзьями.",
+      img: doodleFriends,
+      rotate: -3
     },
     {
       title: "Пипл-бук",
-      description: "база всех участников с их интересами, увлечениями и контактами. Хотите найти человека, который любит монгольский рок, работает арт-директором компьютерной игры и занимается LARP?"
+      description: "база всех участников с их интересами, увлечениями и контактами. Хотите найти человека, который любит монгольский рок, работает арт-директором компьютерной игры и занимается LARP?",
+      img: doodleBook,
+      rotate: 2
     },
     {
       title: "Вписки",
-      description: "можете договориться остановиться у участника почти в любом крупном европейском городе, но готовьтесь к разговорам до утра."
+      description: "можете договориться остановиться у участника почти в любом крупном европейском городе, но готовьтесь к разговорам до утра.",
+      img: doodleHouse,
+      rotate: -2
     },
     {
       title: "Чат(ы) и вообще разные формы общения",
-      description: "место, где можно говорить непрошенных без советов и мотивационных речей. Кроме чатов у нас есть другие онлайн форматы: дискуссии, мастер-майнды и всякое, что мы переодически делаем, потому что кто-то упоролся."
+      description: "место, где можно говорить без непрошенных советов и мотивационных речей. Кроме чатов у нас есть другие онлайн форматы: дискуссии, мастер-майнды и всякое, что мы переодически делаем, потому что кто-то упоролся.",
+      img: doodleChat,
+      rotate: 4
     },
     {
       title: "Понимание",
-      description: "что вы не единственный, кто ценит искреннее общение больше светского"
+      description: "что вы не единственный, кто ценит искреннее общение больше светского",
+      img: doodleHeart,
+      rotate: -1
     }
   ];
 
@@ -68,23 +85,74 @@ const WorthIt = () => {
           </p>
           <footer className="mt-4 font-mono text-sm text-muted-foreground">— Саша Гартман</footer>
         </div>
+      </div>
 
-        {/* Community benefits */}
-        <div className="space-y-8">
+      {/* Community benefits - with photo background */}
+      <div className="relative -mx-6 md:-mx-0 my-16">
+        {/* Background photo */}
+        <div className="absolute inset-0 -z-10">
+          <img 
+            src={campHandsUp} 
+            alt="" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/90" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 py-16 space-y-8">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Что дает сообщество:</h3>
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground text-sm max-w-xl">
             Сообщество — это все кто когда-то был на кэмпе.
           </p>
-          <div className="space-y-6">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="border-b border-border pb-4">
-                <h4 className="font-bold mb-2">{benefit.title}</h4>
-                <p className="text-muted-foreground text-sm">{benefit.description}</p>
-              </div>
-            ))}
+          
+          {/* Scattered cards */}
+          <div className="relative h-[700px] md:h-[550px]">
+            {benefits.map((benefit, i) => {
+              const positions = [
+                { top: "0%", left: "0%" },
+                { top: "5%", left: "38%" },
+                { top: "0%", left: "70%" },
+                { top: "50%", left: "5%" },
+                { top: "55%", left: "55%" },
+              ];
+              return (
+                <div 
+                  key={i}
+                  className="absolute w-[280px] md:w-[300px] bg-background shadow-xl cursor-pointer transition-all duration-300 group"
+                  style={{ 
+                    transform: `rotate(${benefit.rotate}deg)`,
+                    top: positions[i].top,
+                    left: positions[i].left,
+                    zIndex: i + 1,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'rotate(0deg) scale(1.1)';
+                    e.currentTarget.style.zIndex = '100';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = `rotate(${benefit.rotate}deg)`;
+                    e.currentTarget.style.zIndex = String(i + 1);
+                  }}
+                >
+                  <div className="h-24 overflow-hidden bg-white flex items-center justify-center">
+                    <img 
+                      src={benefit.img} 
+                      alt={benefit.title}
+                      className="h-full w-auto object-contain"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-bold text-sm mb-2">«{benefit.title}»</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{benefit.description}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
+      </div>
 
+      <div className="max-w-3xl mx-auto space-y-16">
         {/* Warning - code block style */}
         <div className="bg-callout border border-callout-border p-6 font-mono text-sm space-y-3">
           <h4 className="font-bold text-foreground">Последнее предупреждение</h4>
