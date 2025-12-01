@@ -205,11 +205,11 @@ const WhatHappens = () => {
         <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8">
           {/* Pink skewed background */}
           <div 
-            className="absolute inset-0 bg-highlight -z-10"
+            className="absolute inset-0 bg-highlight/10 -z-10"
             style={{ transform: 'skewY(2deg)' }}
           />
           
-          <div className="text-highlight-foreground">
+          <div className="text-foreground">
             <h3 className="font-mono text-sm uppercase tracking-[0.2em] mb-8">Наши форматы:</h3>
             
             {/* Scattered cards */}
@@ -218,7 +218,7 @@ const WhatHappens = () => {
                 { name: "Google game", desc: "я буду называть тебе запрос, как в Google, про тебя. Например «ты и детские страхи», или «ты и закатное небо», а ты рассказываешь, столько сколько хочешь.", rotate: -4, top: "0%", left: "0%", width: "w-64 md:w-72", img: campConversation },
                 { name: "Я не знаю про тебя…", desc: "я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека", rotate: 3, top: "5%", left: "45%", width: "w-60 md:w-80", img: campSocializing },
                 { name: "Круги Котова", desc: "это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми", rotate: -2, top: "48%", left: "5%", width: "w-56 md:w-64", img: campWorkshop },
-                { name: "Fuck-up night", desc: "тут просто все по очереди рассказывают о ситуации, когда они облажались", rotate: 5, top: "52%", left: "50%", width: "w-52 md:w-60", img: campTalk },
+                { name: "Fuck-up night", desc: "тут просто все по очереди рассказывают о ситуации, когда они облажались", rotate: 5, top: "58%", left: "50%", width: "w-52 md:w-60", img: campTalk },
               ].map((card, i) => (
                 <div 
                   key={i}
