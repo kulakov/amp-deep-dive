@@ -1,23 +1,41 @@
 import { ArrowDown } from "lucide-react";
+import { useEffect, useState } from "react";
 import Logo from "@/components/Logo";
 import SillyWord from "@/components/SillyWord";
 import heroImage from "@/assets/camp-hands-up.jpg";
 
 const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="min-h-screen relative border-b border-foreground">
-      {/* Hero Image - Full Background */}
-      <div className="absolute inset-0">
+    <section className="min-h-screen relative border-b border-foreground overflow-hidden">
+      {/* Hero Image - Full Background with Parallax */}
+      <div 
+        className="absolute inset-0"
+        style={{ transform: `translateY(${scrollY * 0.4}px)` }}
+      >
         <img 
           src={heroImage} 
           alt="AMP Camp атмосфера" 
-          className="w-full h-full object-cover"
+          className="w-full h-[120%] object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
-      {/* Content - Overlay */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-16">
+      {/* Content - Overlay with slower parallax */}
+      <div 
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-16"
+        style={{ transform: `translateY(${scrollY * 0.15}px)` }}
+      >
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <div className="space-y-8">
             <div className="space-y-6">
