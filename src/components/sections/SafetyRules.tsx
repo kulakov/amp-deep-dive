@@ -14,7 +14,7 @@ const SafetyRules = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-foreground text-background">
+    <section className="py-24 px-6 bg-[#2a2825] text-background">
       <div className="max-w-3xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-6">
