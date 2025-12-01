@@ -17,7 +17,6 @@ export default {
         display: ["Playfair Display", "serif"],
         body: ["Source Serif 4", "serif"],
         mono: ["JetBrains Mono", "monospace"],
-        "silly-1": ["Oi", "serif"],
         "silly-2": ["Comforter Brush", "cursive"],
         "silly-3": ["Bad Script", "cursive"],
         "silly-4": ["Tiny5", "sans-serif"],
