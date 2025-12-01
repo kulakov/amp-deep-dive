@@ -88,7 +88,7 @@ const WorthIt = () => {
       </div>
 
       {/* Community benefits */}
-      <div className="bg-background my-8 md:my-16 -mx-6 md:mx-0">
+      <div id="community" className="bg-background my-8 md:my-16 -mx-6 md:mx-0">
         <div className="max-w-6xl mx-auto px-6 py-8 md:py-16 space-y-8">
           <h2 className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Что дает сообщество
