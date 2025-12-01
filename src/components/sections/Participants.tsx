@@ -68,7 +68,40 @@ const Participants = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [offsetX, setOffsetX] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll when section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsAutoPlaying(true);
+        } else {
+          setIsAutoPlaying(false);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-advance cards
+  useEffect(() => {
+    if (!isAutoPlaying || isDragging) return;
+    
+    const interval = setInterval(() => {
+      setCurrentCard(prev => (prev + 1) % participants.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, isDragging, participants.length]);
 
   const handleDragStart = (clientX: number) => {
     setIsDragging(true);
@@ -95,6 +128,13 @@ const Participants = () => {
     setOffsetX(0);
   };
 
+  // Click to advance
+  const handleCardClick = () => {
+    if (Math.abs(offsetX) < 10) {
+      setCurrentCard(prev => (prev + 1) % participants.length);
+    }
+  };
+
   // Rotation for stacked cards on mobile
   const getCardRotation = (index: number) => {
     const rotations = [-3, 2, -2, 3, -4, 2, -2, 4, -3];
@@ -102,7 +142,7 @@ const Participants = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-background">
+    <section ref={sectionRef} className="py-24 px-6 bg-background">
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto space-y-6">
@@ -147,13 +187,14 @@ const Participants = () => {
             
             {/* Active card */}
             <div
-              className="absolute inset-0 bg-[#FFFEF5] border border-foreground/20 p-6 shadow-xl transition-transform duration-200 cursor-grab active:cursor-grabbing"
+              className="absolute inset-0 bg-[#FFFEF5] border border-foreground/20 p-6 shadow-xl transition-transform duration-200 cursor-pointer"
               style={{
                 transform: `rotate(${isDragging ? 0 : getCardRotation(currentCard)}deg) translateX(${offsetX}px)`,
                 zIndex: 100,
                 backgroundColor: cardPositions[currentCard]?.hoverColor || '#FFFEF5',
                 color: 'white',
               }}
+              onClick={handleCardClick}
             >
               <h3 className="text-xl font-bold mb-3">{participants[currentCard].name}</h3>
               <p className="text-sm opacity-80 mb-4 leading-relaxed">{participants[currentCard].description}</p>
