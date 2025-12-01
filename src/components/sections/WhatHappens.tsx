@@ -136,7 +136,7 @@ const WhatHappens = () => {
               className="w-full h-full object-cover"
               style={{ transform: 'skewY(2deg) scale(1.1)' }}
             />
-            <div className="absolute inset-0 bg-highlight/90" />
+            <div className="absolute inset-0 bg-highlight/95" />
           </div>
           
           <div className="space-y-12 text-highlight-foreground">
