@@ -1,3 +1,5 @@
+import campTalk from "@/assets/camp-talk.jpg";
+
 const SafetyRules = () => {
   const rules = [
     "Включаете голову",
@@ -33,18 +35,24 @@ const SafetyRules = () => {
   ];
 
   return (
-    <section className="py-32 px-6">
-      <div className="max-w-5xl mx-auto space-y-20">
+    <section className="py-32 px-6 relative">
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <img src={campTalk} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-black/75" />
+      </div>
+      
+      <div className="max-w-3xl mx-auto space-y-20 text-white">
         <div className="space-y-8">
-          <h2 className="text-5xl md:text-7xl font-black">ТЕХНИКА БЕЗОПАСНОСТИ</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold">Техника безопасности</h2>
           
           <div className="grid gap-4">
             {rules.map((rule, index) => (
               <div 
                 key={index}
-                className="flex items-start gap-4 p-6 border-2 border-primary hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all duration-300"
+                className="flex items-start gap-4 p-6 border-2 border-white/30 hover:bg-white/10 hover:border-highlight transition-all duration-300"
               >
-                <span className="text-4xl font-black text-accent shrink-0">{index + 1}.</span>
+                <span className="text-4xl font-black text-highlight shrink-0">{index + 1}.</span>
                 <p className="text-xl font-medium pt-1">{rule}</p>
               </div>
             ))}
@@ -52,9 +60,9 @@ const SafetyRules = () => {
         </div>
 
         <div className="space-y-8">
-          <div className="space-y-4">
+          <div className="space-y-4 text-white/80">
             <p className="text-xl md:text-2xl">
-              Мы не знаем наверняка, как это делать правильно. У нас нет формулы дружбы или секрета общения. 
+              Мы не знаем наверняка, как это делать правильно. У нас нет формулы дружбы или секрета общения.
               Мы просто собираем людей и создаем форматы, которые помогают начать разговаривать искренне.
             </p>
             <p className="text-xl md:text-2xl">
@@ -64,48 +72,48 @@ const SafetyRules = () => {
           </div>
 
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold">Давай, я расскажу тебе о наших форматах:</h3>
+            <h3 className="text-2xl md:text-3xl font-display font-bold">Давай, я расскажу тебе о наших форматах:</h3>
             <div className="space-y-4">
               {formats.map((format, index) => (
-                <div key={index} className="p-6 bg-muted border-l-4 border-accent">
+                <div key={index} className="p-6 bg-white/10 border-l-4 border-highlight">
                   <h4 className="text-xl font-bold mb-2">«{format.name}»</h4>
-                  <p className="text-lg">{format.description}</p>
+                  <p className="text-lg text-white/80">{format.description}</p>
                 </div>
               ))}
             </div>
-            <p className="text-lg italic text-muted-foreground">
+            <p className="text-lg italic text-white/60">
               У нас еще много, все разные и классные.
             </p>
           </div>
         </div>
 
         <div className="space-y-8">
-          <h3 className="text-4xl font-bold">
+          <h3 className="text-2xl md:text-3xl font-display font-bold">
             Кэмп делается участниками для участников, без привкуса бизнеса
           </h3>
         </div>
 
         <div className="space-y-8">
-          <h3 className="text-3xl font-bold">Чего мы точно НЕ делаем</h3>
+          <h3 className="text-2xl md:text-3xl font-display font-bold">Чего мы точно НЕ делаем</h3>
           <div className="space-y-4">
             {notDoing.map((item, index) => (
               <div key={index} className="flex items-start gap-4 text-lg">
-                <span className="text-accent font-bold shrink-0">—</span>
-                <p>{item}</p>
+                <span className="text-highlight font-bold shrink-0">—</span>
+                <p className="text-white/80">{item}</p>
               </div>
             ))}
           </div>
         </div>
 
         <div className="space-y-8">
-          <h3 className="text-3xl font-bold">Как мы меняемся</h3>
-          <div className="space-y-6 text-lg">
+          <h3 className="text-2xl md:text-3xl font-display font-bold">Как мы меняемся</h3>
+          <div className="space-y-6 text-lg text-white/80">
             <p>
               После каждого кэмпа мы просим участников написать обратную связь. Любую: кому что понравилось, 
               кого что бесило, кто от чего устал. На основании этой обратной связи мы и создаем новые кэмпы.
             </p>
-            <div className="p-6 bg-card border-2 border-primary">
-              <p className="font-bold mb-4">Вот пример изменения:</p>
+            <div className="p-6 bg-white/10 border-2 border-highlight">
+              <p className="font-bold mb-4 text-white">Вот пример изменения:</p>
               <p className="mb-4">
                 На первом кэмпе в общем круге произошел спонтанный разговор про войну который оказался очень тяжелым. 
                 Мы очень переживали — не повредит ли это кому-нибудь. С тех пор на кэмпах появились две вещи:
@@ -125,9 +133,9 @@ const SafetyRules = () => {
           </div>
         </div>
 
-        <div className="p-8 border-2 border-destructive bg-destructive/5">
+        <div className="p-8 border-2 border-red-400 bg-red-500/20">
           <h4 className="text-2xl font-bold mb-4">⚠️ Что может не сработать</h4>
-          <div className="space-y-3 text-lg">
+          <div className="space-y-3 text-lg text-white/80">
             <p>Любой формат может вам не зайти.</p>
             <p>Иногда в программу пролезают не слишком удачные форматы.</p>
             <p>Иногда мы перестраховываемся.</p>
