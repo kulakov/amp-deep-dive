@@ -102,76 +102,70 @@ const WhatHappens = () => {
             })}
           </div>
 
-          <p className="text-lg md:text-xl max-w-3xl font-body leading-relaxed">
+          <p className="text-lg font-body leading-relaxed">
             Мы собираем в одном месте людей, которым точно захочется искренне и глубоко пообщаться. 
             Искать таких сложно. Вы можете делать это сами, но на это вечно не хватает времени. 
             А еще не понятно где их брать. Поэтому их надо собрать их в кучу. Вот мы и собрали.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16">
-          <div className="space-y-6">
-            <h3 className="text-3xl md:text-4xl font-display">Что это такое</h3>
-            <div className="space-y-4 text-lg font-body leading-relaxed">
-              <p>
-                AmpCamp — это место, где <strong>CTO</strong> может обнаружить, 
-                что его <strong>тревога про будущее</strong> точно такая же, 
-                как у <strong>учителя литературы</strong>, хотя внешне их жизни не похожи.
-              </p>
-              <p>
-                Три дня, когда твоя должность в LinkedIn не имеет значения, потому что все говорят о том, 
-                что их на самом деле волнует.
-              </p>
-            </div>
-          </div>
+        {/* What is it */}
+        <div className="space-y-6">
+          <p className="text-lg font-body leading-relaxed">
+            AmpCamp — это место, где <strong>CTO</strong> может обнаружить, 
+            что его <strong>тревога про будущее</strong> точно такая же, 
+            как у <strong>учителя литературы</strong>, хотя внешне их жизни не похожи.
+          </p>
+          <p className="text-lg font-body leading-relaxed">
+            Три дня, когда твоя должность в LinkedIn не имеет значения, потому что все говорят о том, 
+            что их на самом деле волнует.
+          </p>
+        </div>
 
-          <div className="space-y-6">
-            <h3 className="text-3xl md:text-4xl font-display">Мы НЕ конференция</h3>
-            <p className="text-lg text-muted-foreground font-body">
-              и у нас аллергия на банальность и неряшливое мышление.
-            </p>
+        {/* Not a conference */}
+        <div className="space-y-4">
+          <p className="text-xl font-display italic">Мы НЕ конференция</p>
+          <p className="text-muted-foreground">и у нас аллергия на банальность и неряшливое мышление.</p>
+        </div>
+
+        {/* Comparison */}
+        <div className="space-y-6">
+          <div className="grid grid-cols-2 gap-8 text-sm">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Другие ивенты</p>
+              <div className="space-y-2 text-muted-foreground">
+                <p>Рассказываешь о достижениях</p>
+                <p>Произвести впечатление</p>
+                <p>Показываешь, какой ты крутой</p>
+                <p>Демонстрируешь, чем ты полезен</p>
+                <p>Нетворкинг для бизнеса</p>
+              </div>
+            </div>
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wider mb-4">AmpCamp</p>
+              <div className="space-y-2 font-medium">
+                <p>Признаешься в сомнениях</p>
+                <p>Снимаешь маску</p>
+                <p>Открываешь, кто ты по-настоящему</p>
+                <p>Кто ты вне работы</p>
+                <p>Споры про анархизм и темное просвещение</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Comparison Table - Editorial */}
-        <div className="border border-foreground">
-          <div className="grid grid-cols-2">
-            <div className="p-6 border-r border-b border-foreground bg-muted">
-              <span className="font-mono text-xs uppercase tracking-wider">Другие ивенты</span>
-            </div>
-            <div className="p-6 border-b border-foreground bg-primary text-primary-foreground">
-              <span className="font-mono text-xs uppercase tracking-wider">AmpCamp</span>
-            </div>
-          </div>
-          {[
-            ["Рассказываешь о достижениях", "Признаешься в сомнениях"],
-            ["Произвести впечатление", "Снимаешь маску"],
-            ["Показываешь, какой ты крутой", "Открываешь, кто ты по-настоящему"],
-            ["Демонстрируешь, чем ты полезен", "Кто ты вне работы"],
-            ["Нетворкинг для бизнеса", "Споры про анархизм и темное просвещение"],
-          ].map(([left, right], i) => (
-            <div key={i} className="grid grid-cols-2">
-              <div className={`p-6 border-r border-foreground ${i < 4 ? 'border-b' : ''} text-muted-foreground`}>
-                {left}
-              </div>
-              <div className={`p-6 font-medium ${i < 4 ? 'border-b border-foreground' : ''}`}>
-                {right}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="space-y-12">
-          <p className="text-xl md:text-2xl font-display max-w-3xl">
+        {/* Program */}
+        <div className="space-y-8">
+          <p className="text-xl font-display italic">
             Да, у нас есть программа. В ней много всего очень разного и интересного. 
             Каждый раз она совершенно другая, у нее нет другой рамки кроме «это будет интересно».
           </p>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             <h4 className="font-mono text-sm uppercase tracking-[0.2em]">
               Например, были такие активности:
             </h4>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-base font-body">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { tag: "интеллектуальные", items: "дискуссия про теорему Гёделя; семинар про то, что такое ответственность; дискуссия про психологию морали; доклад про гравюры Дюрера" },
                 { tag: "телесные", items: "йога-зарядка, мастер-класс по джиу-джитсу, турнир по водному поло, рейв в бассейне" },
@@ -183,16 +177,17 @@ const WhatHappens = () => {
                   <span className="font-mono text-xs uppercase tracking-wider bg-highlight text-highlight-foreground px-2 py-1 inline-block mb-3">
                     #{cat.tag}
                   </span>
-                  <p className="text-muted-foreground leading-relaxed">{cat.items}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{cat.items}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="border-l-4 border-foreground pl-8 py-4">
-          <h4 className="text-2xl font-display mb-6">Это подходит не всем.</h4>
-          <div className="space-y-4 text-lg font-body text-muted-foreground">
+        {/* Not for everyone */}
+        <div className="space-y-4 border-l-2 border-foreground pl-6">
+          <p className="font-bold">Это подходит не всем.</p>
+          <div className="space-y-3 text-muted-foreground text-sm">
             <p>
               Если вы ждете только легких разговоров и полезных контактов — вам не зайдет. 
               Здесь люди делятся переживаниями и сомнениями.

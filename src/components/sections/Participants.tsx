@@ -1,5 +1,3 @@
-import campAtmosphere from "@/assets/camp-atmosphere.jpg";
-
 const Participants = () => {
   const participants = [
     {
@@ -61,47 +59,35 @@ const Participants = () => {
   ];
 
   return (
-    <section className="py-32 px-6 relative">
-      {/* Background Image */}
-      <div className="absolute inset-0 -z-10">
-        <img src={campAtmosphere} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/70" />
-      </div>
-      
-      <div className="max-w-3xl mx-auto space-y-20 text-white">
-        <div className="space-y-8">
-          <h2 className="text-4xl md:text-5xl font-display font-bold">А такие как я участвуют?</h2>
-          <p className="text-xl md:text-2xl font-medium text-white/80">Кто приезжает на кэмп:</p>
+    <section className="py-24 px-6 bg-background">
+      <div className="max-w-3xl mx-auto space-y-16">
+        {/* Section Header */}
+        <div className="space-y-6">
+          <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
+            Кто приезжает
+          </span>
+          <blockquote className="text-2xl md:text-3xl font-display italic">
+            «А такие как я участвуют?»
+          </blockquote>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Participants Grid */}
+        <div className="space-y-8">
           {participants.map((person, index) => (
-            <div 
-              key={index}
-              className="p-6 border-2 border-white/30 hover:bg-white/10 hover:border-highlight transition-all duration-300 group"
-            >
-              <h3 className="text-2xl font-bold mb-3">{person.name}</h3>
-              <p className="text-base mb-4 text-white/80">{person.description}</p>
-              <p className="text-base italic border-l-4 border-highlight pl-4 text-white/70">
-                {person.insight}
-              </p>
+            <div key={index} className="border-b border-border pb-6">
+              <h3 className="text-lg font-bold mb-2">{person.name}</h3>
+              <p className="text-base text-muted-foreground mb-3">{person.description}</p>
+              <p className="text-base italic">{person.insight}</p>
             </div>
           ))}
         </div>
 
-        <div className="p-8 bg-white/10 border-l-4 border-highlight">
-          <p className="text-lg leading-relaxed text-white/80">
-            <span className="font-bold text-white">Цель блока:</span> показать, что участники — живые, странные, 
-            противоречивые люди с внутренним содержанием, а не идеальные персонажи из корпоративной брошюры. 
-            Читатель должен думать не "потяну ли я по статусу?", а "интересно, а что необычного есть у меня?"
-          </p>
-        </div>
-
-        <div className="space-y-8">
+        {/* Stories */}
+        <div className="space-y-12">
           {stories.map((story, index) => (
-            <div key={index} className="p-8 bg-highlight text-highlight-foreground">
-              <h3 className="text-2xl md:text-3xl font-display font-bold mb-6">{story.name}</h3>
-              <p className="text-lg leading-relaxed whitespace-pre-line">{story.text}</p>
+            <div key={index} className="space-y-4">
+              <h3 className="font-mono text-sm uppercase tracking-wider">{story.name}</h3>
+              <p className="text-lg font-body leading-relaxed whitespace-pre-line">{story.text}</p>
             </div>
           ))}
         </div>
