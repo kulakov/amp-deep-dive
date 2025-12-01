@@ -8,15 +8,15 @@ const Footer = () => {
           <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Контакты
           </span>
-          
-          <a 
-            href="mailto:hello@amp.camp"
-            className="inline-flex items-center gap-3 text-xl md:text-2xl font-mono hover:text-highlight transition-colors"
-          >
-            <Mail className="w-6 h-6" />
-            hello@amp.camp
-          </a>
         </div>
+        
+        <a 
+          href="mailto:hello@amp.camp"
+          className="flex items-center gap-3 text-xl md:text-2xl font-mono hover:text-highlight transition-colors"
+        >
+          <Mail className="w-6 h-6" />
+          hello@amp.camp
+        </a>
 
         <div className="space-y-6 text-sm opacity-70">
           <p>
