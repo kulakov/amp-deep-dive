@@ -118,12 +118,43 @@ const Participants = () => {
           ))}
         </div>
 
-        {/* Stories */}
-        <div className="max-w-3xl mx-auto space-y-12">
+        {/* Stories as diary entries */}
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
           {stories.map((story, index) => (
-            <div key={index} className="space-y-4">
-              <h3 className="font-mono text-sm uppercase tracking-wider">{story.name}</h3>
-              <p className="text-lg font-body leading-relaxed whitespace-pre-line">{story.text}</p>
+            <div 
+              key={index} 
+              className="relative bg-[#FFFEF5] p-8 shadow-lg"
+              style={{
+                transform: `rotate(${index === 0 ? -1 : 1}deg)`,
+                backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #E8E4D9 28px)',
+                backgroundPosition: '0 40px',
+              }}
+            >
+              {/* Red margin line */}
+              <div 
+                className="absolute top-0 bottom-0 w-px bg-red-300/60"
+                style={{ left: '32px' }}
+              />
+              
+              {/* Paper holes */}
+              <div className="absolute left-3 top-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
+              <div className="absolute left-3 top-1/2 w-3 h-3 rounded-full bg-background border border-foreground/10" />
+              <div className="absolute left-3 bottom-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
+              
+              <div className="pl-8">
+                <h3 
+                  className="text-xl mb-4 text-foreground/80"
+                  style={{ fontFamily: "'Comforter Brush', cursive" }}
+                >
+                  {story.name}
+                </h3>
+                <p 
+                  className="text-sm leading-[28px] text-foreground/70 whitespace-pre-line"
+                  style={{ fontFamily: "'Comforter Brush', cursive", fontSize: '18px' }}
+                >
+                  {story.text}
+                </p>
+              </div>
             </div>
           ))}
         </div>
