@@ -170,28 +170,32 @@ const WorthIt = () => {
           </div>
         </div>
 
-        {/* How to join */}
-        <div className="bg-highlight text-highlight-foreground p-8 space-y-6">
-          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Как попасть:</h3>
-          <div className="space-y-4">
+        {/* How to join - CTA */}
+        <div className="bg-highlight text-highlight-foreground p-10 md:p-16 space-y-8 -mx-6 md:mx-0">
+          <h2 className="font-display text-4xl md:text-6xl font-bold leading-tight">
+            Как попасть
+          </h2>
+          <div className="space-y-6 text-lg">
             <div className="flex gap-4 items-start">
-              <input type="checkbox" checked disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
+              <input type="checkbox" checked disabled className="mt-2 w-6 h-6 accent-highlight-foreground" />
               <p><span className="font-bold line-through opacity-60">Найти номинатора.</span> Если вы это читаете — у вас уже есть такой друг.</p>
             </div>
             <div className="flex gap-4 items-start">
-              <input type="checkbox" disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
+              <input type="checkbox" disabled className="mt-2 w-6 h-6 accent-highlight-foreground" />
               <p><span className="font-bold">Решиться на интервью.</span> Час искреннего разговора о том, что вас интересует</p>
             </div>
             <div className="flex gap-4 items-start">
-              <input type="checkbox" disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
+              <input type="checkbox" disabled className="mt-2 w-6 h-6 accent-highlight-foreground" />
               <p><span className="font-bold">Получить решение.</span> Мы помучаемся неделю или две, потом напишем</p>
             </div>
           </div>
-          <div className="pt-6 border-t border-highlight-foreground/20">
-            <p className="font-bold">Ближайший дедлайн</p>
-            <p className="text-sm mt-1">
-              дождаться когда мы объявим следующий. если вас номинировали, мы с вами свяжемся, у нас есть ваши контакты
-            </p>
+          <div className="pt-8 border-t border-highlight-foreground/30 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <p className="font-bold text-xl">Ближайший дедлайн</p>
+              <p className="text-base mt-2 opacity-90">
+                дождаться когда мы объявим следующий. если вас номинировали, мы с вами свяжемся, у нас есть ваши контакты
+              </p>
+            </div>
           </div>
         </div>
       </div>
