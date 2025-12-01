@@ -2,28 +2,30 @@ import { Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="py-20 px-6 bg-primary text-primary-foreground rounded-t-[3rem]">
-      <div className="max-w-5xl mx-auto space-y-12">
+    <footer className="py-24 px-6 bg-primary text-primary-foreground">
+      <div className="max-w-5xl mx-auto space-y-16">
         <div className="space-y-8">
-          <h2 className="text-4xl md:text-6xl font-black">КОНТАКТЫ</h2>
+          <span className="font-mono text-xs uppercase tracking-[0.3em] bg-accent text-accent-foreground px-3 py-1.5 inline-block">
+            Контакты
+          </span>
           
           <a 
             href="mailto:hello@amp.camp"
-            className="inline-flex items-center gap-3 text-2xl font-bold hover:text-accent transition-colors group bg-primary-foreground/10 px-6 py-4 rounded-full"
+            className="inline-flex items-center gap-3 text-2xl md:text-3xl font-display hover:text-accent transition-colors group"
           >
             <Mail className="w-8 h-8 group-hover:scale-110 transition-transform" />
             hello@amp.camp
           </a>
         </div>
 
-        <div className="pt-8 border-t border-primary-foreground/20">
-          <p className="text-lg leading-relaxed opacity-90">
+        <div className="pt-8 border-t border-primary-foreground/20 max-w-2xl">
+          <p className="text-lg font-body leading-relaxed opacity-80">
             Мы существуем с 22 года и до сих пор удивляемся, что это работает. 
             Возможно, в мире действительно не хватает мест, где взрослые люди могут признаться, что они растеряны.
           </p>
         </div>
 
-        <div className="pt-12 text-sm opacity-70 italic">
+        <div className="pt-8 font-mono text-xs opacity-50 tracking-wide">
           <p>
             * От трех до пяти людей потратили сорок часов на обсуждение этой страницы. 
             Это потому что нам нравится говорить о сложных вещах с приятными людьми.
