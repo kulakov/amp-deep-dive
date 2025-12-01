@@ -142,16 +142,10 @@ const Participants = () => {
               <div className="absolute left-3 bottom-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
               
               <div className="pl-8">
-                <h3 
-                  className="text-xl mb-4 text-foreground/80"
-                  style={{ fontFamily: "'Comforter Brush', cursive" }}
-                >
+                <h3 className="font-display text-xl mb-4 text-foreground/80 italic">
                   {story.name}
                 </h3>
-                <p 
-                  className="text-sm leading-[28px] text-foreground/70 whitespace-pre-line"
-                  style={{ fontFamily: "'Comforter Brush', cursive", fontSize: '18px' }}
-                >
+                <p className="font-body text-base leading-[28px] text-foreground/80 whitespace-pre-line">
                   {story.text}
                 </p>
               </div>
