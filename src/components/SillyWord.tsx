@@ -5,16 +5,16 @@ interface SillyWordProps {
 }
 
 const SILLY_FONTS = [
-  "font-silly-1 text-[1.3em]",   // Caveat
-  "font-silly-2 text-[1.1em]",   // Pacifico
-  "font-silly-3 text-[1.1em]",   // Lobster
-  "font-silly-4 text-[1em]",     // Comfortaa
-  "font-silly-5 text-[0.85em]",  // Rubik Mono One
-  "font-silly-6 text-[0.5em]",   // Press Start 2P (very wide)
-  "font-silly-7 text-[1.15em]",  // Pangolin
-  "font-silly-8 text-[1.3em]",   // Marck Script
-  "font-silly-9 text-[1em]",     // Russo One
-  "font-silly-10 text-[1.3em]",  // Bad Script
+  "font-silly-1 text-[1.4em]",   // Caveat - рукописный
+  "font-silly-2 text-[1.15em] italic", // Cormorant Garamond - элегантный
+  "font-silly-3 text-[0.85em]", // Unbounded - геометричный
+  "font-silly-4 text-[1em] italic",    // Lora - классический
+  "font-silly-5 text-[1em] uppercase tracking-wide", // Oswald - узкий
+  "font-silly-6 text-[1em] font-light tracking-widest", // Raleway - лёгкий
+  "font-silly-7 text-[0.95em] font-black uppercase", // Montserrat - жирный
+  "font-silly-8 text-[1em] font-medium", // Jost - геометричный
+  "font-silly-9 text-[0.95em]", // Manrope - современный
+  "font-silly-10 text-[0.9em]", // JetBrains Mono - код
 ];
 
 const SillyWord = ({ children }: SillyWordProps) => {
@@ -23,7 +23,6 @@ const SillyWord = ({ children }: SillyWordProps) => {
   const [fixedWidth, setFixedWidth] = useState<number | null>(null);
   const spanRef = useRef<HTMLSpanElement>(null);
 
-  // Capture original width on mount
   useEffect(() => {
     if (spanRef.current && fixedWidth === null) {
       setFixedWidth(spanRef.current.offsetWidth);
