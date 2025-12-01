@@ -10,8 +10,34 @@ const Logo = ({ className }: LogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <path d="M354.328 500.992C354.984 501.012 355.642 501.024 356.303 501.024H354.328V500.992Z" fill="url(#paint0_linear_logo)"/>
-      <path d="M516.479 437.948C516.479 472.784 513.61 501.024 548.446 501.024H505.966V415.923H377.329L384.723 386.68L377.329 359.01L447.068 349.46L446.904 349.671L516.479 339.333V437.948Z" fill="url(#paint1_linear_logo)"/>
+      <style>
+        {`
+          @keyframes flag-wave {
+            0%, 100% {
+              opacity: 0.9;
+              transform: translateY(0) scaleY(1);
+            }
+            25% {
+              opacity: 1;
+              transform: translateY(-2px) scaleY(0.98);
+            }
+            50% {
+              opacity: 0.85;
+              transform: translateY(1px) scaleY(1.02);
+            }
+            75% {
+              opacity: 0.95;
+              transform: translateY(-1px) scaleY(0.99);
+            }
+          }
+          .flag-element {
+            animation: flag-wave 3s ease-in-out infinite;
+            transform-origin: top center;
+          }
+        `}
+      </style>
+      <path d="M354.328 500.992C354.984 501.012 355.642 501.024 356.303 501.024H354.328V500.992Z" fill="url(#paint0_linear_logo)" className="flag-element"/>
+      <path d="M516.479 437.948C516.479 472.784 513.61 501.024 548.446 501.024H505.966V415.923H377.329L384.723 386.68L377.329 359.01L447.068 349.46L446.904 349.671L516.479 339.333V437.948Z" fill="url(#paint1_linear_logo)" className="flag-element"/>
       <path d="M276.81 339.318L84.1025 378.166V416.923H276.81V499.423H277.051V501.025H63.0771C28.2415 501.024 0.000203943 472.784 0 437.948V360.956C6.45505e-05 330.925 21.1738 305.058 50.6123 299.123L276.81 253.525V339.318Z" fill="currentColor"/>
       <path d="M538.951 259.645C572.988 259.645 600.58 287.237 600.58 321.274V501.025H548.445C513.61 501.024 516.479 472.784 516.479 437.948V339.333L446.904 349.671L447.068 349.46L377.329 359.01L384.723 386.68L377.329 415.923H505.967V501.025H356.304C355.973 501.025 355.643 501.021 355.313 501.016L354.328 500.992C320.406 499.949 293.227 472.123 293.227 437.948V349.878C293.227 318.623 316.117 292.081 347.032 287.486L529.893 260.314C532.891 259.868 535.919 259.645 538.951 259.645Z" fill="currentColor"/>
       <path d="M907.478 259.233C939.577 259.234 965.597 285.256 965.598 317.355V501.025H881.496V371.011L793.604 440.499L705.712 371.013V501.021H621.61V317.355C621.611 285.255 647.633 259.233 679.732 259.233C692.815 259.233 705.516 263.647 715.779 271.761L793.604 333.289L871.429 271.76C881.692 263.646 894.394 259.232 907.478 259.233Z" fill="currentColor"/>
@@ -22,11 +48,11 @@ const Logo = ({ className }: LogoProps) => {
       <defs>
         <linearGradient id="paint0_linear_logo" x1="451.387" y1="295.325" x2="451.387" y2="501.024" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FF00C8"/>
-          <stop offset="0.65" stopColor="#FF00C8" stopOpacity="0"/>
+          <stop offset="0.8" stopColor="#FF00C8" stopOpacity="0.3"/>
         </linearGradient>
         <linearGradient id="paint1_linear_logo" x1="451.387" y1="295.325" x2="451.387" y2="501.024" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FF00C8"/>
-          <stop offset="0.65" stopColor="#FF00C8" stopOpacity="0"/>
+          <stop offset="0.8" stopColor="#FF00C8" stopOpacity="0.3"/>
         </linearGradient>
       </defs>
     </svg>
