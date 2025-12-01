@@ -1,3 +1,5 @@
+import campConferenceBg from "@/assets/camp-conference-bg.jpg";
+
 const SafetyRules = () => {
   const rules = [
     "Включаете голову",
@@ -14,8 +16,18 @@ const SafetyRules = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-highlight/10">
-      <div className="max-w-3xl mx-auto space-y-16">
+    <section className="py-24 px-6 relative">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 -z-10">
+        <img 
+          src={campConferenceBg} 
+          alt="" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-foreground/80" />
+      </div>
+
+      <div className="max-w-3xl mx-auto space-y-16 text-white">
         {/* Section Header */}
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
@@ -34,7 +46,7 @@ const SafetyRules = () => {
         </div>
 
         {/* Intro text */}
-        <div className="space-y-4 text-lg font-body leading-relaxed text-muted-foreground">
+        <div className="space-y-4 text-lg font-body leading-relaxed text-white/80">
           <p>
             Мы не знаем наверняка, как это делать правильно. У нас нет формулы дружбы или секрета общения. 
             Мы просто собираем людей и создаем форматы, которые помогают начать разговаривать искренне.
@@ -53,7 +65,7 @@ const SafetyRules = () => {
             {notDoing.map((item, index) => (
               <div key={index} className="flex items-start gap-3">
                 <span className="text-highlight">—</span>
-                <p className="text-muted-foreground">{item}</p>
+                <p className="text-white/80">{item}</p>
               </div>
             ))}
           </div>
@@ -62,7 +74,7 @@ const SafetyRules = () => {
         {/* How we change */}
         <div className="space-y-6">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Как мы меняемся:</h3>
-          <div className="space-y-4 text-muted-foreground">
+          <div className="space-y-4 text-white/80">
             <p>
               После каждого кэмпа мы просим участников написать обратную связь. Любую: кому что понравилось, 
               кого что бесило, кто от чего устал. На основании этой обратной связи мы и создаем новые кэмпы.
@@ -75,9 +87,9 @@ const SafetyRules = () => {
         </div>
 
         {/* Warning - code block style */}
-        <div className="bg-callout border border-callout-border p-6 font-mono text-sm space-y-3">
+        <div className="bg-background border border-background/20 p-6 font-mono text-sm space-y-3">
           <h4 className="font-bold text-foreground">Что может не сработать</h4>
-          <div className="space-y-2 text-callout-foreground">
+          <div className="space-y-2 text-muted-foreground">
             <p>Любой формат может вам не зайти.</p>
             <p>Иногда в программу пролезают не слишком удачные форматы.</p>
             <p>Иногда мы перестраховываемся.</p>
