@@ -123,33 +123,41 @@ const WhatHappens = () => {
           </p>
         </div>
 
-        {/* Not a conference */}
-        <div className="space-y-4">
-          <p className="text-xl font-display italic">Мы НЕ конференция</p>
-          <p className="text-muted-foreground">и у нас аллергия на банальность и неряшливое мышление.</p>
-        </div>
-
-        {/* Comparison */}
-        <div className="bg-muted p-8 -mx-6 md:mx-0">
-          <div className="grid grid-cols-2 gap-8 text-sm">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Другие ивенты</p>
-              <div className="space-y-2 text-muted-foreground">
-                <p>Рассказываешь о достижениях</p>
-                <p>Произвести впечатление</p>
-                <p>Показываешь, какой ты крутой</p>
-                <p>Демонстрируешь, чем ты полезен</p>
-                <p>Нетворкинг для бизнеса</p>
-              </div>
+        {/* Not a conference - highlighted block */}
+        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-16">
+          {/* Skewed background */}
+          <div 
+            className="absolute inset-0 bg-foreground -z-10"
+            style={{ transform: 'skewY(-2deg)' }}
+          />
+          
+          <div className="space-y-12 text-background">
+            <div className="space-y-4">
+              <p className="text-xl font-display italic">Мы НЕ конференция</p>
+              <p className="text-background/70">и у нас аллергия на банальность и неряшливое мышление.</p>
             </div>
-            <div>
-              <p className="font-mono text-xs uppercase tracking-wider mb-4">AmpCamp</p>
-              <div className="space-y-2 font-medium">
-                <p>Признаешься в сомнениях</p>
-                <p>Снимаешь маску</p>
-                <p>Открываешь, кто ты по-настоящему</p>
-                <p>Кто ты вне работы</p>
-                <p>Споры про анархизм и темное просвещение</p>
+
+            {/* Comparison */}
+            <div className="grid grid-cols-2 gap-8 text-sm">
+              <div>
+                <p className="font-mono text-xs uppercase tracking-wider text-background/50 mb-4">Другие ивенты</p>
+                <div className="space-y-2 text-background/60">
+                  <p>Рассказываешь о достижениях</p>
+                  <p>Произвести впечатление</p>
+                  <p>Показываешь, какой ты крутой</p>
+                  <p>Демонстрируешь, чем ты полезен</p>
+                  <p>Нетворкинг для бизнеса</p>
+                </div>
+              </div>
+              <div>
+                <p className="font-mono text-xs uppercase tracking-wider text-highlight mb-4">AmpCamp</p>
+                <div className="space-y-2 font-medium">
+                  <p>Признаешься в сомнениях</p>
+                  <p>Снимаешь маску</p>
+                  <p>Открываешь, кто ты по-настоящему</p>
+                  <p>Кто ты вне работы</p>
+                  <p>Споры про анархизм и темное просвещение</p>
+                </div>
               </div>
             </div>
           </div>
