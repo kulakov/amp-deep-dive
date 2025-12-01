@@ -89,6 +89,52 @@ const HowToJoin = () => {
           </div>
         </div>
 
+        {/* Stories as diary entries */}
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+          {[
+            {
+              name: "История Макса",
+              text: "Макс, дата-аналитик: «Когда получил приглашение, загуглил всех участников. У них TED talks, стартапы, книги. А я делаю отчеты в компании, о которой никто не слышал. Три дня думал, как вежливо отказаться.\nНа кэмпе основатель известного стартапа сказал: 'Я думал, ты какой-то гуру данных, а ты обычный парень'.",
+              conclusion: "Оказалось: чем успешнее человек выглядит снаружи, тем больше он уверен, что все вокруг умнее.»"
+            },
+            {
+              name: "История Жени",
+              text: "Женя, программистка: «Прячусь за работой, потому что не знаю, как быть интересной людям просто как человек. На корпоративах читаю техдокументацию в туалете. Первый день кэмпа делала вид, что у меня срочная задача.\nПодошел парень: 'Go пишешь? Что думаешь про новые генерики?' Час говорили про код, потом про книги, потом — почему нам обоим сложно с людьми.",
+              conclusion: "Поняла: можно быть интересной, не умея рассказывать анекдоты.»"
+            }
+          ].map((story, index) => (
+            <div 
+              key={index} 
+              className="relative bg-[#FFFEF5] p-8 shadow-lg"
+              style={{
+                transform: `rotate(${index === 0 ? -1 : 1}deg)`,
+                backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #E8E4D9 28px)',
+                backgroundPosition: '0 40px',
+              }}
+            >
+              {/* Red margin line */}
+              <div 
+                className="absolute top-0 bottom-0 w-px bg-red-300/60"
+                style={{ left: '32px' }}
+              />
+              
+              {/* Paper holes */}
+              <div className="absolute left-3 top-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
+              <div className="absolute left-3 top-1/2 w-3 h-3 rounded-full bg-background border border-foreground/10" />
+              <div className="absolute left-3 bottom-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
+              
+              <div className="pl-8">
+                <h3 className="font-display text-xl mb-4 text-foreground/80 italic">
+                  {story.name}
+                </h3>
+                <p className="font-body text-base leading-[28px] text-foreground/80 whitespace-pre-line">
+                  {story.text} <span className="underline decoration-highlight decoration-2 underline-offset-4">{story.conclusion}</span>
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Stress warning - code block style */}
         <div className="bg-callout border border-callout-border p-6 font-mono text-sm space-y-3">
           <h4 className="font-bold text-foreground">Про стресс интервью</h4>
