@@ -34,7 +34,7 @@ const WhatHappens = () => {
   }, []);
   return (
     <section className="py-24 px-6 border-b border-foreground bg-background relative z-10">
-      <div className="max-w-5xl mx-auto space-y-20">
+      <div className="max-w-3xl mx-auto space-y-20">
         <div className="space-y-12">
           <div className="space-y-6">
             <span className="font-mono text-xs uppercase tracking-[0.3em] bg-accent text-accent-foreground px-3 py-1.5 inline-block">
