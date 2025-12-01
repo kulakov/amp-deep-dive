@@ -226,8 +226,9 @@ const WhatHappens = () => {
                   <div 
                     key={i}
                     onClick={() => setExpandedFormat(isExpanded ? null : i)}
-                    className={`absolute bg-background text-foreground shadow-xl cursor-pointer transition-all duration-200 ease-out overflow-hidden
-                      ${isExpanded ? 'w-[90%] md:w-[600px] z-[100] left-1/2 top-1/2' : `${card.width} hover:scale-105`}`}
+                    className={`absolute bg-background text-foreground shadow-xl cursor-pointer transition-all duration-200 ease-out
+                      ${isExpanded ? 'w-[90%] md:w-[600px] z-[100] flex' : `${card.width} hover:scale-105`}
+                      ${expandedFormat !== null && !isExpanded ? 'opacity-30' : ''}`}
                     style={{ 
                       transform: isExpanded 
                         ? 'translate(-50%, -50%) rotate(0deg)' 
@@ -237,18 +238,16 @@ const WhatHappens = () => {
                       zIndex: isExpanded ? 100 : i + 1,
                     }}
                   >
-                    <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? 'flex' : ''}`}>
-                      <div className={`overflow-hidden ${isExpanded ? 'w-1/2 h-48' : 'h-20 w-full'}`}>
-                        <img 
-                          src={card.img} 
-                          alt={card.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className={`p-4 ${isExpanded ? 'w-1/2 flex flex-col justify-center' : ''}`}>
-                        <h4 className={`font-bold mb-2 ${isExpanded ? 'text-lg' : 'text-sm'}`}>«{card.name}»</h4>
-                        <p className={`text-muted-foreground leading-relaxed ${isExpanded ? 'text-sm' : 'text-xs'}`}>{card.desc}</p>
-                      </div>
+                    <div className={`overflow-hidden shrink-0 ${isExpanded ? 'w-1/2 h-48' : 'h-20 w-full'}`}>
+                      <img 
+                        src={card.img} 
+                        alt={card.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className={`p-4 ${isExpanded ? 'w-1/2 flex flex-col justify-center' : ''}`}>
+                      <h4 className={`font-bold mb-2 ${isExpanded ? 'text-lg' : 'text-sm'}`}>«{card.name}»</h4>
+                      <p className={`text-muted-foreground leading-relaxed ${isExpanded ? 'text-sm' : 'text-xs'}`}>{card.desc}</p>
                     </div>
                   </div>
                 );
