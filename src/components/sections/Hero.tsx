@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <div className="space-y-8">
             <div className="space-y-6">
-              <span className="font-mono text-xs uppercase tracking-[0.3em] bg-primary text-primary-foreground px-3 py-1.5 inline-block">
+              <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
                 Кемп для взрослых
               </span>
               <Logo className="w-full max-w-xl mx-auto h-auto text-white" />
@@ -38,7 +38,7 @@ const Hero = () => {
 
           <button 
             onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-mono text-sm uppercase tracking-wider hover:bg-accent hover:text-accent-foreground transition-colors border border-primary"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-highlight text-highlight-foreground font-mono text-sm uppercase tracking-wider hover:bg-highlight/80 transition-colors"
           >
             Узнать больше
             <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
