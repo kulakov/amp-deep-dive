@@ -26,13 +26,13 @@ const Logo = ({ className }: LogoProps) => {
         `}
       </style>
       <defs>
-        <linearGradient id="paint0_linear_logo" x1="377" y1="339" x2="517" y2="339" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#FF00C8" stopOpacity="0.4"/>
-          <stop offset="0.3" stopColor="#FF00C8" stopOpacity="0.9"/>
-          <stop offset="0.5" stopColor="#FF00C8" stopOpacity="1"/>
-          <stop offset="0.7" stopColor="#FF00C8" stopOpacity="0.9"/>
-          <stop offset="1" stopColor="#FF00C8" stopOpacity="0.4"/>
+        {/* Base gradient - pink fading to transparent at bottom */}
+        <linearGradient id="paint_base" x1="451.387" y1="295.325" x2="451.387" y2="501.024" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#FF00C8"/>
+          <stop offset="0.8" stopColor="#FF00C8" stopOpacity="0.3"/>
         </linearGradient>
+        
+        {/* Wave highlight gradient */}
         <linearGradient id="paint_wave" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="white" stopOpacity="0"/>
           <stop offset="40%" stopColor="white" stopOpacity="0.3"/>
@@ -40,18 +40,30 @@ const Logo = ({ className }: LogoProps) => {
           <stop offset="60%" stopColor="white" stopOpacity="0.3"/>
           <stop offset="100%" stopColor="white" stopOpacity="0"/>
         </linearGradient>
+        
+        {/* Mask for fading wave at bottom */}
+        <linearGradient id="wave_fade_mask" x1="0" y1="339" x2="0" y2="501" gradientUnits="userSpaceOnUse">
+          <stop stopColor="white"/>
+          <stop offset="0.7" stopColor="white" stopOpacity="0.3"/>
+          <stop offset="1" stopColor="white" stopOpacity="0"/>
+        </linearGradient>
+        
+        <mask id="wave_mask">
+          <rect x="300" y="300" width="300" height="250" fill="url(#wave_fade_mask)"/>
+        </mask>
+        
         <clipPath id="flag-clip">
           <path d="M354.328 500.992C354.984 501.012 355.642 501.024 356.303 501.024H354.328V500.992Z"/>
           <path d="M516.479 437.948C516.479 472.784 513.61 501.024 548.446 501.024H505.966V415.923H377.329L384.723 386.68L377.329 359.01L447.068 349.46L446.904 349.671L516.479 339.333V437.948Z"/>
         </clipPath>
       </defs>
       
-      {/* Flag base */}
-      <path d="M354.328 500.992C354.984 501.012 355.642 501.024 356.303 501.024H354.328V500.992Z" fill="url(#paint0_linear_logo)"/>
-      <path d="M516.479 437.948C516.479 472.784 513.61 501.024 548.446 501.024H505.966V415.923H377.329L384.723 386.68L377.329 359.01L447.068 349.46L446.904 349.671L516.479 339.333V437.948Z" fill="url(#paint0_linear_logo)"/>
+      {/* Flag base with vertical fade */}
+      <path d="M354.328 500.992C354.984 501.012 355.642 501.024 356.303 501.024H354.328V500.992Z" fill="url(#paint_base)"/>
+      <path d="M516.479 437.948C516.479 472.784 513.61 501.024 548.446 501.024H505.966V415.923H377.329L384.723 386.68L377.329 359.01L447.068 349.46L446.904 349.671L516.479 339.333V437.948Z" fill="url(#paint_base)"/>
       
-      {/* Animated wave overlay */}
-      <g clipPath="url(#flag-clip)">
+      {/* Animated wave overlay with fade mask */}
+      <g clipPath="url(#flag-clip)" mask="url(#wave_mask)">
         <rect x="300" y="300" width="300" height="250" fill="url(#paint_wave)" className="flag-gradient-wave"/>
       </g>
       
