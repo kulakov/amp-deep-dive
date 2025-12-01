@@ -124,23 +124,20 @@ const WhatHappens = () => {
         </div>
 
         {/* Not a conference - highlighted block */}
-        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-16 overflow-hidden">
-          {/* Photo background */}
+        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-16 my-8">
+          {/* Skewed container with photo and overlay */}
           <div 
-            className="absolute inset-0 -z-20"
+            className="absolute inset-0 -z-10 overflow-hidden"
             style={{ transform: 'skewY(-2deg)' }}
           >
             <img 
               src={campEnergy} 
               alt="" 
-              className="w-full h-full object-cover scale-110"
+              className="w-full h-full object-cover"
+              style={{ transform: 'skewY(2deg) scale(1.1)' }}
             />
+            <div className="absolute inset-0 bg-highlight/70" />
           </div>
-          {/* Pink overlay */}
-          <div 
-            className="absolute inset-0 bg-highlight/90 -z-10"
-            style={{ transform: 'skewY(-2deg)' }}
-          />
           
           <div className="space-y-12 text-highlight-foreground">
             <div className="space-y-4">
