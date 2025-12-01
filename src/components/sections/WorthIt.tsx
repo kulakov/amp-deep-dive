@@ -172,16 +172,16 @@ const WorthIt = () => {
         <div className="bg-highlight text-highlight-foreground p-8 space-y-6">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Как попасть:</h3>
           <div className="space-y-4">
-            <div className="flex gap-4">
-              <span className="font-bold text-xl">1.</span>
-              <p><span className="font-bold">Найти номинатора.</span> Если вы это читаете — у вас уже есть такой друг.</p>
+            <div className="flex gap-4 items-start">
+              <input type="checkbox" checked disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
+              <p><span className="font-bold line-through opacity-60">Найти номинатора.</span> Если вы это читаете — у вас уже есть такой друг.</p>
             </div>
-            <div className="flex gap-4">
-              <span className="font-bold text-xl">2.</span>
+            <div className="flex gap-4 items-start">
+              <input type="checkbox" disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
               <p><span className="font-bold">Решиться на интервью.</span> Час искреннего разговора о том, что вас интересует</p>
             </div>
-            <div className="flex gap-4">
-              <span className="font-bold text-xl">3.</span>
+            <div className="flex gap-4 items-start">
+              <input type="checkbox" disabled className="mt-1.5 w-5 h-5 accent-highlight-foreground" />
               <p><span className="font-bold">Получить решение.</span> Мы помучаемся неделю или две, потом напишем</p>
             </div>
           </div>
