@@ -1,3 +1,5 @@
+import { useState, useRef, useEffect } from "react";
+
 const Participants = () => {
   const participants = [
     {
@@ -48,7 +50,7 @@ const Participants = () => {
   ];
 
 
-  // Positions and colors for scattered cards
+  // Positions and colors for scattered cards (desktop only)
   const cardPositions = [
     { rotate: -3, top: "0%", left: "0%", hoverColor: "#FF3366" },
     { rotate: 2, top: "2%", left: "35%", hoverColor: "#00D4AA" },
@@ -60,6 +62,44 @@ const Participants = () => {
     { rotate: 4, top: "58%", left: "33%", hoverColor: "#00AAFF" },
     { rotate: -3, top: "55%", left: "66%", hoverColor: "#FFAA00" },
   ];
+
+  // Mobile carousel state
+  const [currentCard, setCurrentCard] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [offsetX, setOffsetX] = useState(0);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleDragStart = (clientX: number) => {
+    setIsDragging(true);
+    setStartX(clientX);
+  };
+
+  const handleDragMove = (clientX: number) => {
+    if (!isDragging) return;
+    const diff = clientX - startX;
+    setOffsetX(diff);
+  };
+
+  const handleDragEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    
+    if (Math.abs(offsetX) > 50) {
+      if (offsetX < 0 && currentCard < participants.length - 1) {
+        setCurrentCard(prev => prev + 1);
+      } else if (offsetX > 0 && currentCard > 0) {
+        setCurrentCard(prev => prev - 1);
+      }
+    }
+    setOffsetX(0);
+  };
+
+  // Rotation for stacked cards on mobile
+  const getCardRotation = (index: number) => {
+    const rotations = [-3, 2, -2, 3, -4, 2, -2, 4, -3];
+    return rotations[index % rotations.length];
+  };
 
   return (
     <section className="py-24 px-6 bg-background">
@@ -74,12 +114,65 @@ const Participants = () => {
           </blockquote>
         </div>
 
-        {/* Participants scattered gallery */}
-        <div className="relative h-[1400px] md:h-[1100px]">
+        {/* Mobile carousel - stacked deck */}
+        <div className="md:hidden relative h-[400px] flex items-center justify-center">
+          <div 
+            ref={cardRef}
+            className="relative w-full max-w-[300px] h-[350px]"
+            onTouchStart={(e) => handleDragStart(e.touches[0].clientX)}
+            onTouchMove={(e) => handleDragMove(e.touches[0].clientX)}
+            onTouchEnd={handleDragEnd}
+            onMouseDown={(e) => handleDragStart(e.clientX)}
+            onMouseMove={(e) => handleDragMove(e.clientX)}
+            onMouseUp={handleDragEnd}
+            onMouseLeave={handleDragEnd}
+          >
+            {/* Stack of cards behind */}
+            {participants.map((_, i) => {
+              const distanceFromCurrent = i - currentCard;
+              if (distanceFromCurrent < 0 || distanceFromCurrent > 3) return null;
+              
+              return (
+                <div
+                  key={i}
+                  className="absolute inset-0 bg-[#FFFEF5] border border-foreground/20 p-6 shadow-lg"
+                  style={{
+                    transform: `rotate(${getCardRotation(i)}deg) translateY(${distanceFromCurrent * 4}px)`,
+                    zIndex: participants.length - distanceFromCurrent,
+                    opacity: distanceFromCurrent === 0 ? 1 : 0.7 - distanceFromCurrent * 0.2,
+                  }}
+                />
+              );
+            })}
+            
+            {/* Active card */}
+            <div
+              className="absolute inset-0 bg-[#FFFEF5] border border-foreground/20 p-6 shadow-xl transition-transform duration-200 cursor-grab active:cursor-grabbing"
+              style={{
+                transform: `rotate(${isDragging ? 0 : getCardRotation(currentCard)}deg) translateX(${offsetX}px)`,
+                zIndex: 100,
+                backgroundColor: cardPositions[currentCard]?.hoverColor || '#FFFEF5',
+                color: 'white',
+              }}
+            >
+              <h3 className="text-xl font-bold mb-3">{participants[currentCard].name}</h3>
+              <p className="text-sm opacity-80 mb-4 leading-relaxed">{participants[currentCard].description}</p>
+              <p className="text-sm italic leading-relaxed opacity-90">{participants[currentCard].insight}</p>
+            </div>
+          </div>
+          
+          {/* Card counter */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 font-mono text-xs text-muted-foreground">
+            {currentCard + 1} / {participants.length}
+          </div>
+        </div>
+
+        {/* Desktop scattered gallery */}
+        <div className="hidden md:block relative h-[1100px]">
           {participants.map((person, i) => (
             <div 
               key={i}
-              className="absolute w-[85%] md:w-[30%] bg-[#FFFEF5] border border-foreground/20 p-6 shadow-lg cursor-pointer transition-all duration-300 group"
+              className="absolute w-[30%] bg-[#FFFEF5] border border-foreground/20 p-6 shadow-lg cursor-pointer transition-all duration-300 group"
               style={{ 
                 transform: `rotate(${cardPositions[i].rotate}deg)`,
                 top: cardPositions[i].top,

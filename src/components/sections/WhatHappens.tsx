@@ -58,18 +58,49 @@ const WhatHappens = () => {
         </div>
       </div>
 
-      {/* Photo Grid - Full width scattered polaroid style */}
-      <div ref={galleryRef} className="relative h-[380px] md:h-[450px] max-w-6xl mx-auto">
+      {/* Photo Grid - Mobile: horizontal scroll, Desktop: scattered */}
+      {/* Mobile horizontal scroll */}
+      <div className="md:hidden overflow-x-auto pb-4 -mx-6 px-6">
+        <div className="flex gap-4" style={{ width: 'max-content' }}>
+          {[
+            { img: campWorkshop, caption: "вдохновляемся" },
+            { img: campHug, caption: "обнимаемся" },
+            { img: campHandsUp, caption: "включаемся" },
+            { img: campAtmosphere, caption: "замечаем друг-друга" },
+            { img: campConnection, caption: "общаемся" },
+            { img: campEnergy, caption: "двигаемся" },
+            { img: campConversation, caption: "восхищаемся" },
+            { img: campTalk, caption: "знакомимся" },
+            { img: campSocializing, caption: "дружим" },
+          ].map((item, i) => (
+            <div key={i} className="w-32 flex-shrink-0 bg-white p-2 shadow-lg">
+              <div className="aspect-square overflow-hidden">
+                <img 
+                  src={item.img} 
+                  alt={item.caption} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="h-5 flex items-center justify-center">
+                <span className="text-[8px] text-gray-600 font-mono">{item.caption}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Desktop scattered gallery */}
+      <div ref={galleryRef} className="hidden md:block relative h-[450px] max-w-6xl mx-auto">
         {[
-          { img: campWorkshop, rotate: -6, top: "0%", left: "2%", size: "w-32 md:w-44", z: 1, caption: "вдохновляемся" },
-          { img: campHug, rotate: 4, top: "5%", left: "18%", size: "w-36 md:w-48", z: 3, caption: "обнимаемся" },
-          { img: campHandsUp, rotate: -3, top: "0%", left: "38%", size: "w-40 md:w-52", z: 2, caption: "включаемся" },
-          { img: campAtmosphere, rotate: 8, top: "3%", left: "58%", size: "w-32 md:w-40", z: 1, caption: "замечаем друг-друга" },
-          { img: campConnection, rotate: -4, top: "8%", left: "78%", size: "w-28 md:w-36", z: 2, caption: "общаемся" },
-          { img: campEnergy, rotate: 7, top: "32%", left: "0%", size: "w-34 md:w-44", z: 4, caption: "двигаемся" },
-          { img: campConversation, rotate: -5, top: "28%", left: "20%", size: "w-36 md:w-46", z: 5, caption: "восхищаемся" },
-          { img: campTalk, rotate: 2, top: "35%", left: "42%", size: "w-32 md:w-40", z: 3, caption: "знакомимся" },
-          { img: campSocializing, rotate: -8, top: "30%", left: "65%", size: "w-36 md:w-44", z: 4, caption: "дружим" },
+          { img: campWorkshop, rotate: -6, top: "0%", left: "2%", size: "w-44", z: 1, caption: "вдохновляемся" },
+          { img: campHug, rotate: 4, top: "5%", left: "18%", size: "w-48", z: 3, caption: "обнимаемся" },
+          { img: campHandsUp, rotate: -3, top: "0%", left: "38%", size: "w-52", z: 2, caption: "включаемся" },
+          { img: campAtmosphere, rotate: 8, top: "3%", left: "58%", size: "w-40", z: 1, caption: "замечаем друг-друга" },
+          { img: campConnection, rotate: -4, top: "8%", left: "78%", size: "w-36", z: 2, caption: "общаемся" },
+          { img: campEnergy, rotate: 7, top: "32%", left: "0%", size: "w-44", z: 4, caption: "двигаемся" },
+          { img: campConversation, rotate: -5, top: "28%", left: "20%", size: "w-46", z: 5, caption: "восхищаемся" },
+          { img: campTalk, rotate: 2, top: "35%", left: "42%", size: "w-40", z: 3, caption: "знакомимся" },
+          { img: campSocializing, rotate: -8, top: "30%", left: "65%", size: "w-44", z: 4, caption: "дружим" },
         ].map((item, i) => {
           const isVisible = visiblePhotos.includes(i);
           return (
@@ -99,8 +130,8 @@ const WhatHappens = () => {
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
               </div>
-              <div className="h-5 md:h-6 flex items-center justify-center">
-                <span className="text-[8px] md:text-[10px] text-gray-600 font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+              <div className="h-6 flex items-center justify-center">
+                <span className="text-[10px] text-gray-600 font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                   {item.caption}
                 </span>
               </div>
@@ -202,7 +233,7 @@ const WhatHappens = () => {
           </div>
         </div>
 
-        {/* Formats - scattered cards gallery */}
+        {/* Formats - mobile carousel, desktop scattered */}
         <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8 overflow-hidden">
           {/* Pink skewed background */}
           <div 
@@ -213,13 +244,42 @@ const WhatHappens = () => {
           <div className="text-foreground">
             <h3 className="font-mono text-sm uppercase tracking-[0.2em] mb-8">Наши форматы:</h3>
             
-            {/* Scattered cards */}
-            <div className="relative h-[550px] md:h-[500px]">
+            {/* Mobile horizontal scroll */}
+            <div className="md:hidden overflow-x-auto -mx-6 px-6 pb-4">
+              <div className="flex gap-4" style={{ width: 'max-content' }}>
+                {[
+                  { name: "Google game", desc: "я буду называть тебе запрос, как в Google, про тебя. Например «ты и детские страхи», или «ты и закатное небо», а ты рассказываешь, столько сколько хочешь.", img: campConversation },
+                  { name: "Я не знаю про тебя…", desc: "я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека", img: campSocializing },
+                  { name: "Круги Котова", desc: "это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми", img: campWorkshop },
+                  { name: "Fuck-up night", desc: "тут просто все по очереди рассказывают о ситуации, когда они облажались", img: campTalk },
+                ].map((card, i) => (
+                  <div 
+                    key={i}
+                    className="w-[260px] flex-shrink-0 bg-background text-foreground shadow-xl"
+                  >
+                    <div className="h-24 overflow-hidden">
+                      <img 
+                        src={card.img} 
+                        alt={card.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Desktop scattered cards */}
+            <div className="hidden md:block relative h-[500px]">
               {[
-                { name: "Google game", desc: "я буду называть тебе запрос, как в Google, про тебя. Например «ты и детские страхи», или «ты и закатное небо», а ты рассказываешь, столько сколько хочешь.", rotate: -4, top: "0%", left: "0%", width: "w-64 md:w-72", img: campConversation },
-                { name: "Я не знаю про тебя…", desc: "я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека", rotate: 3, top: "5%", left: "45%", width: "w-60 md:w-80", img: campSocializing },
-                { name: "Круги Котова", desc: "это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми", rotate: -2, top: "48%", left: "5%", width: "w-56 md:w-64", img: campWorkshop },
-                { name: "Fuck-up night", desc: "тут просто все по очереди рассказывают о ситуации, когда они облажались", rotate: 5, top: "58%", left: "50%", width: "w-52 md:w-60", img: campTalk },
+                { name: "Google game", desc: "я буду называть тебе запрос, как в Google, про тебя. Например «ты и детские страхи», или «ты и закатное небо», а ты рассказываешь, столько сколько хочешь.", rotate: -4, top: "0%", left: "0%", width: "w-72", img: campConversation },
+                { name: "Я не знаю про тебя…", desc: "я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека", rotate: 3, top: "5%", left: "45%", width: "w-80", img: campSocializing },
+                { name: "Круги Котова", desc: "это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми", rotate: -2, top: "48%", left: "5%", width: "w-64", img: campWorkshop },
+                { name: "Fuck-up night", desc: "тут просто все по очереди рассказывают о ситуации, когда они облажались", rotate: 5, top: "58%", left: "50%", width: "w-60", img: campTalk },
               ].map((card, i) => (
                 <div 
                   key={i}
