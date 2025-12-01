@@ -35,11 +35,11 @@ const WorthIt = () => {
         {/* Money */}
         <div className="space-y-6">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Про деньги:</h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 items-baseline">
             <div>
               <p className="text-2xl font-bold mb-3">800 евро</p>
               <p className="text-muted-foreground text-sm">
-                это реально дорого. Можно купить курс, съездить в отпуск или просто отложить. 
+                <span className="underline decoration-highlight decoration-2 underline-offset-4">это реально дорого</span>. Можно купить курс, съездить в отпуск или просто отложить. 
                 Мы знаем, что цена отсекает людей с интересными историями, но без денег. 
                 Кэмп делается без прибыли, и мы не знаем, как его сделать дешевле.
               </p>
@@ -47,7 +47,7 @@ const WorthIt = () => {
             <div className="bg-highlight/10 p-6">
               <p className="text-2xl font-bold mb-3">800 евро</p>
               <p className="text-sm">
-                это капец как дешево. Почти в три раза дешевле аналогичных коммерческих мероприятий, 
+                <span className="underline decoration-highlight decoration-2 underline-offset-4">это капец как дешево</span>. Почти в три раза дешевле аналогичных коммерческих мероприятий, 
                 потому что организаторы работают бесплатно. И вы получите офигеть как много за эти деньги.
               </p>
             </div>
