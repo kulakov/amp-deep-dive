@@ -89,10 +89,10 @@ const HowToJoin = () => {
           </div>
         </div>
 
-        {/* Stress warning */}
-        <div className="border-l-2 border-destructive pl-6 space-y-3">
+        {/* Stress warning - code block style */}
+        <div className="bg-muted p-6 font-mono text-sm space-y-3">
           <h4 className="font-bold">Про стресс интервью</h4>
-          <div className="space-y-2 text-muted-foreground text-sm">
+          <div className="space-y-2 text-muted-foreground">
             <p>
               Да, это волнительно. Мы стараемся создать безопасную атмосферу, но час — это мало, чтобы понять человека.
             </p>
