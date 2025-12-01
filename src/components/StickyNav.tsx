@@ -5,9 +5,9 @@ const sections = [
   { id: "not-conference", label: "Не конференция" },
   { id: "safety", label: "Безопасность" },
   { id: "participants", label: "Кто приезжает" },
-  { id: "how-to-join", label: "Как попасть" },
   { id: "worth-it", label: "Стоит ли" },
   { id: "community", label: "Сообщество" },
+  { id: "how-to-join", label: "Как попасть" },
   { id: "faq", label: "FAQ" },
 ];
 
