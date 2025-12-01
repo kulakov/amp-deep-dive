@@ -134,11 +134,11 @@ const WorthIt = () => {
                     e.currentTarget.style.zIndex = String(i + 1);
                   }}
                 >
-                  <div className="h-24 overflow-hidden bg-white flex items-center justify-center">
+                  <div className="h-28 overflow-hidden bg-white">
                     <img 
                       src={benefit.img} 
                       alt={benefit.title}
-                      className="h-full w-auto object-contain"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="p-4">
