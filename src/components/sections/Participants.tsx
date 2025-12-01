@@ -63,12 +63,12 @@ const Participants = () => {
     { rotate: -3, top: "0%", left: "0%", hoverColor: "#FF6B6B" },
     { rotate: 2, top: "2%", left: "35%", hoverColor: "#4ECDC4" },
     { rotate: -2, top: "0%", left: "68%", hoverColor: "#FFE66D" },
-    { rotate: 3, top: "34%", left: "5%", hoverColor: "#95E1D3" },
-    { rotate: -4, top: "36%", left: "38%", hoverColor: "#F38181" },
-    { rotate: 2, top: "33%", left: "70%", hoverColor: "#AA96DA" },
-    { rotate: -2, top: "67%", left: "0%", hoverColor: "#FCBAD3" },
-    { rotate: 4, top: "68%", left: "33%", hoverColor: "#A8D8EA" },
-    { rotate: -3, top: "66%", left: "66%", hoverColor: "#FFFFD2" },
+    { rotate: 3, top: "22%", left: "5%", hoverColor: "#95E1D3" },
+    { rotate: -4, top: "24%", left: "38%", hoverColor: "#F38181" },
+    { rotate: 2, top: "21%", left: "70%", hoverColor: "#AA96DA" },
+    { rotate: -2, top: "44%", left: "0%", hoverColor: "#FCBAD3" },
+    { rotate: 4, top: "46%", left: "33%", hoverColor: "#A8D8EA" },
+    { rotate: -3, top: "43%", left: "66%", hoverColor: "#FFFFD2" },
   ];
 
   return (
@@ -85,11 +85,11 @@ const Participants = () => {
         </div>
 
         {/* Participants scattered gallery */}
-        <div className="relative h-[1800px] md:h-[1400px]">
+        <div className="relative h-[1400px] md:h-[900px]">
           {participants.map((person, i) => (
             <div 
               key={i}
-              className="absolute w-[85%] md:w-[30%] bg-background border-2 border-highlight p-6 shadow-lg cursor-pointer transition-all duration-300 group"
+              className="absolute w-[85%] md:w-[30%] bg-background border border-highlight p-6 shadow-lg cursor-pointer transition-all duration-300 group"
               style={{ 
                 transform: `rotate(${cardPositions[i].rotate}deg)`,
                 top: cardPositions[i].top,
