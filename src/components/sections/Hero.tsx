@@ -6,6 +6,7 @@ import heroImage from "@/assets/camp-hands-up.jpg";
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [showScoldMessage, setShowScoldMessage] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,10 @@ const Hero = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleCycleComplete = () => {
+    setShowScoldMessage(true);
+  };
 
   return (
     <section className="min-h-screen relative border-b border-foreground overflow-hidden">
@@ -46,9 +51,15 @@ const Hero = () => {
             </div>
             
             <div className="space-y-4 max-w-2xl mx-auto">
-              <h1 className="text-3xl md:text-5xl font-display font-bold leading-tight text-white">
-                Место, где умные взрослые разрешают себе{" "}<SillyWord>дурачиться</SillyWord>
-              </h1>
+              {showScoldMessage ? (
+                <h1 className="text-3xl md:text-5xl font-display font-bold leading-tight text-highlight animate-silly-shake">
+                  ХВАТИТ БАЛОВАТЬСЯ, ЛИСТАЙ УЖЕ!
+                </h1>
+              ) : (
+                <h1 className="text-3xl md:text-5xl font-display font-bold leading-tight text-white">
+                  Место, где умные взрослые разрешают себе{" "}<SillyWord onCycleComplete={handleCycleComplete}>дурачиться</SillyWord>
+                </h1>
+              )}
               <p className="text-lg md:text-xl text-white/80 font-body">
                 Три дня и 65 человек, с которыми можно искренне говорить о важном
               </p>
