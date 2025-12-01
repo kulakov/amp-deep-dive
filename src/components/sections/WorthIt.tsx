@@ -147,16 +147,15 @@ const WorthIt = () => {
       </div>
 
       {/* How to join - CTA with photos */}
-      <div className="relative -mx-6 md:mx-0 overflow-hidden">
+      <div className="relative -mx-6 md:mx-0 overflow-hidden bg-highlight">
         {/* Photo collage background */}
-        <div className="absolute inset-0 grid grid-cols-3 -z-10">
+        <div className="absolute inset-0 grid grid-cols-3 opacity-20">
           <img src={campHandsUp} alt="" className="w-full h-full object-cover" />
           <img src={campHug} alt="" className="w-full h-full object-cover" />
           <img src={campConnection} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-highlight/90" />
         </div>
         
-        <div className="max-w-3xl mx-auto px-6 py-16 md:py-24 text-highlight-foreground space-y-8">
+        <div className="relative max-w-3xl mx-auto px-6 py-16 md:py-24 text-highlight-foreground space-y-8">
           <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight">
             Как попасть
           </h2>
