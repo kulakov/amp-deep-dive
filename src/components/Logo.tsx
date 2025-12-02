@@ -8,8 +8,8 @@ const colorHexValues: Record<string, string> = {
   green: "#9ACD32",
   orange: "#F97316",
   fuchsia: "#BE185D",
-  purple: "#8B5CF6",
-  cobalt: "#0066FF",
+  purple: "#A78BFA",
+  cobalt: "#60A5FA",
 };
 
 const Logo = ({ className }: LogoProps) => {
