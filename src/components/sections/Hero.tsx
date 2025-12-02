@@ -1,5 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import Logo from "@/components/Logo";
+import ColorWord from "@/components/ColorWord";
 import heroImage from "@/assets/camp-hands-up.jpg";
 
 const Hero = () => {
@@ -28,7 +29,11 @@ const Hero = () => {
             
             <div className="space-y-4 max-w-2xl mx-auto">
               <h1 className="text-3xl md:text-5xl font-display font-bold leading-tight text-white">
-                Место, где умные взрослые разрешают себе дурачиться
+                <ColorWord color="green">Место</ColorWord>, где{" "}
+                <ColorWord color="orange">умные взрослые</ColorWord>{" "}
+                <ColorWord color="fuchsia">разрешают</ColorWord>{" "}
+                <ColorWord color="purple">себе</ColorWord>{" "}
+                <ColorWord color="cobalt">дурачиться</ColorWord>
               </h1>
               <p className="text-lg md:text-xl text-white/80 font-body">
                 Три дня и 65 человек, с которыми можно искренне говорить о важном
