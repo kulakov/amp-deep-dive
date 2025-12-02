@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { MoreVertical } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const sections = [
@@ -66,7 +66,7 @@ const StickyNav = () => {
                 isSticky ? "text-highlight" : "text-white"
               }`}
             >
-              <Menu className="h-6 w-6" />
+              <MoreVertical className="h-6 w-6" />
             </button>
           </SheetTrigger>
           <SheetContent side="right" className="w-64 bg-background">
