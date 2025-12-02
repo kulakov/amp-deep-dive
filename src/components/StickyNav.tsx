@@ -52,7 +52,7 @@ const StickyNav = () => {
   };
 
   return (
-    <div ref={placeholderRef} className={isSticky ? "h-12" : "h-0"}>
+    <div ref={placeholderRef} className="h-12">
       <nav
         ref={navRef}
         className={`w-full z-50 transition-all duration-200 ${
