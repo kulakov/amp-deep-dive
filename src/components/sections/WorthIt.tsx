@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import doodleFriends from "@/assets/doodle-friends-new.png";
 import doodleBook from "@/assets/doodle-book-new.png";
 import doodleHouse from "@/assets/doodle-house-new.png";
@@ -5,6 +6,25 @@ import doodleChat from "@/assets/doodle-chat-new.png";
 import doodleHeart from "@/assets/doodle-heart-new.png";
 
 const WorthIt = () => {
+  const [checkVisible, setCheckVisible] = useState(false);
+  const howToJoinRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setTimeout(() => setCheckVisible(true), 500);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (howToJoinRef.current) {
+      observer.observe(howToJoinRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   const benefits = [
     {
       title: "Друзей",
@@ -168,7 +188,7 @@ const WorthIt = () => {
       </div>
 
       {/* How to join - CTA */}
-      <div className="relative -mx-6 md:-mx-12 my-8 overflow-hidden">
+      <div ref={howToJoinRef} className="relative -mx-6 md:-mx-12 my-8 overflow-hidden">
         {/* Skewed background */}
         <div className="absolute inset-0 bg-highlight/10" style={{
           transform: 'skewY(2deg) scale(1.1)'
@@ -181,7 +201,7 @@ const WorthIt = () => {
             <div className="space-y-6">
               {[
                 {
-                  title: <>Найти номинатора. <span className="text-highlight">✓</span></>,
+                  title: <>Найти номинатора. <span className={`text-highlight inline-block transition-all duration-500 ${checkVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}>✓</span></>,
                   desc: <>Если вы это читаете — <span className="underline decoration-highlight decoration-2 underline-offset-4">у вас уже есть такой друг.</span></>
                 },
                 {
