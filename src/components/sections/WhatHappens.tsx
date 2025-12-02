@@ -157,31 +157,23 @@ const WhatHappens = () => {
 
         {/* Not a conference - highlighted block */}
         <div id="not-conference" className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-16 my-8">
-          {/* Skewed container with photo and overlay */}
+          {/* Skewed container with pale background */}
           <div 
-            className="absolute inset-0 -z-10 overflow-hidden"
+            className="absolute inset-0 -z-10 overflow-hidden bg-highlight/10"
             style={{ transform: 'skewY(-2deg)' }}
-          >
-            <img 
-              src={campConferenceBg} 
-              alt="" 
-              className="w-full h-full object-cover"
-              style={{ transform: 'skewY(2deg) scale(1.1)' }}
-            />
-            <div className="absolute inset-0 bg-highlight/[0.97]" />
-          </div>
+          />
           
-          <div className="space-y-12 text-white">
+          <div className="space-y-12">
             <div className="space-y-4">
               <p className="text-xl font-display italic">Мы НЕ конференция</p>
-              <p className="text-white/70">и у нас аллергия на банальность и неряшливое мышление.</p>
+              <p className="text-muted-foreground">и у нас аллергия на банальность и неряшливое мышление.</p>
             </div>
 
             {/* Comparison */}
             <div className="grid grid-cols-2 gap-8 text-sm">
               <div>
-                <p className="font-mono text-xs uppercase tracking-wider text-white/50 mb-4">Другие ивенты</p>
-                <div className="space-y-2 text-white/60">
+                <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Другие ивенты</p>
+                <div className="space-y-2 text-muted-foreground">
                   <p>Рассказываешь о достижениях</p>
                   <p>Произвести впечатление</p>
                   <p>Показываешь, какой ты крутой</p>
@@ -190,7 +182,7 @@ const WhatHappens = () => {
                 </div>
               </div>
               <div>
-                <p className="font-mono text-xs uppercase tracking-wider mb-4">AmpCamp</p>
+                <p className="font-mono text-xs uppercase tracking-wider text-highlight mb-4">AmpCamp</p>
                 <div className="space-y-2 font-medium">
                   <p>Признаешься в сомнениях</p>
                   <p>Снимаешь маску</p>
