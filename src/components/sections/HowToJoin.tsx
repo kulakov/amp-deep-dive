@@ -1,7 +1,6 @@
-import { Check } from "lucide-react";
 const HowToJoin = () => {
   const steps = [{
-    title: <>Номинация <Check className="inline-block w-4 h-4 text-highlight" /></>,
+    title: <>Номинация <span className="text-highlight">✓</span></>,
     description: <>Кто-то из участников вас номинирует. Мы не рекламируем кэмп, поэтому, <span className="underline decoration-highlight decoration-2 underline-offset-4">если вы это читаете, вас кто-то номинировал.</span></>
   }, {
     title: "Интервью",
