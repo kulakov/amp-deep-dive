@@ -10,11 +10,11 @@ interface ThemeColorContextType {
 const ThemeColorContext = createContext<ThemeColorContextType | undefined>(undefined);
 
 const colorValues: Record<ColorTheme, { highlight: string; highlightForeground: string }> = {
-  green: { highlight: "80 61% 50%", highlightForeground: "0 0% 100%" },
-  orange: { highlight: "25 95% 53%", highlightForeground: "0 0% 100%" },
+  green: { highlight: "120 100% 50%", highlightForeground: "0 0% 100%" },
+  orange: { highlight: "30 100% 50%", highlightForeground: "0 0% 100%" },
   fuchsia: { highlight: "300 100% 50%", highlightForeground: "0 0% 100%" },
-  purple: { highlight: "271 81% 66%", highlightForeground: "0 0% 100%" },
-  cobalt: { highlight: "215 100% 65%", highlightForeground: "0 0% 100%" },
+  purple: { highlight: "270 100% 60%", highlightForeground: "0 0% 100%" },
+  cobalt: { highlight: "210 100% 55%", highlightForeground: "0 0% 100%" },
 };
 
 export const ThemeColorProvider = ({ children }: { children: ReactNode }) => {
