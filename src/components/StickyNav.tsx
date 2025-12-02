@@ -93,7 +93,7 @@ const StickyNav = () => {
       <div ref={placeholderRef} className="h-12 hidden md:block">
         <nav
           ref={navRef}
-          className={`w-full z-50 transition-all duration-200 ${
+          className={`w-full z-[100] transition-all duration-200 ${
             isSticky 
               ? "fixed top-0 left-0 bg-background/95 backdrop-blur-sm border-b border-foreground/10" 
               : "absolute"
