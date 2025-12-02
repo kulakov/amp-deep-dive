@@ -1,23 +1,16 @@
 import { Check } from "lucide-react";
-
 const HowToJoin = () => {
-  const steps = [
-    {
-      title: <>Номинация <Check className="inline-block w-4 h-4 text-highlight" /></>,
-      description: <>Кто-то из участников вас номинирует. Мы не рекламируем кэмп, поэтому, <span className="underline decoration-highlight decoration-2 underline-offset-4">если вы это читаете, наверное вас кто-то номинировал.</span></>
-    },
-    {
-      title: "Интервью",
-      description: "Мы пытаемся почувствовать, каким вы будете на кэмпе и что интересного вы с собой принесете. А вы пытаетесь понять не секта ли мы."
-    },
-    {
-      title: "Решение",
-      description: "мучаемся и спорим неделю, прежде чем решить. Отбор это не формальность, тот кто вас номинировал не может повлиять на решение."
-    }
-  ];
-
-  return (
-    <section className="pt-2 pb-24 px-6 bg-background">
+  const steps = [{
+    title: <>Номинация <Check className="inline-block w-4 h-4 text-highlight" /></>,
+    description: <>Кто-то из участников вас номинирует. Мы не рекламируем кэмп, поэтому, <span className="underline decoration-highlight decoration-2 underline-offset-4">если вы это читаете, вас кто-то номинировал.</span></>
+  }, {
+    title: "Интервью",
+    description: "Мы пытаемся почувствовать, каким вы будете на кэмпе и что интересного вы с собой принесете. А вы пытаетесь понять не секта ли мы."
+  }, {
+    title: "Решение",
+    description: "мучаемся и спорим неделю, прежде чем решить. Отбор это не формальность, тот кто вас номинировал не может повлиять на решение."
+  }];
+  return <section className="pt-2 pb-24 px-6 bg-background">
       <div className="max-w-3xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-6">
@@ -36,15 +29,13 @@ const HowToJoin = () => {
         <div className="space-y-8">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Как проходит отбор:</h3>
           <div className="space-y-6">
-            {steps.map((step, index) => (
-              <div key={index} className="flex gap-6">
+            {steps.map((step, index) => <div key={index} className="flex gap-6">
                 <span className="font-mono text-2xl font-bold text-highlight">{index + 1}</span>
                 <div>
                   <h4 className="font-bold mb-1">{step.title}</h4>
                   <p className="text-muted-foreground">{step.description}</p>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
@@ -70,10 +61,9 @@ const HowToJoin = () => {
         {/* What happens on interview - highlighted block */}
         <div className="relative -mx-6 md:-mx-12 my-8 overflow-hidden">
           {/* Skewed background */}
-          <div 
-            className="absolute inset-0 bg-highlight/10"
-            style={{ transform: 'skewY(2deg) scale(1.1)' }}
-          />
+          <div className="absolute inset-0 bg-highlight/10" style={{
+          transform: 'skewY(2deg) scale(1.1)'
+        }} />
           
           <div className="relative z-10 px-6 md:px-12 py-16 space-y-12 text-foreground">
             {/* What happens */}
@@ -104,34 +94,25 @@ const HowToJoin = () => {
 
             {/* Stories as diary cards */}
             <div className="grid md:grid-cols-2 gap-8 pt-4">
-              {[
-                {
-                  name: "История Макса",
-                  text: "Макс, дата-аналитик: «Когда получил приглашение, загуглил всех участников. У них TED talks, стартапы, книги. А я делаю отчеты в компании, о которой никто не слышал. Три дня думал, как вежливо отказаться.\nНа кэмпе основатель известного стартапа сказал: 'Я думал, ты какой-то гуру данных, а ты обычный парень'.",
-                  conclusion: "Оказалось: чем успешнее человек выглядит снаружи, тем больше он уверен, что все вокруг умнее.»",
-                  rotate: -2
-                },
-                {
-                  name: "История Жени",
-                  text: "Женя, программистка: «Прячусь за работой, потому что не знаю, как быть интересной людям просто как человек. На корпоративах читаю техдокументацию в туалете. Первый день кэмпа делала вид, что у меня срочная задача.\nПодошел парень: 'Go пишешь? Что думаешь про новые генерики?' Час говорили про код, потом про книги, потом — почему нам обоим сложно с людьми.",
-                  conclusion: "Поняла: можно быть интересной, не умея рассказывать анекдоты.»",
-                  rotate: 2
-                }
-              ].map((story, index) => (
-                <div 
-                  key={index}
-                  className="relative bg-[#FFFEF5] p-8 shadow-lg"
-                  style={{
-                    transform: `rotate(${story.rotate}deg)`,
-                    backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #E8E4D9 28px)',
-                    backgroundPosition: '0 40px',
-                  }}
-                >
+              {[{
+              name: "История Макса",
+              text: "Макс, дата-аналитик: «Когда получил приглашение, загуглил всех участников. У них TED talks, стартапы, книги. А я делаю отчеты в компании, о которой никто не слышал. Три дня думал, как вежливо отказаться.\nНа кэмпе основатель известного стартапа сказал: 'Я думал, ты какой-то гуру данных, а ты обычный парень'.",
+              conclusion: "Оказалось: чем успешнее человек выглядит снаружи, тем больше он уверен, что все вокруг умнее.»",
+              rotate: -2
+            }, {
+              name: "История Жени",
+              text: "Женя, программистка: «Прячусь за работой, потому что не знаю, как быть интересной людям просто как человек. На корпоративах читаю техдокументацию в туалете. Первый день кэмпа делала вид, что у меня срочная задача.\nПодошел парень: 'Go пишешь? Что думаешь про новые генерики?' Час говорили про код, потом про книги, потом — почему нам обоим сложно с людьми.",
+              conclusion: "Поняла: можно быть интересной, не умея рассказывать анекдоты.»",
+              rotate: 2
+            }].map((story, index) => <div key={index} className="relative bg-[#FFFEF5] p-8 shadow-lg" style={{
+              transform: `rotate(${story.rotate}deg)`,
+              backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #E8E4D9 28px)',
+              backgroundPosition: '0 40px'
+            }}>
                   {/* Red margin line */}
-                  <div 
-                    className="absolute top-0 bottom-0 w-px bg-red-300/60"
-                    style={{ left: '32px' }}
-                  />
+                  <div className="absolute top-0 bottom-0 w-px bg-red-300/60" style={{
+                left: '32px'
+              }} />
                   
                   {/* Paper holes */}
                   <div className="absolute left-3 top-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
@@ -146,8 +127,7 @@ const HowToJoin = () => {
                       {story.text} <span className="underline decoration-highlight decoration-2 underline-offset-4">{story.conclusion}</span>
                     </p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -170,8 +150,6 @@ const HowToJoin = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HowToJoin;
