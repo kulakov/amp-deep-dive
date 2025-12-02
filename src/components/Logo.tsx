@@ -1,8 +1,21 @@
+import { useThemeColor } from "@/contexts/ThemeColorContext";
+
 interface LogoProps {
   className?: string;
 }
 
+const colorHexValues: Record<string, string> = {
+  green: "#9ACD32",
+  orange: "#F97316",
+  fuchsia: "#BE185D",
+  purple: "#8B5CF6",
+  cobalt: "#0066FF",
+};
+
 const Logo = ({ className }: LogoProps) => {
+  const { currentColor } = useThemeColor();
+  const flagColor = colorHexValues[currentColor];
+
   return (
     <svg 
       viewBox="0 0 1256 502" 
@@ -11,11 +24,11 @@ const Logo = ({ className }: LogoProps) => {
       className={className}
     >
       <defs>
-      {/* Base gradient - lime fading to transparent at bottom */}
+      {/* Base gradient - color fading to transparent at bottom */}
         <linearGradient id="paint_base" x1="451.387" y1="339" x2="451.387" y2="480" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#9ACD32"/>
-          <stop offset="0.5" stopColor="#9ACD32" stopOpacity="0.5"/>
-          <stop offset="1" stopColor="#9ACD32" stopOpacity="0"/>
+          <stop stopColor={flagColor}/>
+          <stop offset="0.5" stopColor={flagColor} stopOpacity="0.5"/>
+          <stop offset="1" stopColor={flagColor} stopOpacity="0"/>
         </linearGradient>
         
         {/* Wave highlight gradient */}
