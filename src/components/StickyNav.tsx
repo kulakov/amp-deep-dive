@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { Menu, X } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const sections = [
   { id: "what-happens", label: "Что происходит" },
@@ -14,6 +16,7 @@ const sections = [
 const StickyNav = () => {
   const [activeSection, setActiveSection] = useState("");
   const [isSticky, setIsSticky] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const placeholderRef = useRef<HTMLDivElement>(null);
 
@@ -48,6 +51,7 @@ const StickyNav = () => {
       const offset = 60;
       const top = element.offsetTop - offset;
       window.scrollTo({ top, behavior: "smooth" });
+      setIsOpen(false);
     }
   };
 
@@ -62,7 +66,8 @@ const StickyNav = () => {
         }`}
       >
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex justify-center gap-1 overflow-x-auto py-3 scrollbar-hide">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex justify-center gap-1 py-3">
             {sections.map((section) => (
               <button
                 key={section.id}
@@ -78,6 +83,40 @@ const StickyNav = () => {
                 {section.label}
               </button>
             ))}
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="flex md:hidden justify-end py-2">
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <button 
+                  className={`p-2 transition-colors ${
+                    isSticky 
+                      ? "text-foreground hover:bg-muted" 
+                      : "text-white hover:bg-white/10"
+                  }`}
+                >
+                  <Menu className="h-6 w-6" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-64 bg-background">
+                <nav className="flex flex-col gap-2 mt-8">
+                  {sections.map((section) => (
+                    <button
+                      key={section.id}
+                      onClick={() => scrollToSection(section.id)}
+                      className={`px-4 py-3 text-left text-sm font-mono uppercase tracking-wider transition-colors ${
+                        activeSection === section.id
+                          ? "bg-highlight text-highlight-foreground"
+                          : "text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {section.label}
+                    </button>
+                  ))}
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </nav>
