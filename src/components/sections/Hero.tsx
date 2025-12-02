@@ -8,7 +8,7 @@ const Hero = () => {
   const { hasSelected } = useThemeColor();
   
   return (
-    <section className="min-h-screen relative border-b border-foreground">
+    <section className="min-h-screen relative">
       {/* Hero Image - Fixed Background */}
       <div className="fixed inset-0 -z-10">
         <img 
