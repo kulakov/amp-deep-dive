@@ -58,7 +58,7 @@ const StickyNav = () => {
   return (
     <>
       {/* Fixed Mobile Burger */}
-      <div className="fixed top-4 right-4 z-50 md:hidden">
+      <div className="fixed top-2 right-2 z-50 md:hidden">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <button 
