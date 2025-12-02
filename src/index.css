@@ -28,8 +28,8 @@
     --accent: 54 100% 50%;
     --accent-foreground: 0 0% 0%;
 
-    /* Lime accent for highlights */
-    --highlight: 80 61% 50%;
+    /* Default black highlight */
+    --highlight: 0 0% 0%;
     --highlight-foreground: 0 0% 100%;
 
     /* Callout - pale lime */
