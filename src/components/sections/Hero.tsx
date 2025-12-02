@@ -3,23 +3,16 @@ import Logo from "@/components/Logo";
 import ColorWord from "@/components/ColorWord";
 import { useThemeColor } from "@/contexts/ThemeColorContext";
 import heroImage from "@/assets/camp-hands-up.jpg";
-
 const Hero = () => {
-  const { hasSelected } = useThemeColor();
-  
-  return (
-    <section className="min-h-screen relative">
+  const {
+    hasSelected
+  } = useThemeColor();
+  return <section className="min-h-screen relative">
       {/* Hero Image - Fixed Background */}
       <div className="fixed inset-0 -z-10">
-        <img 
-          src={heroImage} 
-          alt="AMP Camp атмосфера" 
-          className="w-full h-full object-cover"
-        />
+        <img src={heroImage} alt="AMP Camp атмосфера" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50" />
-        <div 
-          className={`absolute inset-0 bg-highlight mix-blend-color transition-opacity duration-500 ${hasSelected ? 'opacity-30' : 'opacity-0'}`} 
-        />
+        <div className={`absolute inset-0 bg-highlight mix-blend-color transition-opacity duration-500 ${hasSelected ? 'opacity-30' : 'opacity-0'}`} />
       </div>
 
       {/* Content */}
@@ -27,9 +20,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <div className="space-y-8">
             <div className="space-y-6">
-              <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
-                Кемп для взрослых
-              </span>
+              <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">КЕМП ДЛЯ РАЗНЫХ ВЗРОСЛЫХ</span>
               <Logo className="w-full max-w-xl mx-auto h-auto text-white" />
             </div>
             
@@ -47,17 +38,15 @@ const Hero = () => {
             </div>
           </div>
 
-          <button 
-            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-highlight text-highlight-foreground font-mono text-sm uppercase tracking-wider hover:bg-highlight/80 transition-colors"
-          >
+          <button onClick={() => window.scrollTo({
+          top: window.innerHeight,
+          behavior: 'smooth'
+        })} className="group inline-flex items-center gap-3 px-8 py-4 bg-highlight text-highlight-foreground font-mono text-sm uppercase tracking-wider hover:bg-highlight/80 transition-colors">
             Узнать больше
             <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
           </button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
