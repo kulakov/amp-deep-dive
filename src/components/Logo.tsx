@@ -15,7 +15,7 @@ const colorHexValues: Record<string, string> = {
 
 const Logo = ({ className }: LogoProps) => {
   const { currentColor, hasSelected, clearSelection } = useThemeColor();
-  const flagColor = hasSelected ? colorHexValues[currentColor] : "#6BBF2A";
+  const flagColor = hasSelected ? colorHexValues[currentColor] : "transparent";
 
   return (
     <svg 
