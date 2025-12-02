@@ -10,9 +10,9 @@ const SafetyRules = () => {
   ];
 
   const notDoing = [
-    { highlight: "Не заставляем участвовать", rest: " (можно не ходить на любое из мероприятий. можно уходить всегда когда не ок)" },
-    { highlight: "Не продаем методики", rest: " (это не бизнес)" },
-    { highlight: "Не обещаем решить ваши проблемы", rest: " (мы не психологи (почти все), и у нас тоже есть непрочитанные книжки по саморазвитию)" }
+    { highlight: "Не заставляем участвовать", rest: "можно не ходить на любое из мероприятий. можно уходить всегда когда не ок" },
+    { highlight: "Не продаем методики", rest: "это не бизнес" },
+    { highlight: "Не обещаем решить ваши проблемы", rest: "мы не психологи (почти все), и у нас тоже есть непрочитанные книжки по саморазвитию" }
   ];
 
   return (
@@ -63,10 +63,10 @@ const SafetyRules = () => {
             {notDoing.map((item, index) => (
               <div key={index} className="flex items-start gap-3">
                 <span className="text-highlight">—</span>
-                <p className="text-white/80">
+                <div className="text-white/80">
                   <span className="text-highlight font-bold">{item.highlight}</span>
-                  {item.rest}
-                </p>
+                  <p className="mt-1">{item.rest}</p>
+                </div>
               </div>
             ))}
           </div>
