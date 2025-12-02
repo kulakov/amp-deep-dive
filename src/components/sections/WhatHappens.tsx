@@ -170,28 +170,36 @@ const WhatHappens = () => {
             </div>
 
             {/* Comparison */}
-            <div className="grid grid-cols-2 gap-8 text-sm">
-              <div>
-                <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Другие классные ивенты</p>
-                <div className="space-y-2 text-muted-foreground">
-                  <p>Рассказываешь о достижениях</p>
-                  <p>Произвести впечатление</p>
-                  <p>Показываешь, какой ты крутой</p>
-                  <p>Демонстрируешь, чем ты полезен</p>
-                  <p>Нетворкинг для бизнеса</p>
-                </div>
-              </div>
-              <div>
-                <p className="font-mono text-xs uppercase tracking-wider mb-4"><span className="underline decoration-highlight decoration-2 underline-offset-4">AmpCamp</span></p>
-                <div className="space-y-2 font-medium">
-                  <p>Признаешься в сомнениях</p>
-                  <p>Снимаешь маску</p>
-                  <p>Открываешь, кто ты по-настоящему</p>
-                  <p>Кто ты вне работы</p>
-                  <p>Споры про анархизм и темное просвещение</p>
-                </div>
-              </div>
-            </div>
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-foreground/20">
+                  <th className="text-left font-mono text-xs uppercase tracking-wider text-muted-foreground py-3 pr-4">Другие классные ивенты</th>
+                  <th className="text-left font-mono text-xs uppercase tracking-wider py-3"><span className="underline decoration-highlight decoration-2 underline-offset-4">AmpCamp</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-foreground/10">
+                  <td className="text-muted-foreground py-3 pr-4">Рассказываешь о достижениях</td>
+                  <td className="font-medium py-3">Признаешься в сомнениях</td>
+                </tr>
+                <tr className="border-b border-foreground/10">
+                  <td className="text-muted-foreground py-3 pr-4">Произвести впечатление</td>
+                  <td className="font-medium py-3">Снимаешь маску</td>
+                </tr>
+                <tr className="border-b border-foreground/10">
+                  <td className="text-muted-foreground py-3 pr-4">Показываешь, какой ты крутой</td>
+                  <td className="font-medium py-3">Открываешь, кто ты по-настоящему</td>
+                </tr>
+                <tr className="border-b border-foreground/10">
+                  <td className="text-muted-foreground py-3 pr-4">Демонстрируешь, чем ты полезен</td>
+                  <td className="font-medium py-3">Кто ты вне работы</td>
+                </tr>
+                <tr className="border-b border-foreground/10">
+                  <td className="text-muted-foreground py-3 pr-4">Нетворкинг для бизнеса</td>
+                  <td className="font-medium py-3">Споры про анархизм и темное просвещение</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
