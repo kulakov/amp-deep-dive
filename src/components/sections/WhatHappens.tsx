@@ -265,7 +265,7 @@ const WhatHappens = () => {
         <div className="space-y-8">
           <p className="text-xl font-display italic">
             Да, у нас есть программа. В ней много всего очень разного и интересного. 
-            Каждый раз она совершенно другая, у нее нет другой рамки кроме «это будет интересно».
+            Каждый раз она совершенно другая, у нее нет другой рамки кроме «<span className="underline decoration-highlight decoration-2 underline-offset-4">это будет интересно</span>».
           </p>
 
           <div className="space-y-6">
