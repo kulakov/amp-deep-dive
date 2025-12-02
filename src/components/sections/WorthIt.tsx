@@ -104,11 +104,11 @@ const WorthIt = () => {
                   key={i}
                   className="w-[260px] flex-shrink-0 bg-background shadow-xl"
                 >
-                  <div className="h-28 overflow-hidden bg-white">
+                  <div className="aspect-[2/1] overflow-hidden bg-white">
                     <img 
                       src={benefit.img} 
                       alt={benefit.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div className="p-4">
@@ -149,11 +149,11 @@ const WorthIt = () => {
                     e.currentTarget.style.zIndex = String(i + 1);
                   }}
                 >
-                  <div className="h-28 overflow-hidden bg-white">
+                <div className="aspect-[2/1] overflow-hidden bg-white">
                     <img 
                       src={benefit.img} 
                       alt={benefit.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div className="p-4">
