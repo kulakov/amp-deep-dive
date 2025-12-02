@@ -128,7 +128,7 @@ const WorthIt = () => {
                 { top: "5%", left: "38%" },
                 { top: "0%", left: "70%" },
                 { top: "55%", left: "5%" },
-                { top: "50%", left: "55%" },
+                { top: "55%", left: "65%" },
               ];
               return (
                 <div 
