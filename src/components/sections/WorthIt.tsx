@@ -71,7 +71,7 @@ const WorthIt = () => {
           </div>
           <p className="text-sm text-muted-foreground">
             <span className="font-bold">Кстати.</span> Мы не обещаем вам супер-лакшери условий. 
-            Будет комфортно. Будет интересно. Мы будем друг о друге заботиться. Но нет, это не пятизвездочный сервис. 
+            Будет комфортно. Будет интересно. Мы будем друг о друге заботиться. Но нет, это не пятизвездочный сервис.{" "}
             <span className="underline decoration-highlight decoration-2 underline-offset-4">Это вообще не сервис. Это волонтерский лагерь.</span>
           </p>
         </div>
