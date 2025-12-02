@@ -15,8 +15,8 @@ const colorHexValues: Record<string, string> = {
 };
 
 const LogoHorizontal = ({ className }: LogoHorizontalProps) => {
-  const { currentColor, hasSelected, clearSelection } = useThemeColor();
-  const flagColor = hasSelected ? colorHexValues[currentColor] : "transparent";
+  const { currentColor } = useThemeColor();
+  const flagColor = colorHexValues[currentColor];
 
   return (
     <svg 
@@ -24,7 +24,6 @@ const LogoHorizontal = ({ className }: LogoHorizontalProps) => {
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      onMouseEnter={clearSelection}
     >
       <defs>
         {/* Base gradient - color fading to transparent at bottom */}
