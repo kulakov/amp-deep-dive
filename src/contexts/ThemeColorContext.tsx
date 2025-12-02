@@ -10,7 +10,7 @@ interface ThemeColorContextType {
 const ThemeColorContext = createContext<ThemeColorContextType | undefined>(undefined);
 
 const colorValues: Record<ColorTheme, { highlight: string; highlightForeground: string }> = {
-  green: { highlight: "120 100% 50%", highlightForeground: "0 0% 100%" },
+  green: { highlight: "90 80% 45%", highlightForeground: "0 0% 100%" },
   orange: { highlight: "30 100% 50%", highlightForeground: "0 0% 100%" },
   fuchsia: { highlight: "300 100% 50%", highlightForeground: "0 0% 100%" },
   purple: { highlight: "270 100% 60%", highlightForeground: "0 0% 100%" },
