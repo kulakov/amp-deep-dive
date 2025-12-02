@@ -64,7 +64,7 @@ const SafetyRules = () => {
               <div key={index} className="flex items-start gap-3">
                 <span className="text-highlight">—</span>
                 <p className="text-white/80">
-                  <span className="text-highlight">{item.highlight}</span>
+                  <span className="text-highlight font-bold">{item.highlight}</span>
                   {item.rest}
                 </p>
               </div>
