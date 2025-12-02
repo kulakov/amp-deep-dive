@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import doodleFriends from "@/assets/doodle-friends-new.png";
 import doodleBook from "@/assets/doodle-book-new.png";
-import doodleHouse from "@/assets/doodle-house-new.png";
+import doodleHouse from "@/assets/doodle-map.png";
 import doodleChat from "@/assets/doodle-chat-new.png";
 import doodleHeart from "@/assets/doodle-heart-new.png";
 
