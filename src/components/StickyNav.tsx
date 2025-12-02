@@ -56,71 +56,69 @@ const StickyNav = () => {
   };
 
   return (
-    <div ref={placeholderRef} className="h-12">
-      <nav
-        ref={navRef}
-        className={`w-full z-50 transition-all duration-200 ${
-          isSticky 
-            ? "fixed top-0 left-0 bg-background/95 backdrop-blur-sm border-b border-foreground/10" 
-            : "absolute"
-        }`}
-      >
-        <div className="max-w-6xl mx-auto px-4">
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex justify-center gap-1 py-3">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider whitespace-nowrap transition-colors ${
-                  activeSection === section.id
-                    ? "bg-highlight text-highlight-foreground"
-                    : isSticky 
-                      ? "text-muted-foreground hover:text-foreground hover:bg-muted"
-                      : "text-white/70 hover:text-white hover:bg-white/10"
-                }`}
-              >
-                {section.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="flex md:hidden justify-end py-2">
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <button 
-                  className={`p-2 transition-colors ${
-                    isSticky 
-                      ? "text-foreground hover:bg-muted" 
-                      : "text-white hover:bg-white/10"
+    <>
+      {/* Fixed Mobile Burger */}
+      <div className="fixed top-4 right-4 z-50 md:hidden">
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>
+            <button 
+              className="p-2 bg-background/80 backdrop-blur-sm rounded-md border border-foreground/10 text-foreground hover:bg-muted transition-colors"
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-64 bg-background">
+            <nav className="flex flex-col gap-2 mt-8">
+              {sections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => scrollToSection(section.id)}
+                  className={`px-4 py-3 text-left text-sm font-mono uppercase tracking-wider transition-colors ${
+                    activeSection === section.id
+                      ? "bg-highlight text-highlight-foreground"
+                      : "text-foreground hover:bg-muted"
                   }`}
                 >
-                  <Menu className="h-6 w-6" />
+                  {section.label}
                 </button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-64 bg-background">
-                <nav className="flex flex-col gap-2 mt-8">
-                  {sections.map((section) => (
-                    <button
-                      key={section.id}
-                      onClick={() => scrollToSection(section.id)}
-                      className={`px-4 py-3 text-left text-sm font-mono uppercase tracking-wider transition-colors ${
-                        activeSection === section.id
-                          ? "bg-highlight text-highlight-foreground"
-                          : "text-foreground hover:bg-muted"
-                      }`}
-                    >
-                      {section.label}
-                    </button>
-                  ))}
-                </nav>
-              </SheetContent>
-            </Sheet>
+              ))}
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
+
+      {/* Desktop Navigation */}
+      <div ref={placeholderRef} className="h-12 hidden md:block">
+        <nav
+          ref={navRef}
+          className={`w-full z-50 transition-all duration-200 ${
+            isSticky 
+              ? "fixed top-0 left-0 bg-background/95 backdrop-blur-sm border-b border-foreground/10" 
+              : "absolute"
+          }`}
+        >
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="flex justify-center gap-1 py-3">
+              {sections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => scrollToSection(section.id)}
+                  className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider whitespace-nowrap transition-colors ${
+                    activeSection === section.id
+                      ? "bg-highlight text-highlight-foreground"
+                      : isSticky 
+                        ? "text-muted-foreground hover:text-foreground hover:bg-muted"
+                        : "text-white/70 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  {section.label}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-      </nav>
-    </div>
+        </nav>
+      </div>
+    </>
   );
 };
 
