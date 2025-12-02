@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { MoreVertical } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import LogoHorizontal from "@/components/LogoHorizontal";
 
 const sections = [
   { id: "what-happens", label: "Что происходит" },
@@ -100,7 +101,10 @@ const StickyNav = () => {
           }`}
         >
           <div className="max-w-6xl mx-auto px-4">
-            <div className="flex justify-center gap-1 py-3">
+            <div className="flex items-center justify-center gap-1 py-3">
+              {isSticky && (
+                <LogoHorizontal className="h-3 mr-4 text-foreground" />
+              )}
               {sections.map((section) => (
                 <button
                   key={section.id}
