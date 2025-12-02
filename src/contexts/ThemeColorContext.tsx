@@ -6,6 +6,7 @@ interface ThemeColorContextType {
   currentColor: ColorTheme;
   hasSelected: boolean;
   setColor: (color: ColorTheme) => void;
+  clearSelection: () => void;
 }
 
 const ThemeColorContext = createContext<ThemeColorContextType | undefined>(undefined);
@@ -34,6 +35,11 @@ export const ThemeColorProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem("theme-color", color);
   };
 
+  const clearSelection = () => {
+    setHasSelected(false);
+    localStorage.removeItem("theme-color");
+  };
+
   useEffect(() => {
     const root = document.documentElement;
     const colors = colorValues[currentColor];
@@ -42,7 +48,7 @@ export const ThemeColorProvider = ({ children }: { children: ReactNode }) => {
   }, [currentColor]);
 
   return (
-    <ThemeColorContext.Provider value={{ currentColor, hasSelected, setColor }}>
+    <ThemeColorContext.Provider value={{ currentColor, hasSelected, setColor, clearSelection }}>
       {children}
     </ThemeColorContext.Provider>
   );

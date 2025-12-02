@@ -14,8 +14,8 @@ const colorHexValues: Record<string, string> = {
 };
 
 const Logo = ({ className }: LogoProps) => {
-  const { currentColor } = useThemeColor();
-  const flagColor = colorHexValues[currentColor];
+  const { currentColor, hasSelected, clearSelection } = useThemeColor();
+  const flagColor = hasSelected ? colorHexValues[currentColor] : "#6BBF2A";
 
   return (
     <svg 
@@ -23,6 +23,7 @@ const Logo = ({ className }: LogoProps) => {
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      onMouseEnter={clearSelection}
     >
       <defs>
       {/* Base gradient - color fading to transparent at bottom */}
