@@ -62,7 +62,7 @@ const StickyNav = () => {
         }`}
       >
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex gap-1 overflow-x-auto py-3 scrollbar-hide">
+          <div className="flex justify-center gap-1 overflow-x-auto py-3 scrollbar-hide">
             {sections.map((section) => (
               <button
                 key={section.id}
