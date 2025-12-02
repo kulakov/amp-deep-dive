@@ -5,7 +5,7 @@ interface LogoProps {
 }
 
 const colorHexValues: Record<string, string> = {
-  green: "#00FF00",
+  green: "#6BBF2A",
   orange: "#FF8000",
   fuchsia: "#FF00FF",
   purple: "#9933FF",
