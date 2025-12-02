@@ -98,8 +98,8 @@ const WorthIt = () => {
           </p>
           
           {/* Mobile horizontal scroll */}
-          <div className="md:hidden overflow-x-auto -mx-6 px-6 pb-4">
-            <div className="flex gap-4" style={{ width: 'max-content' }}>
+          <div className="md:hidden overflow-x-auto overflow-y-visible -mx-6 px-6 -mb-4">
+            <div className="flex gap-4 pb-8" style={{ width: 'max-content' }}>
               {benefits.map((benefit, i) => (
                 <div 
                   key={i}
