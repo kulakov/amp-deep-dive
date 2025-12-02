@@ -62,7 +62,7 @@ const StickyNav = () => {
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <button 
-              className="p-2 bg-background/80 backdrop-blur-sm rounded-md border border-foreground/10 text-foreground hover:bg-muted transition-colors"
+              className="p-2 text-white hover:opacity-70 transition-opacity"
             >
               <Menu className="h-6 w-6" />
             </button>
