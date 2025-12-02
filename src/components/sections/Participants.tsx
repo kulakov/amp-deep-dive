@@ -213,7 +213,7 @@ const Participants = () => {
           {participants.map((person, i) => (
             <div 
               key={i}
-              className="absolute w-[30%] bg-[#FFFEF5] border border-foreground/20 p-6 shadow-lg cursor-pointer transition-all duration-300 group"
+              className="absolute w-[30%] bg-[#FFFEF5] border border-foreground/20 p-6 shadow-lg cursor-pointer transition-all duration-300 group overflow-visible"
               style={{ 
                 transform: `rotate(${cardPositions[i].rotate}deg)`,
                 top: cardPositions[i].top,
