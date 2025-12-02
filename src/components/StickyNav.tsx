@@ -101,7 +101,7 @@ const StickyNav = () => {
         >
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex items-center justify-center gap-1 py-3">
-              <LogoHorizontal className={`h-3 mr-4 transition-opacity duration-200 ${isSticky ? "opacity-100 text-foreground" : "opacity-0 text-white"}`} />
+              <LogoHorizontal className={`h-3 mr-4 transition-opacity duration-200 ${isSticky ? "opacity-100 text-highlight" : "opacity-0 text-white"}`} />
               {sections.map((section) => (
                 <button
                   key={section.id}
