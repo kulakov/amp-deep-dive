@@ -1,16 +1,8 @@
 import { ArrowDown } from "lucide-react";
-import { useState } from "react";
 import Logo from "@/components/Logo";
-import SillyWord from "@/components/SillyWord";
 import heroImage from "@/assets/camp-hands-up.jpg";
 
 const Hero = () => {
-  const [showScoldMessage, setShowScoldMessage] = useState(false);
-
-  const handleCycleComplete = () => {
-    setShowScoldMessage(true);
-  };
-
   return (
     <section className="min-h-screen relative border-b border-foreground">
       {/* Hero Image - Fixed Background */}
@@ -35,15 +27,9 @@ const Hero = () => {
             </div>
             
             <div className="space-y-4 max-w-2xl mx-auto">
-              {showScoldMessage ? (
-                <h1 className="text-5xl md:text-7xl font-silly-1 leading-relaxed text-highlight animate-silly-shake tracking-wide">
-                  Хватит баловаться,<br />листай уже!
-                </h1>
-              ) : (
-                <h1 className="text-3xl md:text-5xl font-display font-bold leading-tight text-white">
-                  Место, где умные взрослые разрешают себе<SillyWord onCycleComplete={handleCycleComplete}>дурачиться</SillyWord>
-                </h1>
-              )}
+              <h1 className="text-3xl md:text-5xl font-display font-bold leading-tight text-white">
+                Место, где умные взрослые разрешают себе дурачиться
+              </h1>
               <p className="text-lg md:text-xl text-white/80 font-body">
                 Три дня и 65 человек, с которыми можно искренне говорить о важном
               </p>
