@@ -52,7 +52,7 @@ const WorthIt = () => {
         {/* Money */}
         <div className="space-y-6">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Про деньги:</h3>
-          <div className="grid md:grid-cols-2 gap-8 md:items-baseline">
+          <div className="space-y-8">
             <div className="space-y-3">
               <p className="text-2xl font-bold">800 евро</p>
               <p className="text-muted-foreground text-sm">
@@ -61,7 +61,7 @@ const WorthIt = () => {
                 Кэмп делается без прибыли, и мы не знаем, как его сделать дешевле.
               </p>
             </div>
-            <div className="bg-highlight/10 p-6 space-y-3">
+            <div className="bg-highlight/10 py-6 -mx-6 px-6 md:mx-0 md:px-6 space-y-3">
               <p className="text-2xl font-bold">800 евро</p>
               <p className="text-sm">
                 <span className="underline decoration-highlight decoration-2 underline-offset-4">это капец как дешево</span>. Почти в три раза дешевле аналогичных коммерческих мероприятий, 
