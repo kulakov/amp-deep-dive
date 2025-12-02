@@ -309,7 +309,7 @@ const WhatHappens = () => {
             <h3 className="font-mono text-sm uppercase tracking-[0.2em] mb-8">Наши форматы:</h3>
             
             {/* Mobile horizontal scroll */}
-            <div className="md:hidden overflow-x-auto -mx-6 px-6 pb-4">
+            <div className="md:hidden overflow-x-auto -mx-6 px-6 py-6">
               <div className="flex gap-4" style={{
               width: 'max-content'
             }}>
