@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-type ColorTheme = "green" | "orange" | "fuchsia" | "purple" | "cobalt" | "yellow";
+type ColorTheme = "black" | "green" | "orange" | "fuchsia" | "purple" | "cobalt" | "yellow";
 
 interface ThemeColorContextType {
   currentColor: ColorTheme;
@@ -12,6 +12,7 @@ interface ThemeColorContextType {
 const ThemeColorContext = createContext<ThemeColorContextType | undefined>(undefined);
 
 const colorValues: Record<ColorTheme, { highlight: string; highlightForeground: string }> = {
+  black: { highlight: "0 0% 0%", highlightForeground: "0 0% 100%" },
   green: { highlight: "90 80% 45%", highlightForeground: "0 0% 100%" },
   orange: { highlight: "30 100% 50%", highlightForeground: "0 0% 100%" },
   fuchsia: { highlight: "300 100% 50%", highlightForeground: "0 0% 100%" },
@@ -23,7 +24,7 @@ const colorValues: Record<ColorTheme, { highlight: string; highlightForeground: 
 export const ThemeColorProvider = ({ children }: { children: ReactNode }) => {
   const [currentColor, setCurrentColor] = useState<ColorTheme>(() => {
     const saved = localStorage.getItem("theme-color");
-    return (saved as ColorTheme) || "green";
+    return (saved as ColorTheme) || "black";
   });
   const [hasSelected, setHasSelected] = useState(() => {
     return localStorage.getItem("theme-color") !== null;
