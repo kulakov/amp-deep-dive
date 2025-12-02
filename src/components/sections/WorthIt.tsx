@@ -124,11 +124,11 @@ const WorthIt = () => {
           <div className="hidden md:block relative h-[550px]">
             {benefits.map((benefit, i) => {
               const positions = [
-                { top: "0%", left: "0%" },
-                { top: "5%", left: "38%" },
-                { top: "0%", left: "70%" },
-                { top: "55%", left: "5%" },
-                { top: "55%", left: "65%" },
+                { top: "0%", left: "0%", z: 3 },
+                { top: "5%", left: "38%", z: 4 },
+                { top: "0%", left: "70%", z: 5 },
+                { top: "55%", left: "5%", z: 1 },
+                { top: "55%", left: "65%", z: 2 },
               ];
               return (
                 <div 
@@ -138,7 +138,7 @@ const WorthIt = () => {
                     transform: `rotate(${benefit.rotate}deg)`,
                     top: positions[i].top,
                     left: positions[i].left,
-                    zIndex: i + 1,
+                    zIndex: positions[i].z,
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'rotate(0deg) scale(1.1)';
@@ -146,7 +146,7 @@ const WorthIt = () => {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = `rotate(${benefit.rotate}deg)`;
-                    e.currentTarget.style.zIndex = String(i + 1);
+                    e.currentTarget.style.zIndex = String(positions[i].z);
                   }}
                 >
                 <div className="aspect-[2/1] overflow-hidden bg-white">
