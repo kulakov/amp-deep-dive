@@ -62,7 +62,9 @@ const StickyNav = () => {
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <button 
-              className="p-2 text-white hover:opacity-70 transition-opacity"
+              className={`p-2 hover:opacity-70 transition-all ${
+                isSticky ? "text-highlight" : "text-white"
+              }`}
             >
               <Menu className="h-6 w-6" />
             </button>
