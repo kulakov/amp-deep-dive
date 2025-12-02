@@ -172,7 +172,7 @@ const WhatHappens = () => {
             {/* Comparison */}
             <div className="grid grid-cols-2 gap-8 text-sm">
               <div>
-                <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Другие ивенты</p>
+                <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-4">Другие классные ивенты</p>
                 <div className="space-y-2 text-muted-foreground">
                   <p>Рассказываешь о достижениях</p>
                   <p>Произвести впечатление</p>
@@ -182,7 +182,7 @@ const WhatHappens = () => {
                 </div>
               </div>
               <div>
-                <p className="font-mono text-xs uppercase tracking-wider text-highlight mb-4">AmpCamp</p>
+                <p className="font-mono text-xs uppercase tracking-wider mb-4"><span className="underline decoration-highlight decoration-2 underline-offset-4">AmpCamp</span></p>
                 <div className="space-y-2 font-medium">
                   <p>Признаешься в сомнениях</p>
                   <p>Снимаешь маску</p>
