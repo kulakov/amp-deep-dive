@@ -33,7 +33,7 @@ const Hero = () => {
                 <ColorWord color="orange">умные взрослые</ColorWord>{" "}
                 <ColorWord color="fuchsia">разрешают</ColorWord>{" "}
                 <ColorWord color="purple">себе</ColorWord>{" "}
-                <ColorWord color="cobalt">дурачиться</ColorWord>
+                <ColorWord color="yellow">дурачиться</ColorWord>
               </h1>
               <p className="text-lg md:text-xl text-white/80 font-body">
                 Три дня и 65 человек, с которыми можно искренне говорить о важном

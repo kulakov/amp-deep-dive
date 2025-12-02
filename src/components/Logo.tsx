@@ -10,6 +10,7 @@ const colorHexValues: Record<string, string> = {
   fuchsia: "#FF00FF",
   purple: "#9933FF",
   cobalt: "#1A8CFF",
+  yellow: "#FFD500",
 };
 
 const Logo = ({ className }: LogoProps) => {

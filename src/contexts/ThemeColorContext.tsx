@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-type ColorTheme = "green" | "orange" | "fuchsia" | "purple" | "cobalt";
+type ColorTheme = "green" | "orange" | "fuchsia" | "purple" | "cobalt" | "yellow";
 
 interface ThemeColorContextType {
   currentColor: ColorTheme;
@@ -15,6 +15,7 @@ const colorValues: Record<ColorTheme, { highlight: string; highlightForeground: 
   fuchsia: { highlight: "300 100% 50%", highlightForeground: "0 0% 100%" },
   purple: { highlight: "270 100% 60%", highlightForeground: "0 0% 100%" },
   cobalt: { highlight: "210 100% 55%", highlightForeground: "0 0% 100%" },
+  yellow: { highlight: "50 100% 50%", highlightForeground: "0 0% 0%" },
 };
 
 export const ThemeColorProvider = ({ children }: { children: ReactNode }) => {
