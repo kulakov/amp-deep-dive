@@ -1,9 +1,9 @@
 import campHandsUp from "@/assets/camp-hands-up.jpg";
-import doodleFriends from "@/assets/doodle-friends.png";
-import doodleBook from "@/assets/doodle-book.png";
-import doodleHouse from "@/assets/doodle-house.png";
-import doodleChat from "@/assets/doodle-chat.png";
-import doodleHeart from "@/assets/doodle-heart.png";
+import doodleFriends from "@/assets/doodle-friends-new.png";
+import doodleBook from "@/assets/doodle-book-new.png";
+import doodleHouse from "@/assets/doodle-house-new.png";
+import doodleChat from "@/assets/doodle-chat-new.png";
+import doodleHeart from "@/assets/doodle-heart-new.png";
 
 const WorthIt = () => {
   const benefits = [
