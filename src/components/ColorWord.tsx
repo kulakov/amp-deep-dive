@@ -7,21 +7,13 @@ interface ColorWordProps {
   color: ColorTheme;
 }
 
-const colorStyles: Record<ColorTheme, string> = {
-  green: "hover:text-[hsl(80,61%,50%)]",
-  orange: "hover:text-[hsl(25,95%,53%)]",
-  fuchsia: "hover:text-[hsl(322,81%,43%)]",
-  purple: "hover:text-[hsl(271,76%,53%)]",
-  cobalt: "hover:text-[hsl(215,100%,50%)]",
-};
-
 const ColorWord = ({ children, color }: ColorWordProps) => {
   const { setColor } = useThemeColor();
 
   return (
     <span
       onMouseEnter={() => setColor(color)}
-      className={`cursor-pointer transition-colors duration-200 ${colorStyles[color]}`}
+      className="cursor-pointer transition-all duration-200 hover:underline hover:decoration-2 hover:underline-offset-4"
     >
       {children}
     </span>
