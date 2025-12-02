@@ -12,7 +12,7 @@ const ThemeColorContext = createContext<ThemeColorContextType | undefined>(undef
 const colorValues: Record<ColorTheme, { highlight: string; highlightForeground: string }> = {
   green: { highlight: "80 61% 50%", highlightForeground: "0 0% 100%" },
   orange: { highlight: "25 95% 53%", highlightForeground: "0 0% 100%" },
-  fuchsia: { highlight: "322 81% 43%", highlightForeground: "0 0% 100%" },
+  fuchsia: { highlight: "300 100% 50%", highlightForeground: "0 0% 100%" },
   purple: { highlight: "271 81% 66%", highlightForeground: "0 0% 100%" },
   cobalt: { highlight: "215 100% 65%", highlightForeground: "0 0% 100%" },
 };
