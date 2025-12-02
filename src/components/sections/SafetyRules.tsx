@@ -59,13 +59,13 @@ const SafetyRules = () => {
         {/* Not doing */}
         <div className="space-y-6">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Чего мы точно НЕ делаем:</h3>
-          <div className="space-y-3">
+          <div className="space-y-6">
             {notDoing.map((item, index) => (
               <div key={index} className="flex items-start gap-3">
                 <span className="text-highlight">—</span>
-                <div className="text-white/80">
+                <div className="text-white/80 leading-relaxed">
                   <span className="text-highlight font-bold">{item.highlight}</span>
-                  <p className="mt-1">{item.rest}</p>
+                  <p>{item.rest}</p>
                 </div>
               </div>
             ))}
