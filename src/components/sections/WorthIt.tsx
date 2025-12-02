@@ -181,7 +181,7 @@ const WorthIt = () => {
             <div className="space-y-6">
               {[
                 {
-                  title: <><span className="line-through opacity-60">Найти номинатора.</span></>,
+                  title: <>Найти номинатора. <span className="text-highlight">✓</span></>,
                   desc: <>Если вы это читаете — <span className="underline decoration-highlight decoration-2 underline-offset-4">у вас уже есть такой друг.</span></>
                 },
                 {
