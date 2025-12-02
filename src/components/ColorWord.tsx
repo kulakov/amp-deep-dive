@@ -1,6 +1,6 @@
 import { useThemeColor } from "@/contexts/ThemeColorContext";
 
-type ColorTheme = "green" | "orange" | "fuchsia" | "purple" | "cobalt";
+type ColorTheme = "green" | "orange" | "fuchsia" | "purple" | "cobalt" | "yellow";
 
 interface ColorWordProps {
   children: React.ReactNode;
