@@ -4,6 +4,7 @@ type ColorTheme = "green" | "orange" | "fuchsia" | "purple" | "cobalt" | "yellow
 
 interface ThemeColorContextType {
   currentColor: ColorTheme;
+  hasSelected: boolean;
   setColor: (color: ColorTheme) => void;
 }
 
@@ -23,9 +24,13 @@ export const ThemeColorProvider = ({ children }: { children: ReactNode }) => {
     const saved = localStorage.getItem("theme-color");
     return (saved as ColorTheme) || "green";
   });
+  const [hasSelected, setHasSelected] = useState(() => {
+    return localStorage.getItem("theme-color") !== null;
+  });
 
   const setColor = (color: ColorTheme) => {
     setCurrentColor(color);
+    setHasSelected(true);
     localStorage.setItem("theme-color", color);
   };
 
@@ -37,7 +42,7 @@ export const ThemeColorProvider = ({ children }: { children: ReactNode }) => {
   }, [currentColor]);
 
   return (
-    <ThemeColorContext.Provider value={{ currentColor, setColor }}>
+    <ThemeColorContext.Provider value={{ currentColor, hasSelected, setColor }}>
       {children}
     </ThemeColorContext.Provider>
   );

@@ -1,9 +1,12 @@
 import { ArrowDown } from "lucide-react";
 import Logo from "@/components/Logo";
 import ColorWord from "@/components/ColorWord";
+import { useThemeColor } from "@/contexts/ThemeColorContext";
 import heroImage from "@/assets/camp-hands-up.jpg";
 
 const Hero = () => {
+  const { hasSelected } = useThemeColor();
+  
   return (
     <section className="min-h-screen relative border-b border-foreground">
       {/* Hero Image - Fixed Background */}
@@ -14,7 +17,9 @@ const Hero = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-highlight/30 mix-blend-color transition-colors duration-500" />
+        <div 
+          className={`absolute inset-0 bg-highlight mix-blend-color transition-opacity duration-500 ${hasSelected ? 'opacity-30' : 'opacity-0'}`} 
+        />
       </div>
 
       {/* Content */}
