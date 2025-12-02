@@ -299,9 +299,9 @@ const WhatHappens = () => {
         </div>
 
         {/* Formats - mobile carousel, desktop scattered */}
-        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8 overflow-hidden">
+        <div className="relative -mx-6 md:-mx-12 px-6 md:px-12 py-8">
           {/* Pink skewed background */}
-          <div className="absolute inset-0 bg-highlight/10 -z-10" style={{
+          <div className="absolute inset-x-0 -inset-y-4 bg-highlight/10 -z-10" style={{
           transform: 'skewY(2deg)'
         }} />
           
@@ -309,8 +309,8 @@ const WhatHappens = () => {
             <h3 className="font-mono text-sm uppercase tracking-[0.2em] mb-8">Наши форматы:</h3>
             
             {/* Mobile horizontal scroll */}
-            <div className="md:hidden overflow-x-auto -mx-6 px-6 py-6">
-              <div className="flex gap-4" style={{
+            <div className="md:hidden overflow-x-auto -mx-6 px-6 pb-4">
+              <div className="flex gap-4 py-2" style={{
               width: 'max-content'
             }}>
                 {[{
