@@ -1,29 +1,20 @@
 import campConferenceBg from "@/assets/camp-conference-bg.jpg";
-
 const SafetyRules = () => {
-  const rules = [
-    "Включаете голову",
-    "Участвуете только в том, в чем хотите",
-    "Несете ответственность за свои действия",
-    "Есть психолог, с которым можно поговорить",
-    "Опираемся на критическое мышление"
-  ];
-
-  const notDoing = [
-    { highlight: "Не заставляем участвовать", rest: "можно не ходить на любое из мероприятий. можно уходить всегда когда не ок" },
-    { highlight: "Не продаем методики", rest: "это не бизнес" },
-    { highlight: "Не обещаем решить ваши проблемы", rest: "мы не психологи (почти все), и у нас тоже есть непрочитанные книжки по саморазвитию" }
-  ];
-
-  return (
-    <section className="py-24 px-6 relative">
+  const rules = ["Включаете голову", "Участвуете только в том, в чем хотите", "Несете ответственность за свои действия", "Есть психолог, с которым можно поговорить", "Опираемся на критическое мышление"];
+  const notDoing = [{
+    highlight: "Не заставляем участвовать",
+    rest: "можно не ходить на любое из мероприятий. можно уходить всегда когда не ок"
+  }, {
+    highlight: "Не продаем методики",
+    rest: "это не бизнес"
+  }, {
+    highlight: "Не обещаем решить ваши проблемы",
+    rest: "мы не психологи (почти все), и у нас тоже есть непрочитанные книжки по саморазвитию"
+  }];
+  return <section className="py-24 px-6 relative">
       {/* Background image with overlay */}
       <div className="absolute inset-0 -z-10">
-        <img 
-          src={campConferenceBg} 
-          alt="" 
-          className="w-full h-full object-cover"
-        />
+        <img src={campConferenceBg} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-foreground/80" />
       </div>
 
@@ -40,12 +31,10 @@ const SafetyRules = () => {
 
         {/* Rules */}
         <div className="space-y-4">
-          {rules.map((rule, index) => (
-            <div key={index} className="flex items-baseline gap-4">
+          {rules.map((rule, index) => <div key={index} className="flex items-baseline gap-4">
               <span className="font-mono text-highlight font-bold">{index + 1}.</span>
               <p className="text-lg">{rule}</p>
-            </div>
-          ))}
+            </div>)}
         </div>
 
         {/* Intro text */}
@@ -60,15 +49,13 @@ const SafetyRules = () => {
         <div className="space-y-6">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Чего мы точно НЕ делаем:</h3>
           <div className="space-y-6">
-            {notDoing.map((item, index) => (
-              <div key={index} className="flex items-start gap-3">
+            {notDoing.map((item, index) => <div key={index} className="flex items-start gap-3">
                 <span className="text-highlight">—</span>
                 <div className="text-white/80 leading-relaxed">
                   <span className="text-highlight font-bold">{item.highlight}</span>
                   <p>{item.rest}</p>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
@@ -91,15 +78,13 @@ const SafetyRules = () => {
         <div className="bg-background border border-background/20 p-6 font-mono text-sm space-y-3">
           <h4 className="font-bold text-foreground">Что может не сработать</h4>
           <div className="space-y-2 text-muted-foreground">
-            <p>Любой формат может вам не зайти.</p>
+            <p>Любая активность может вам не зайти.</p>
             <p>Иногда в программу пролезают не слишком удачные форматы.</p>
             <p>Иногда мы перестраховываемся.</p>
             <p>Конкретные результаты для вас сильно зависят от того, насколько вы стараемся что-то из кэмпа извлечь.</p>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default SafetyRules;
