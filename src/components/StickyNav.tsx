@@ -101,7 +101,12 @@ const StickyNav = () => {
         >
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex items-center justify-center gap-1 py-3">
-              <LogoHorizontal className={`h-3 mr-4 transition-opacity duration-200 ${isSticky ? "opacity-100 text-highlight" : "opacity-0 text-white"}`} />
+              <button 
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className={`transition-opacity duration-200 ${isSticky ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+              >
+                <LogoHorizontal className="h-3 mr-4 text-highlight" />
+              </button>
               {sections.map((section) => (
                 <button
                   key={section.id}
