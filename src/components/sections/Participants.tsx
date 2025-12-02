@@ -143,7 +143,7 @@ const Participants = () => {
 
   return (
     <section ref={sectionRef} className="py-24 px-6 bg-background">
-      <div className="max-w-6xl mx-auto space-y-16">
+      <div className="max-w-6xl mx-auto space-y-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
