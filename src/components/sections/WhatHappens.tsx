@@ -9,6 +9,10 @@ import campAtmosphere from "@/assets/camp-atmosphere.jpg";
 import campConversation from "@/assets/camp-conversation-1.jpg";
 import campTalk from "@/assets/camp-talk.jpg";
 import campConferenceBg from "@/assets/camp-conference-bg.jpg";
+import formatGoogleGame from "@/assets/format-google-game.jpg";
+import formatFuckupNight from "@/assets/format-fuckup-night.jpg";
+import formatKotovCircles from "@/assets/format-kotov-circles.jpg";
+import formatDontKnow from "@/assets/format-dont-know.jpg";
 const WhatHappens = () => {
   const [visiblePhotos, setVisiblePhotos] = useState<number[]>([]);
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -316,19 +320,19 @@ const WhatHappens = () => {
                 {[{
                 name: "Google game",
                 desc: "я буду называть тебе запрос, как в Google, про тебя. Например «ты и детские страхи», или «ты и закатное небо», а ты рассказываешь, столько сколько хочешь.",
-                img: campConversation
+                img: formatGoogleGame
               }, {
                 name: "Я не знаю про тебя…",
                 desc: "я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека",
-                img: campSocializing
+                img: formatDontKnow
               }, {
                 name: "Круги Котова",
                 desc: "это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми",
-                img: campWorkshop
+                img: formatKotovCircles
               }, {
                 name: "Fuck-up night",
                 desc: "тут просто все по очереди рассказывают о ситуации, когда они облажались",
-                img: campTalk
+                img: formatFuckupNight
               }].map((card, i) => <div key={i} className="w-[260px] flex-shrink-0 bg-background text-foreground shadow-xl">
                     <div className="h-24 overflow-hidden">
                       <img src={card.img} alt={card.name} className="w-full h-full object-cover" />
@@ -350,7 +354,7 @@ const WhatHappens = () => {
               top: "0%",
               left: "0%",
               width: "w-72",
-              img: campConversation
+              img: formatGoogleGame
             }, {
               name: "Я не знаю про тебя…",
               desc: "я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека",
@@ -358,7 +362,7 @@ const WhatHappens = () => {
               top: "5%",
               left: "45%",
               width: "w-80",
-              img: campSocializing
+              img: formatDontKnow
             }, {
               name: "Круги Котова",
               desc: "это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми",
@@ -366,7 +370,7 @@ const WhatHappens = () => {
               top: "48%",
               left: "5%",
               width: "w-64",
-              img: campWorkshop
+              img: formatKotovCircles
             }, {
               name: "Fuck-up night",
               desc: "тут просто все по очереди рассказывают о ситуации, когда они облажались",
@@ -374,7 +378,7 @@ const WhatHappens = () => {
               top: "58%",
               left: "50%",
               width: "w-60",
-              img: campTalk
+              img: formatFuckupNight
             }].map((card, i) => <div key={i} className={`absolute ${card.width} bg-background text-foreground shadow-xl cursor-pointer transition-all duration-300 group`} style={{
               transform: `rotate(${card.rotate}deg)`,
               top: card.top,
