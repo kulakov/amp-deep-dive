@@ -14,7 +14,7 @@ const SafetyRules = () => {
   return <section className="py-24 px-6 relative">
       {/* Background image with overlay */}
       <div className="absolute inset-0 -z-10">
-        <img src={campConferenceBg} alt="" className="w-full h-full object-cover" />
+        <img src={campConferenceBg} alt="" loading="lazy" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-foreground/80" />
       </div>
 

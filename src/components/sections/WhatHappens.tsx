@@ -93,7 +93,7 @@ const WhatHappens = () => {
           caption: "дружим"
         }].map((item, i) => <div key={i} className="w-32 flex-shrink-0 bg-white p-2 shadow-lg">
               <div className="aspect-square overflow-hidden">
-                <img src={item.img} alt={item.caption} className="w-full h-full object-cover" />
+                <img src={item.img} alt={item.caption} loading="lazy" className="w-full h-full object-cover" />
               </div>
               <div className="h-5 flex items-center justify-center">
                 <span className="text-[8px] text-gray-600 font-mono">{item.caption}</span>
@@ -192,7 +192,7 @@ const WhatHappens = () => {
           e.currentTarget.style.zIndex = String(item.z);
         }}>
               <div className="aspect-square overflow-hidden">
-                <img src={item.img} alt={item.caption} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                <img src={item.img} alt={item.caption} loading="lazy" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
               </div>
               <div className="h-6 flex items-center justify-center">
                 <span className="text-[10px] text-gray-600 font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
@@ -335,7 +335,7 @@ const WhatHappens = () => {
                 img: formatFuckupNight
               }].map((card, i) => <div key={i} className="w-[260px] flex-shrink-0 bg-background text-foreground shadow-xl">
                     <div className="h-32 overflow-hidden">
-                      <img src={card.img} alt={card.name} className="w-full h-full object-cover object-top" />
+                      <img src={card.img} alt={card.name} loading="lazy" className="w-full h-full object-cover object-top" />
                     </div>
                     <div className="p-4">
                       <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
@@ -392,7 +392,7 @@ const WhatHappens = () => {
               e.currentTarget.style.zIndex = String(i + 1);
             }}>
                   <div className="h-28 overflow-hidden">
-                    <img src={card.img} alt={card.name} className="w-full h-full object-cover object-top" />
+                    <img src={card.img} alt={card.name} loading="lazy" className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="p-4">
                     <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
