@@ -32,7 +32,7 @@ const HowToJoin = () => {
                 <span className="font-mono text-2xl font-bold text-highlight">{index + 1}</span>
                 <div>
                   <h4 className="font-bold mb-1">{step.title}</h4>
-                  <p className="text-muted-foreground">{step.description}</p>
+                  <p className="text-muted-foreground text-lg">{step.description}</p>
                 </div>
               </div>)}
           </div>
@@ -41,7 +41,7 @@ const HowToJoin = () => {
         {/* Why interview */}
         <div className="space-y-6">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Зачем интервью:</h3>
-          <div className="space-y-4 text-muted-foreground">
+          <div className="space-y-4 text-muted-foreground text-lg">
             <p>
               Мы боимся. Боимся пустить людей, которые не умеют слушать или превращают любой разговор 
               в презентацию своих достижений. Боимся тех, кто разрушит то хрупкое доверие, которое мы пытаемся создать.
@@ -68,7 +68,7 @@ const HowToJoin = () => {
             {/* What happens */}
             <div className="space-y-6">
               <p className="text-xl font-display italic">Что происходит на интервью</p>
-              <div className="space-y-4 text-muted-foreground">
+            <div className="space-y-4 text-muted-foreground text-lg">
                 <p>
                   Мы предлагаем вам ситуацию, и смотрим на то, как вы рассуждаете, какие аргументы вам кажутся важными. 
                   Мы пытаемся <span className="underline decoration-highlight decoration-2 underline-offset-4">вытащить наружу то, что делает вас интересным, увлечься вами.</span>

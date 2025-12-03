@@ -46,7 +46,7 @@ const SafetyRules = () => {
 
         {/* Additional Info */}
         <div className="max-w-2xl mx-auto space-y-8 pt-8">
-          <p className="text-center text-muted-foreground font-body leading-relaxed">
+          <p className="text-center text-muted-foreground font-body text-lg leading-relaxed">
             Мы не знаем наверняка, как это делать правильно. У нас нет формулы дружбы или секрета общения. 
             Мы просто собираем людей и создаем форматы, которые помогают начать разговаривать искренне.
           </p>
@@ -58,15 +58,15 @@ const SafetyRules = () => {
           <div className="space-y-6 text-muted-foreground font-body">
             <div className="border-l-2 border-highlight pl-4">
               <p className="font-semibold text-foreground">Не заставляем участвовать</p>
-              <p className="text-sm">можно не ходить на любое из мероприятий. можно уходить всегда когда не ок</p>
+              <p className="text-lg">можно не ходить на любое из мероприятий. можно уходить всегда когда не ок</p>
             </div>
             <div className="border-l-2 border-highlight pl-4">
               <p className="font-semibold text-foreground">Не продаем методики</p>
-              <p className="text-sm">это не бизнес</p>
+              <p className="text-lg">это не бизнес</p>
             </div>
             <div className="border-l-2 border-highlight pl-4">
               <p className="font-semibold text-foreground">Не обещаем решить ваши проблемы</p>
-              <p className="text-sm">мы не психологи (почти все), и у нас тоже есть непрочитанные книжки по саморазвитию</p>
+              <p className="text-lg">мы не психологи (почти все), и у нас тоже есть непрочитанные книжки по саморазвитию</p>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ const SafetyRules = () => {
         {/* How we change */}
         <div className="max-w-2xl mx-auto pt-8">
           <h3 className="text-lg font-display text-foreground mb-6">Как мы меняемся:</h3>
-          <div className="space-y-4 text-muted-foreground font-body text-sm leading-relaxed">
+          <div className="space-y-4 text-muted-foreground font-body text-lg leading-relaxed">
             <p>
               После каждого кэмпа мы просим участников написать обратную связь. Любую: кому что понравилось, 
               кого что бесило, кто от чего устал. На основании этой обратной связи мы и создаем новые кэмпы.
@@ -89,7 +89,7 @@ const SafetyRules = () => {
         {/* What might not work - warning block */}
         <div className="max-w-2xl mx-auto mt-8 border border-muted-foreground/20 bg-muted/30 p-6 md:p-8">
           <h3 className="text-lg font-display font-bold text-foreground mb-4">Что может не сработать</h3>
-          <div className="space-y-3 text-muted-foreground font-body text-sm leading-relaxed">
+          <div className="space-y-3 text-muted-foreground font-body text-lg leading-relaxed">
             <p>Любая активность может вам не зайти.</p>
             <p>Иногда в программу пролезают не слишком удачные форматы.</p>
             <p>Иногда мы перестраховываемся.</p>
