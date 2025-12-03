@@ -191,14 +191,12 @@ const Participants = () => {
               style={{
                 transform: `rotate(${isDragging ? 0 : getCardRotation(currentCard)}deg) translateX(${offsetX}px)`,
                 zIndex: 100,
-                backgroundColor: cardPositions[currentCard]?.hoverColor || '#FFFEF5',
-                color: 'white',
               }}
               onClick={handleCardClick}
             >
-              <h3 className="text-xl font-bold mb-3">{participants[currentCard].name}</h3>
-              <p className="text-sm opacity-80 mb-4 leading-relaxed">{participants[currentCard].description}</p>
-              <p className="text-sm italic leading-relaxed opacity-90">{participants[currentCard].insight}</p>
+              <h3 className="text-xl font-bold mb-3 text-foreground">{participants[currentCard].name}</h3>
+              <p className="text-sm text-foreground/70 mb-4 leading-relaxed">{participants[currentCard].description}</p>
+              <p className="text-sm italic leading-relaxed text-foreground/90">{participants[currentCard].insight}</p>
             </div>
           </div>
           
