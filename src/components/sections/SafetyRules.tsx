@@ -22,7 +22,7 @@ const SafetyRules = () => {
 
   return (
     <section className="py-24 px-6 relative">
-      {/* Background image without overlay */}
+      {/* Background image with dark overlay */}
       <div className="absolute inset-0 -z-10">
         <img 
           src={safetyBg} 
@@ -30,6 +30,7 @@ const SafetyRules = () => {
           loading="lazy" 
           className="w-full h-full object-cover" 
         />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       <div className="max-w-4xl mx-auto space-y-12">
