@@ -1,5 +1,4 @@
 import { useState } from "react";
-import safetyBg from "@/assets/safety-bg.jpg";
 
 const SafetyRules = () => {
   const [fixedStickers, setFixedStickers] = useState<Set<number>>(new Set());
@@ -19,17 +18,7 @@ const SafetyRules = () => {
   };
 
   return (
-    <section className="py-24 px-6 relative">
-      {/* Background image with dark overlay */}
-      <div className="absolute inset-0 -z-10">
-        <img 
-          src={safetyBg} 
-          alt="" 
-          loading="lazy" 
-          className="w-full h-full object-cover" 
-        />
-        <div className="absolute inset-0 bg-black/70" />
-      </div>
+    <section className="py-24 px-6 relative bg-background">
 
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Section Header */}
@@ -37,7 +26,7 @@ const SafetyRules = () => {
           <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Техника безопасности
           </span>
-          <p className="text-xl font-display italic text-white drop-shadow-md">
+          <p className="text-xl font-display italic text-foreground">
             Кэмп делается участниками для участников
           </p>
         </div>
@@ -57,7 +46,7 @@ const SafetyRules = () => {
 
         {/* Additional Info */}
         <div className="max-w-2xl mx-auto space-y-8 pt-8">
-          <p className="text-center text-white/90 font-body leading-relaxed drop-shadow-md">
+          <p className="text-center text-muted-foreground font-body leading-relaxed">
             Мы не знаем наверняка, как это делать правильно. У нас нет формулы дружбы или секрета общения. 
             Мы просто собираем людей и создаем форматы, которые помогают начать разговаривать искренне.
           </p>
@@ -65,18 +54,18 @@ const SafetyRules = () => {
 
         {/* What we DON'T do */}
         <div className="max-w-2xl mx-auto pt-8">
-          <h3 className="text-lg font-display text-white mb-6">Чего мы точно НЕ делаем:</h3>
-          <div className="space-y-6 text-white/80 font-body">
+          <h3 className="text-lg font-display text-foreground mb-6">Чего мы точно НЕ делаем:</h3>
+          <div className="space-y-6 text-muted-foreground font-body">
             <div className="border-l-2 border-highlight pl-4">
-              <p className="font-semibold text-white">Не заставляем участвовать</p>
+              <p className="font-semibold text-foreground">Не заставляем участвовать</p>
               <p className="text-sm">можно не ходить на любое из мероприятий. можно уходить всегда когда не ок</p>
             </div>
             <div className="border-l-2 border-highlight pl-4">
-              <p className="font-semibold text-white">Не продаем методики</p>
+              <p className="font-semibold text-foreground">Не продаем методики</p>
               <p className="text-sm">это не бизнес</p>
             </div>
             <div className="border-l-2 border-highlight pl-4">
-              <p className="font-semibold text-white">Не обещаем решить ваши проблемы</p>
+              <p className="font-semibold text-foreground">Не обещаем решить ваши проблемы</p>
               <p className="text-sm">мы не психологи (почти все), и у нас тоже есть непрочитанные книжки по саморазвитию</p>
             </div>
           </div>
@@ -84,8 +73,8 @@ const SafetyRules = () => {
 
         {/* How we change */}
         <div className="max-w-2xl mx-auto pt-8">
-          <h3 className="text-lg font-display text-white mb-6">Как мы меняемся:</h3>
-          <div className="space-y-4 text-white/80 font-body text-sm leading-relaxed">
+          <h3 className="text-lg font-display text-foreground mb-6">Как мы меняемся:</h3>
+          <div className="space-y-4 text-muted-foreground font-body text-sm leading-relaxed">
             <p>
               После каждого кэмпа мы просим участников написать обратную связь. Любую: кому что понравилось, 
               кого что бесило, кто от чего устал. На основании этой обратной связи мы и создаем новые кэмпы.
@@ -106,8 +95,8 @@ const SafetyRules = () => {
           
           <div className="relative py-12 px-6 md:px-12">
             <div className="max-w-2xl mx-auto">
-              <h3 className="text-lg font-display text-white mb-6">Что может не сработать</h3>
-              <ul className="space-y-3 text-white/80 font-body text-sm leading-relaxed list-disc list-inside">
+              <h3 className="text-lg font-display text-foreground mb-6">Что может не сработать</h3>
+              <ul className="space-y-3 text-muted-foreground font-body text-sm leading-relaxed list-disc list-inside">
                 <li>Любая активность может вам не зайти.</li>
                 <li>Иногда в программу пролезают не слишком удачные форматы.</li>
                 <li>Иногда мы перестраховываемся.</li>
