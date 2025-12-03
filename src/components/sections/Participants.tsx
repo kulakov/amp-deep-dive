@@ -158,9 +158,16 @@ const Participants = () => {
         <div className="md:hidden relative h-[400px] flex items-center justify-center">
           <div 
             ref={cardRef}
-            className="relative w-full max-w-[300px] h-[350px]"
-            onTouchStart={(e) => handleDragStart(e.touches[0].clientX)}
-            onTouchMove={(e) => handleDragMove(e.touches[0].clientX)}
+            className="relative w-full max-w-[300px] h-[350px] touch-pan-y"
+            onTouchStart={(e) => {
+              handleDragStart(e.touches[0].clientX);
+            }}
+            onTouchMove={(e) => {
+              if (isDragging && Math.abs(e.touches[0].clientX - startX) > 10) {
+                e.preventDefault();
+              }
+              handleDragMove(e.touches[0].clientX);
+            }}
             onTouchEnd={handleDragEnd}
             onMouseDown={(e) => handleDragStart(e.clientX)}
             onMouseMove={(e) => handleDragMove(e.clientX)}
