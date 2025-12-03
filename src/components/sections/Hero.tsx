@@ -10,7 +10,7 @@ const Hero = () => {
   return <section className="min-h-screen relative">
       {/* Hero Image - Fixed Background */}
       <div className="fixed inset-0 -z-10">
-        <img src={heroImage} alt="AMP Camp атмосфера" className="w-full h-full object-cover" />
+        <img src={heroImage} alt="AMP Camp атмосфера" className="w-full h-full object-cover" fetchPriority="high" />
         <div className="absolute inset-0 bg-black/50" />
         <div className={`absolute inset-0 bg-highlight mix-blend-color transition-opacity duration-500 ${hasSelected ? 'opacity-30' : 'opacity-0'}`} />
       </div>
