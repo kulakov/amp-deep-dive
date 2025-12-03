@@ -240,9 +240,9 @@ const Participants = () => {
                 e.currentTarget.style.color = '';
               }}
             >
-              <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-white">{person.name}</h3>
-              <p className="text-sm text-foreground/70 mb-4 leading-relaxed group-hover:text-white group-hover:opacity-90">{person.description}</p>
-              <p className="text-sm italic leading-relaxed text-foreground/90 group-hover:text-white">{person.insight}</p>
+              <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: 'inherit' }}>{person.name}</h3>
+              <p className="text-sm opacity-80 mb-4 leading-relaxed transition-colors duration-300" style={{ color: 'inherit' }}>{person.description}</p>
+              <p className="text-sm italic leading-relaxed opacity-90 transition-colors duration-300" style={{ color: 'inherit' }}>{person.insight}</p>
             </div>
           ))}
         </div>
