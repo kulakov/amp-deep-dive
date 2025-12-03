@@ -128,6 +128,7 @@ const WorthIt = () => {
                     <img 
                       src={benefit.img} 
                       alt={benefit.title}
+                      loading="lazy"
                       className="w-full h-full object-contain"
                     />
                   </div>
@@ -173,6 +174,7 @@ const WorthIt = () => {
                     <img 
                       src={benefit.img} 
                       alt={benefit.title}
+                      loading="lazy"
                       className="w-full h-full object-contain"
                     />
                   </div>
