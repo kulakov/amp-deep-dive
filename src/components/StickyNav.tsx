@@ -64,6 +64,7 @@ const StickyNav = () => {
               className={`p-2 hover:opacity-70 transition-all ${
                 isSticky ? "text-highlight" : "text-white"
               }`}
+              aria-label="Открыть меню"
             >
               <MoreVertical className="h-6 w-6" />
             </button>
