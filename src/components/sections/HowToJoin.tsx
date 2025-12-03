@@ -91,7 +91,7 @@ const HowToJoin = () => {
               </p>
             </div>
 
-            {/* Stories as diary cards */}
+            {/* Stories as diary cards - TEMPORARILY COMMENTED OUT
             <div className="grid md:grid-cols-2 gap-8 pt-4">
               {[{
               name: "История Макса",
@@ -108,16 +108,12 @@ const HowToJoin = () => {
               backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #E8E4D9 28px)',
               backgroundPosition: '0 40px'
             }}>
-                  {/* Red margin line */}
                   <div className="absolute top-0 bottom-0 w-px bg-red-300/60" style={{
                 left: '32px'
               }} />
-                  
-                  {/* Paper holes */}
                   <div className="absolute left-3 top-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
                   <div className="absolute left-3 top-1/2 w-3 h-3 rounded-full bg-background border border-foreground/10" />
                   <div className="absolute left-3 bottom-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
-                  
                   <div className="pl-8">
                     <h3 className="font-display text-xl mb-4 text-foreground/80 italic">
                       {story.name}
@@ -128,6 +124,7 @@ const HowToJoin = () => {
                   </div>
                 </div>)}
             </div>
+            */}
           </div>
         </div>
 
