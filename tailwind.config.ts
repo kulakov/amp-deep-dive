@@ -133,6 +133,12 @@ export default {
           // Final rest
           "100%": { transform: "translateY(0) scaleY(1) scaleX(1)", opacity: "1" },
         },
+        "logo-bounce-in": {
+          "0%": { transform: "scale(0.3)", opacity: "0" },
+          "50%": { transform: "scale(1.08)" },
+          "70%": { transform: "scale(0.95)" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -140,6 +146,7 @@ export default {
         "silly-shake": "silly-shake 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)",
         "silly-bounce-away": "silly-bounce-away 0.7s cubic-bezier(0.55, 0, 1, 0.45) forwards",
         "silly-return": "silly-return 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+        "logo-bounce-in": "logo-bounce-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
       },
     },
   },

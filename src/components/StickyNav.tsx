@@ -107,7 +107,7 @@ const StickyNav = () => {
               >
                 <button 
                   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                  className="block"
+                  className={`block ${isSticky ? "animate-logo-bounce-in" : ""}`}
                 >
                   <LogoHorizontal className="h-3 text-highlight" />
                 </button>
