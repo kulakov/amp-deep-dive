@@ -30,7 +30,7 @@ const SafetyRules = () => {
           loading="lazy" 
           className="w-full h-full object-cover" 
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/70" />
       </div>
 
       <div className="max-w-4xl mx-auto space-y-12">
