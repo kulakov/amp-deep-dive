@@ -97,15 +97,24 @@ const SafetyRules = () => {
           </div>
         </div>
 
-        {/* What might not work */}
-        <div className="max-w-2xl mx-auto pt-8">
-          <h3 className="text-lg font-display text-white mb-6">Что может не сработать</h3>
-          <ul className="space-y-3 text-white/80 font-body text-sm leading-relaxed list-disc list-inside">
-            <li>Любая активность может вам не зайти.</li>
-            <li>Иногда в программу пролезают не слишком удачные форматы.</li>
-            <li>Иногда мы перестраховываемся.</li>
-            <li>Конкретные результаты для вас сильно зависят от того, насколько вы стараемся что-то из кэмпа извлечь.</li>
-          </ul>
+        {/* What might not work - warning block */}
+        <div className="relative -mx-6 md:-mx-12 mt-8 overflow-hidden">
+          {/* Skewed background */}
+          <div className="absolute inset-0 bg-highlight/10" style={{
+            transform: 'skewY(-2deg) scale(1.1)'
+          }} />
+          
+          <div className="relative py-12 px-6 md:px-12">
+            <div className="max-w-2xl mx-auto">
+              <h3 className="text-lg font-display text-white mb-6">Что может не сработать</h3>
+              <ul className="space-y-3 text-white/80 font-body text-sm leading-relaxed list-disc list-inside">
+                <li>Любая активность может вам не зайти.</li>
+                <li>Иногда в программу пролезают не слишком удачные форматы.</li>
+                <li>Иногда мы перестраховываемся.</li>
+                <li>Конкретные результаты для вас сильно зависят от того, насколько вы стараемся что-то из кэмпа извлечь.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
