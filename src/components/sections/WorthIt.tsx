@@ -133,7 +133,7 @@ const WorthIt = () => {
                     />
                   </div>
                   <div className="p-4">
-                    <h4 className="font-bold text-sm mb-2">{benefit.title}</h4>
+                    <p className="font-bold text-sm mb-2">{benefit.title}</p>
                     <p className="text-xs text-muted-foreground leading-relaxed">{benefit.description}</p>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ const WorthIt = () => {
                     />
                   </div>
                   <div className="p-4">
-                    <h4 className="font-bold text-sm mb-2">{benefit.title}</h4>
+                    <p className="font-bold text-sm mb-2">{benefit.title}</p>
                     <p className="text-xs text-muted-foreground leading-relaxed">{benefit.description}</p>
                   </div>
                 </div>
@@ -218,7 +218,7 @@ const WorthIt = () => {
                 <div key={index} className="flex gap-6">
                   <span className="font-mono text-2xl font-bold text-highlight">{index + 1}</span>
                   <div>
-                    <h4 className="font-bold mb-1">{step.title}</h4>
+                    <p className="font-bold mb-1">{step.title}</p>
                     <p className="text-muted-foreground">{step.desc}</p>
                   </div>
                 </div>

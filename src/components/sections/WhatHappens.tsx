@@ -273,9 +273,9 @@ const WhatHappens = () => {
           </p>
 
           <div className="space-y-6">
-            <h4 className="font-mono text-sm uppercase tracking-[0.2em]">
+            <p className="font-mono text-sm uppercase tracking-[0.2em]">
               Например, были такие активности:
-            </h4>
+            </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[{
               tag: "интеллектуальные",
@@ -338,7 +338,7 @@ const WhatHappens = () => {
                       <img src={card.img} alt={card.name} loading="lazy" className="w-full h-full object-cover object-top" />
                     </div>
                     <div className="p-4">
-                      <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
+                      <p className="font-bold text-sm mb-2">«{card.name}»</p>
                       <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
                     </div>
                   </div>)}
@@ -395,7 +395,7 @@ const WhatHappens = () => {
                     <img src={card.img} alt={card.name} loading="lazy" className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="p-4">
-                    <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
+                    <p className="font-bold text-sm mb-2">«{card.name}»</p>
                     <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
                   </div>
                 </div>)}
