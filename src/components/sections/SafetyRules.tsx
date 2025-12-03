@@ -1,90 +1,163 @@
-import campConferenceBg from "@/assets/camp-conference-bg.jpg";
-const SafetyRules = () => {
-  const rules = ["Включаете голову", "Участвуете только в том, в чем хотите", "Несете ответственность за свои действия", "Есть психолог, с которым можно поговорить", "Опираемся на критическое мышление"];
-  const notDoing = [{
-    highlight: "Не заставляем участвовать",
-    rest: "можно не ходить на любое из мероприятий. можно уходить всегда когда не ок"
-  }, {
-    highlight: "Не продаем методики",
-    rest: "это не бизнес"
-  }, {
-    highlight: "Не обещаем решить ваши проблемы",
-    rest: "мы не психологи (почти все), и у нас тоже есть непрочитанные книжки по саморазвитию"
-  }];
-  return <section className="py-24 px-6 relative">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0 -z-10">
-        <img src={campConferenceBg} alt="" loading="lazy" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-foreground/80" />
-      </div>
+import { useEffect, useRef, useState } from "react";
 
-      <div className="max-w-3xl mx-auto space-y-16 text-white">
+const SafetyRules = () => {
+  const rules = [
+    "Включаете голову",
+    "Участвуете только в том, в чем хотите",
+    "Несете ответственность за свои действия",
+    "Есть психолог, с которым можно поговорить",
+    "Опираемся на критическое мышление"
+  ];
+
+  const stickerColors = [
+    "bg-yellow-200",
+    "bg-pink-200",
+    "bg-blue-200",
+    "bg-green-200",
+    "bg-orange-200"
+  ];
+
+  const initialRotations = [-6, 4, -3, 5, -4];
+
+  return (
+    <section className="py-24 px-6 bg-muted/30">
+      <div className="max-w-4xl mx-auto space-y-12">
         {/* Section Header */}
-        <div className="space-y-6">
+        <div className="text-center space-y-4">
           <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Техника безопасности
           </span>
-          <p className="text-xl font-display italic">
-            Кэмп делается участниками для участников, без привкуса бизнеса
+          <p className="text-xl font-display italic text-muted-foreground">
+            Кэмп делается участниками для участников
           </p>
         </div>
 
-        {/* Rules */}
-        <div className="space-y-4">
-          {rules.map((rule, index) => <div key={index} className="flex items-baseline gap-4">
-              <span className="font-mono text-highlight font-bold">{index + 1}.</span>
-              <p className="text-lg">{rule}</p>
-            </div>)}
+        {/* Stickers Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+          {rules.map((rule, index) => (
+            <Sticker
+              key={index}
+              number={index + 1}
+              text={rule}
+              color={stickerColors[index]}
+              initialRotation={initialRotations[index]}
+              delay={index * 100}
+            />
+          ))}
         </div>
 
-        {/* Intro text */}
-        <div className="space-y-4 text-lg font-body leading-relaxed text-white/80">
-          <p>
+        {/* Additional Info */}
+        <div className="max-w-2xl mx-auto space-y-8 pt-8">
+          <p className="text-center text-muted-foreground font-body leading-relaxed">
             Мы не знаем наверняка, как это делать правильно. У нас нет формулы дружбы или секрета общения. 
             Мы просто собираем людей и создаем форматы, которые помогают начать разговаривать искренне.
           </p>
         </div>
-
-        {/* Not doing */}
-        <div className="space-y-6">
-          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Чего мы точно НЕ делаем:</h3>
-          <div className="space-y-6">
-            {notDoing.map((item, index) => <div key={index} className="flex items-start gap-3">
-                <span className="text-highlight">—</span>
-                <div className="text-white/80 leading-relaxed">
-                  <span className="text-highlight font-bold">{item.highlight}</span>
-                  <p>{item.rest}</p>
-                </div>
-              </div>)}
-          </div>
-        </div>
-
-        {/* How we change */}
-        <div className="space-y-6">
-          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Как мы меняемся:</h3>
-          <div className="space-y-4 text-white/80">
-            <p>
-              После каждого кэмпа мы просим участников написать обратную связь. Любую: кому что понравилось, 
-              кого что бесило, кто от чего устал. На основании этой обратной связи мы и создаем новые кэмпы.
-            </p>
-            <p>
-              Каждый кэмп делает новая команда, чтобы организаторы отдохнули или вдруг не решили, что лучше всех знают, 
-              как надо. Обычно команду набирают из тех, кто недавно был участником.
-            </p>
-          </div>
-        </div>
-
-        {/* Warning - code block style */}
-        <div className="bg-background border border-background/20 p-6 font-mono text-sm space-y-3">
-          <h4 className="font-bold text-foreground">Что может не сработать</h4>
-          <div className="space-y-2 text-muted-foreground">
-            <p>Любая активность может вам не зайти.</p>
-            <p>Иногда в программу пролезают не слишком удачные форматы.</p>
-            <p>Иногда мы перестраховываемся.</p>
-            <p>Конкретные результаты для вас сильно зависят от того, насколько вы стараемся что-то из кэмпа извлечь.</p>
-          </div>
-        </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
+interface StickerProps {
+  number: number;
+  text: string;
+  color: string;
+  initialRotation: number;
+  delay: number;
+}
+
+const Sticker = ({ number, text, color, initialRotation, delay }: StickerProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const stickerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), delay);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (stickerRef.current) {
+      observer.observe(stickerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [delay]);
+
+  return (
+    <div
+      ref={stickerRef}
+      className={`
+        ${color} 
+        aspect-square 
+        p-4 
+        shadow-lg 
+        relative
+        transition-all
+        duration-700
+        ease-out
+        cursor-default
+        hover:scale-105
+        hover:shadow-xl
+      `}
+      style={{
+        transform: isVisible ? "rotate(0deg)" : `rotate(${initialRotation}deg)`,
+        boxShadow: isVisible 
+          ? "4px 4px 12px rgba(0,0,0,0.15)" 
+          : "2px 2px 8px rgba(0,0,0,0.1)"
+      }}
+    >
+      {/* Tape effect at top */}
+      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-4 bg-white/60 backdrop-blur-sm" />
+      
+      {/* Number */}
+      <span className="font-mono text-2xl font-bold text-foreground/30 absolute top-3 left-3">
+        {number}
+      </span>
+
+      {/* Text */}
+      <div className="h-full flex items-center justify-center pt-4">
+        <p className="text-sm md:text-base font-body text-center leading-snug text-foreground/80">
+          {text}
+        </p>
+      </div>
+
+      {/* Handwritten Checkmark */}
+      <div 
+        className={`
+          absolute bottom-2 right-2
+          transition-all duration-500
+          ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"}
+        `}
+        style={{ transitionDelay: isVisible ? "400ms" : "0ms" }}
+      >
+        <svg 
+          width="32" 
+          height="32" 
+          viewBox="0 0 32 32" 
+          className="text-highlight"
+        >
+          <path
+            d="M6 16 L13 24 L26 8"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={isVisible ? "animate-draw-check" : ""}
+            style={{
+              strokeDasharray: 40,
+              strokeDashoffset: isVisible ? 0 : 40,
+              transition: "stroke-dashoffset 0.5s ease-out 0.5s"
+            }}
+          />
+        </svg>
+      </div>
+    </div>
+  );
+};
+
 export default SafetyRules;
