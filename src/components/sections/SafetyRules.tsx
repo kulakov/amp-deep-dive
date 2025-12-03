@@ -127,15 +127,15 @@ const Sticker = ({ text, initialRotation, isFixed }: StickerProps) => {
       {/* Handwritten Checkmark */}
       <div 
         className={`
-          absolute bottom-1 right-1
+          absolute bottom-2 right-2
           transition-all duration-500
           ${isFixed ? "opacity-100 scale-100" : "opacity-0 scale-0"}
         `}
         style={{ transitionDelay: isFixed ? "200ms" : "0ms" }}
       >
         <svg 
-          width="20" 
-          height="30" 
+          width="14" 
+          height="20" 
           viewBox="0 0 64 94" 
           className="fill-highlight-foreground"
         >
