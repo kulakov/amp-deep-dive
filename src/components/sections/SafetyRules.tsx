@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import safetyBg from "@/assets/safety-bg.jpg";
 
 const SafetyRules = () => {
@@ -35,13 +36,14 @@ const SafetyRules = () => {
           </p>
         </div>
 
-        {/* Stickers Grid - smaller stickers */}
+        {/* Stickers Grid */}
         <div className="grid grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 max-w-3xl mx-auto">
           {rules.map((rule, index) => (
             <Sticker
               key={index}
               text={rule}
               initialRotation={initialRotations[index]}
+              delay={index * 300}
             />
           ))}
         </div>
@@ -61,11 +63,33 @@ const SafetyRules = () => {
 interface StickerProps {
   text: string;
   initialRotation: number;
+  delay: number;
 }
 
-const Sticker = ({ text, initialRotation }: StickerProps) => {
+const Sticker = ({ text, initialRotation, delay }: StickerProps) => {
+  const [isFixed, setIsFixed] = useState(false);
+  const stickerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsFixed(true), delay);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (stickerRef.current) {
+      observer.observe(stickerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [delay]);
+
   return (
     <div
+      ref={stickerRef}
       className="
         bg-highlight
         aspect-square 
@@ -75,12 +99,15 @@ const Sticker = ({ text, initialRotation }: StickerProps) => {
         cursor-default
         hover:scale-105
         hover:shadow-xl
-        transition-transform
-        duration-300
+        transition-all
+        duration-500
+        ease-out
       "
       style={{
-        transform: `rotate(${initialRotation}deg)`,
-        boxShadow: "4px 4px 12px rgba(0,0,0,0.2)"
+        transform: isFixed ? "rotate(0deg)" : `rotate(${initialRotation}deg)`,
+        boxShadow: isFixed 
+          ? "4px 4px 12px rgba(0,0,0,0.25)" 
+          : "2px 2px 8px rgba(0,0,0,0.15)"
       }}
     >
       {/* Tape effect at top */}
@@ -91,6 +118,37 @@ const Sticker = ({ text, initialRotation }: StickerProps) => {
         <p className="text-xs md:text-sm font-body text-center leading-snug text-highlight-foreground">
           {text}
         </p>
+      </div>
+
+      {/* Handwritten Checkmark */}
+      <div 
+        className={`
+          absolute bottom-1.5 right-1.5
+          transition-all duration-500
+          ${isFixed ? "opacity-100 scale-100" : "opacity-0 scale-0"}
+        `}
+        style={{ transitionDelay: isFixed ? "300ms" : "0ms" }}
+      >
+        <svg 
+          width="24" 
+          height="24" 
+          viewBox="0 0 32 32" 
+          className="text-highlight-foreground"
+        >
+          <path
+            d="M6 16 L13 24 L26 8"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{
+              strokeDasharray: 40,
+              strokeDashoffset: isFixed ? 0 : 40,
+              transition: "stroke-dashoffset 0.4s ease-out 0.4s"
+            }}
+          />
+        </svg>
       </div>
     </div>
   );
