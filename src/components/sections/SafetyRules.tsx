@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import safetyBg from "@/assets/safety-bg.jpg";
 
 const SafetyRules = () => {
   const rules = [
@@ -20,20 +21,30 @@ const SafetyRules = () => {
   const initialRotations = [-6, 4, -3, 5, -4];
 
   return (
-    <section className="py-24 px-6 bg-pink-100/30">
+    <section className="py-24 px-6 relative">
+      {/* Background image without overlay */}
+      <div className="absolute inset-0 -z-10">
+        <img 
+          src={safetyBg} 
+          alt="" 
+          loading="lazy" 
+          className="w-full h-full object-cover" 
+        />
+      </div>
+
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Section Header */}
         <div className="text-center space-y-4">
           <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Техника безопасности
           </span>
-          <p className="text-xl font-display italic text-muted-foreground">
+          <p className="text-xl font-display italic text-white drop-shadow-md">
             Кэмп делается участниками для участников
           </p>
         </div>
 
-        {/* Stickers Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+        {/* Stickers Grid - smaller stickers */}
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 max-w-3xl mx-auto">
           {rules.map((rule, index) => (
             <Sticker
               key={index}
@@ -48,7 +59,7 @@ const SafetyRules = () => {
 
         {/* Additional Info */}
         <div className="max-w-2xl mx-auto space-y-8 pt-8">
-          <p className="text-center text-muted-foreground font-body leading-relaxed">
+          <p className="text-center text-white/90 font-body leading-relaxed drop-shadow-md">
             Мы не знаем наверняка, как это делать правильно. У нас нет формулы дружбы или секрета общения. 
             Мы просто собираем людей и создаем форматы, которые помогают начать разговаривать искренне.
           </p>
@@ -93,7 +104,7 @@ const Sticker = ({ number, text, color, initialRotation, delay }: StickerProps) 
       className={`
         ${color} 
         aspect-square 
-        p-4 
+        p-3
         shadow-lg 
         relative
         transition-all
@@ -106,21 +117,21 @@ const Sticker = ({ number, text, color, initialRotation, delay }: StickerProps) 
       style={{
         transform: isVisible ? "rotate(0deg)" : `rotate(${initialRotation}deg)`,
         boxShadow: isVisible 
-          ? "4px 4px 12px rgba(0,0,0,0.15)" 
-          : "2px 2px 8px rgba(0,0,0,0.1)"
+          ? "4px 4px 12px rgba(0,0,0,0.2)" 
+          : "2px 2px 8px rgba(0,0,0,0.15)"
       }}
     >
       {/* Tape effect at top */}
-      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-4 bg-white/60 backdrop-blur-sm" />
+      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-6 h-3 bg-white/60 backdrop-blur-sm" />
       
       {/* Number */}
-      <span className="font-mono text-2xl font-bold text-foreground/30 absolute top-3 left-3">
+      <span className="font-mono text-lg font-bold text-foreground/30 absolute top-2 left-2">
         {number}
       </span>
 
       {/* Text */}
-      <div className="h-full flex items-center justify-center pt-4">
-        <p className="text-sm md:text-base font-body text-center leading-snug text-foreground/80">
+      <div className="h-full flex items-center justify-center pt-3">
+        <p className="text-xs md:text-sm font-body text-center leading-snug text-foreground/80">
           {text}
         </p>
       </div>
@@ -128,15 +139,15 @@ const Sticker = ({ number, text, color, initialRotation, delay }: StickerProps) 
       {/* Handwritten Checkmark */}
       <div 
         className={`
-          absolute bottom-2 right-2
+          absolute bottom-1.5 right-1.5
           transition-all duration-500
           ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"}
         `}
         style={{ transitionDelay: isVisible ? "400ms" : "0ms" }}
       >
         <svg 
-          width="32" 
-          height="32" 
+          width="24" 
+          height="24" 
           viewBox="0 0 32 32" 
           className="text-highlight"
         >
