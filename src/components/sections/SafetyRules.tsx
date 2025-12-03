@@ -18,10 +18,7 @@ const SafetyRules = () => {
   };
 
   return (
-    <section 
-      className="py-24 px-6 relative bg-callout border-t"
-      style={{ borderTopColor: 'hsl(63, 29%, 85%)' }}
-    >
+    <section className="py-24 px-6 relative bg-callout">
 
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Section Header */}
