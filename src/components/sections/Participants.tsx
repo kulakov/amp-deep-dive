@@ -202,8 +202,8 @@ const Participants = () => {
               onClick={handleCardClick}
             >
               <h3 className="text-xl font-bold mb-3 text-foreground">{participants[currentCard].name}</h3>
-              <p className="text-sm text-foreground/70 mb-4 leading-relaxed">{participants[currentCard].description}</p>
-              <p className="text-sm italic leading-relaxed text-foreground/90">{participants[currentCard].insight}</p>
+              <p className="text-sm text-foreground/80 mb-4 leading-relaxed">{participants[currentCard].description}</p>
+              <p className="text-sm italic leading-relaxed text-foreground">{participants[currentCard].insight}</p>
             </div>
           </div>
           
@@ -241,8 +241,8 @@ const Participants = () => {
               }}
             >
               <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: 'inherit' }}>{person.name}</h3>
-              <p className="text-sm opacity-80 mb-4 leading-relaxed transition-colors duration-300" style={{ color: 'inherit' }}>{person.description}</p>
-              <p className="text-sm italic leading-relaxed opacity-90 transition-colors duration-300" style={{ color: 'inherit' }}>{person.insight}</p>
+              <p className="text-sm mb-4 leading-relaxed transition-colors duration-300" style={{ color: 'inherit' }}>{person.description}</p>
+              <p className="text-sm italic leading-relaxed transition-colors duration-300" style={{ color: 'inherit' }}>{person.insight}</p>
             </div>
           ))}
         </div>
