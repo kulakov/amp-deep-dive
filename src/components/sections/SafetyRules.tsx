@@ -20,7 +20,7 @@ const SafetyRules = () => {
   const initialRotations = [-6, 4, -3, 5, -4];
 
   return (
-    <section className="py-24 px-6 bg-pink-50">
+    <section className="py-24 px-6" style={{ backgroundColor: "hsl(300, 60%, 97%)" }}>
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Section Header */}
         <div className="text-center space-y-4">
