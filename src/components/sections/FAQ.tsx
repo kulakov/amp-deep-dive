@@ -32,7 +32,7 @@ const FAQ = () => {
           {questions.map((item, index) => (
             <div key={index} className="border-b border-border pb-6">
               <h3 className="text-lg font-bold mb-3">{item.q}</h3>
-              <p className="text-muted-foreground">{item.a}</p>
+              <p className="text-muted-foreground text-lg">{item.a}</p>
             </div>
           ))}
         </div>

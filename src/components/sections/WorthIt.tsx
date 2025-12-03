@@ -74,7 +74,7 @@ const WorthIt = () => {
           <div className="flex flex-col md:flex-row md:items-baseline md:gap-8 space-y-8 md:space-y-0">
             <div className="space-y-3 md:flex-1">
               <p className="text-2xl font-bold">800 евро</p>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-muted-foreground text-lg">
                 <span className="underline decoration-highlight decoration-2 underline-offset-4">это реально дорого</span>. Можно купить курс, съездить в отпуск или просто отложить. 
                 Мы знаем, что цена отсекает людей с интересными историями, но без денег. 
                 Кэмп делается без прибыли, и мы не знаем, как его сделать дешевле.
@@ -82,13 +82,13 @@ const WorthIt = () => {
             </div>
             <div className="bg-highlight/10 py-6 -mx-6 px-6 md:mx-0 md:px-6 space-y-3 md:flex-1">
               <p className="text-2xl font-bold">800 евро</p>
-              <p className="text-sm">
+              <p className="text-lg">
                 <span className="underline decoration-highlight decoration-2 underline-offset-4">это капец как дешево</span>. Почти в три раза дешевле аналогичных коммерческих мероприятий, 
                 потому что организаторы работают бесплатно. И вы получите офигеть как много за эти деньги.
               </p>
             </div>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-lg text-muted-foreground">
             <span className="font-bold">Кстати.</span> Мы не обещаем вам супер-лакшери условий. 
             Будет комфортно. Будет интересно. Мы будем друг о друге заботиться. Но нет, это не пятизвездочный сервис.{" "}
             <span className="underline decoration-highlight decoration-2 underline-offset-4">Это вообще не сервис. Это волонтерский лагерь.</span>
@@ -112,7 +112,7 @@ const WorthIt = () => {
           <h2 className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
             Что дает сообщество
           </h2>
-          <p className="text-muted-foreground text-sm max-w-xl">
+          <p className="text-muted-foreground text-lg max-w-xl">
             Сообщество — это все кто когда-то был на кэмпе.
           </p>
           
@@ -219,7 +219,7 @@ const WorthIt = () => {
                   <span className="font-mono text-2xl font-bold text-highlight">{index + 1}</span>
                   <div>
                     <p className="font-bold mb-1">{step.title}</p>
-                    <p className="text-muted-foreground">{step.desc}</p>
+                    <p className="text-muted-foreground text-lg">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -227,7 +227,7 @@ const WorthIt = () => {
             
             <div className="border-l-2 border-highlight pl-6">
               <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-3">Ближайший дедлайн</p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-lg">
                 дождаться когда мы объявим следующий. если вас номинировали, мы с вами свяжемся, у нас есть ваши контакты
               </p>
             </div>
