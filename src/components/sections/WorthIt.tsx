@@ -71,8 +71,8 @@ const WorthIt = () => {
         {/* Money */}
         <div className="space-y-6">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Про деньги:</h3>
-          <div className="space-y-8">
-            <div className="space-y-3">
+          <div className="flex flex-col md:flex-row md:items-baseline md:gap-8 space-y-8 md:space-y-0">
+            <div className="space-y-3 md:flex-1">
               <p className="text-2xl font-bold">800 евро</p>
               <p className="text-muted-foreground text-sm">
                 <span className="underline decoration-highlight decoration-2 underline-offset-4">это реально дорого</span>. Можно купить курс, съездить в отпуск или просто отложить. 
@@ -80,7 +80,7 @@ const WorthIt = () => {
                 Кэмп делается без прибыли, и мы не знаем, как его сделать дешевле.
               </p>
             </div>
-            <div className="bg-highlight/10 py-6 -mx-6 px-6 md:mx-0 md:px-6 space-y-3">
+            <div className="bg-highlight/10 py-6 -mx-6 px-6 md:mx-0 md:px-6 space-y-3 md:flex-1">
               <p className="text-2xl font-bold">800 евро</p>
               <p className="text-sm">
                 <span className="underline decoration-highlight decoration-2 underline-offset-4">это капец как дешево</span>. Почти в три раза дешевле аналогичных коммерческих мероприятий, 
