@@ -37,7 +37,7 @@ const WhatHappens = () => {
     }
     return () => observer.disconnect();
   }, []);
-  return <section className="py-24 px-6 border-b border-foreground bg-background relative z-10">
+  return <section className="py-24 px-6 border-b border-callout-border bg-background relative z-10">
       {/* Header */}
       <div className="max-w-3xl mx-auto mb-12">
         <div className="space-y-6">
