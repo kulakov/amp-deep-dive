@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import safetyBg from "@/assets/safety-bg.jpg";
 
 const SafetyRules = () => {
+  const [visibleCount, setVisibleCount] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   const rules = [
     "Включаете голову",
     "Участвуете только в том, в чем хотите",
@@ -12,8 +15,30 @@ const SafetyRules = () => {
 
   const initialRotations = [-6, 4, -3, 5, -4];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && visibleCount === 0) {
+          // Start sequential animation
+          rules.forEach((_, index) => {
+            setTimeout(() => {
+              setVisibleCount(prev => prev + 1);
+            }, index * 400);
+          });
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [visibleCount, rules.length]);
+
   return (
-    <section className="py-24 px-6 relative">
+    <section ref={sectionRef} className="py-24 px-6 relative">
       {/* Background image with dark overlay */}
       <div className="absolute inset-0 -z-10">
         <img 
@@ -43,7 +68,7 @@ const SafetyRules = () => {
               key={index}
               text={rule}
               initialRotation={initialRotations[index]}
-              delay={index * 300}
+              isFixed={index < visibleCount}
             />
           ))}
         </div>
@@ -63,33 +88,12 @@ const SafetyRules = () => {
 interface StickerProps {
   text: string;
   initialRotation: number;
-  delay: number;
+  isFixed: boolean;
 }
 
-const Sticker = ({ text, initialRotation, delay }: StickerProps) => {
-  const [isFixed, setIsFixed] = useState(false);
-  const stickerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setIsFixed(true), delay);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (stickerRef.current) {
-      observer.observe(stickerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [delay]);
-
+const Sticker = ({ text, initialRotation, isFixed }: StickerProps) => {
   return (
     <div
-      ref={stickerRef}
       className="
         bg-highlight
         aspect-square 
@@ -127,7 +131,7 @@ const Sticker = ({ text, initialRotation, delay }: StickerProps) => {
           transition-all duration-500
           ${isFixed ? "opacity-100 scale-100" : "opacity-0 scale-0"}
         `}
-        style={{ transitionDelay: isFixed ? "300ms" : "0ms" }}
+        style={{ transitionDelay: isFixed ? "200ms" : "0ms" }}
       >
         <svg 
           width="24" 
@@ -145,7 +149,7 @@ const Sticker = ({ text, initialRotation, delay }: StickerProps) => {
             style={{
               strokeDasharray: 40,
               strokeDashoffset: isFixed ? 0 : 40,
-              transition: "stroke-dashoffset 0.4s ease-out 0.4s"
+              transition: "stroke-dashoffset 0.4s ease-out 0.3s"
             }}
           />
         </svg>
