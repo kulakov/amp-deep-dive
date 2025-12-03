@@ -142,7 +142,7 @@ const Participants = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-background">
+    <section ref={sectionRef} className="py-12 px-6 bg-background">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto space-y-6">
