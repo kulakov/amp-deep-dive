@@ -4,12 +4,11 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import LogoHorizontal from "@/components/LogoHorizontal";
 
 const sections = [
-  { id: "not-conference", label: "Не конференция" },
+  { id: "what-happens", label: "Не конференция" },
   { id: "safety", label: "Безопасность" },
   { id: "participants", label: "Кто приезжает" },
-  { id: "worth-it", label: "Стоит ли" },
-  { id: "community", label: "Сообщество" },
   { id: "how-to-join", label: "Как попасть" },
+  { id: "worth-it", label: "Стоит ли" },
   { id: "faq", label: "FAQ" },
 ];
 
