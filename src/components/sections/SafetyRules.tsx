@@ -62,6 +62,51 @@ const SafetyRules = () => {
             Мы просто собираем людей и создаем форматы, которые помогают начать разговаривать искренне.
           </p>
         </div>
+
+        {/* What we DON'T do */}
+        <div className="max-w-2xl mx-auto pt-8">
+          <h3 className="text-lg font-display text-white mb-6">Чего мы точно НЕ делаем:</h3>
+          <div className="space-y-6 text-white/80 font-body">
+            <div className="border-l-2 border-highlight pl-4">
+              <p className="font-semibold text-white">Не заставляем участвовать</p>
+              <p className="text-sm">можно не ходить на любое из мероприятий. можно уходить всегда когда не ок</p>
+            </div>
+            <div className="border-l-2 border-highlight pl-4">
+              <p className="font-semibold text-white">Не продаем методики</p>
+              <p className="text-sm">это не бизнес</p>
+            </div>
+            <div className="border-l-2 border-highlight pl-4">
+              <p className="font-semibold text-white">Не обещаем решить ваши проблемы</p>
+              <p className="text-sm">мы не психологи (почти все), и у нас тоже есть непрочитанные книжки по саморазвитию</p>
+            </div>
+          </div>
+        </div>
+
+        {/* How we change */}
+        <div className="max-w-2xl mx-auto pt-8">
+          <h3 className="text-lg font-display text-white mb-6">Как мы меняемся:</h3>
+          <div className="space-y-4 text-white/80 font-body text-sm leading-relaxed">
+            <p>
+              После каждого кэмпа мы просим участников написать обратную связь. Любую: кому что понравилось, 
+              кого что бесило, кто от чего устал. На основании этой обратной связи мы и создаем новые кэмпы.
+            </p>
+            <p>
+              Каждый кэмп делает новая команда, чтобы организаторы отдохнули или вдруг не решили, что лучше 
+              всех знают, как надо. Обычно команду набирают из тех, кто недавно был участником.
+            </p>
+          </div>
+        </div>
+
+        {/* What might not work */}
+        <div className="max-w-2xl mx-auto pt-8">
+          <h3 className="text-lg font-display text-white mb-6">Что может не сработать</h3>
+          <ul className="space-y-3 text-white/80 font-body text-sm leading-relaxed list-disc list-inside">
+            <li>Любая активность может вам не зайти.</li>
+            <li>Иногда в программу пролезают не слишком удачные форматы.</li>
+            <li>Иногда мы перестраховываемся.</li>
+            <li>Конкретные результаты для вас сильно зависят от того, насколько вы стараемся что-то из кэмпа извлечь.</li>
+          </ul>
+        </div>
       </div>
     </section>
   );
