@@ -9,14 +9,6 @@ const SafetyRules = () => {
     "Опираемся на критическое мышление"
   ];
 
-  const stickerColors = [
-    "bg-yellow-200",
-    "bg-pink-200",
-    "bg-blue-200",
-    "bg-green-200",
-    "bg-orange-200"
-  ];
-
   const initialRotations = [-6, 4, -3, 5, -4];
 
   return (
@@ -49,7 +41,6 @@ const SafetyRules = () => {
             <Sticker
               key={index}
               text={rule}
-              color={stickerColors[index]}
               initialRotation={initialRotations[index]}
             />
           ))}
@@ -69,15 +60,14 @@ const SafetyRules = () => {
 
 interface StickerProps {
   text: string;
-  color: string;
   initialRotation: number;
 }
 
-const Sticker = ({ text, color, initialRotation }: StickerProps) => {
+const Sticker = ({ text, initialRotation }: StickerProps) => {
   return (
     <div
-      className={`
-        ${color} 
+      className="
+        bg-highlight
         aspect-square 
         p-3
         shadow-lg 
@@ -87,7 +77,7 @@ const Sticker = ({ text, color, initialRotation }: StickerProps) => {
         hover:shadow-xl
         transition-transform
         duration-300
-      `}
+      "
       style={{
         transform: `rotate(${initialRotation}deg)`,
         boxShadow: "4px 4px 12px rgba(0,0,0,0.2)"
@@ -98,7 +88,7 @@ const Sticker = ({ text, color, initialRotation }: StickerProps) => {
 
       {/* Text */}
       <div className="h-full flex items-center justify-center">
-        <p className="text-xs md:text-sm font-body text-center leading-snug text-foreground/80">
+        <p className="text-xs md:text-sm font-body text-center leading-snug text-highlight-foreground">
           {text}
         </p>
       </div>
