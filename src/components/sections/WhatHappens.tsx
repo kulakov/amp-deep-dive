@@ -334,8 +334,8 @@ const WhatHappens = () => {
                 desc: "тут просто все по очереди рассказывают о ситуации, когда они облажались",
                 img: formatFuckupNight
               }].map((card, i) => <div key={i} className="w-[260px] flex-shrink-0 bg-background text-foreground shadow-xl">
-                    <div className="h-24 overflow-hidden">
-                      <img src={card.img} alt={card.name} className="w-full h-full object-cover" />
+                    <div className="h-32 overflow-hidden">
+                      <img src={card.img} alt={card.name} className="w-full h-full object-cover object-top" />
                     </div>
                     <div className="p-4">
                       <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
@@ -391,8 +391,8 @@ const WhatHappens = () => {
               e.currentTarget.style.transform = `rotate(${card.rotate}deg)`;
               e.currentTarget.style.zIndex = String(i + 1);
             }}>
-                  <div className="h-20 overflow-hidden">
-                    <img src={card.img} alt={card.name} className="w-full h-full object-cover" />
+                  <div className="h-28 overflow-hidden">
+                    <img src={card.img} alt={card.name} className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="p-4">
                     <h4 className="font-bold text-sm mb-2">«{card.name}»</h4>
