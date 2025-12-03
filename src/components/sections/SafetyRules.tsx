@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import safetyBg from "@/assets/safety-bg.jpg";
 
 const SafetyRules = () => {
-  const [visibleCount, setVisibleCount] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const [fixedStickers, setFixedStickers] = useState<Set<number>>(new Set());
 
   const rules = [
     "Включаете голову",
@@ -15,30 +14,12 @@ const SafetyRules = () => {
 
   const initialRotations = [-6, 4, -3, 5, -4];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && visibleCount === 0) {
-          // Start sequential animation
-          rules.forEach((_, index) => {
-            setTimeout(() => {
-              setVisibleCount(prev => prev + 1);
-            }, index * 400);
-          });
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [visibleCount, rules.length]);
+  const handleStickerClick = (index: number) => {
+    setFixedStickers(prev => new Set(prev).add(index));
+  };
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 relative">
+    <section className="py-24 px-6 relative">
       {/* Background image with dark overlay */}
       <div className="absolute inset-0 -z-10">
         <img 
@@ -68,7 +49,8 @@ const SafetyRules = () => {
               key={index}
               text={rule}
               initialRotation={initialRotations[index]}
-              isFixed={index < visibleCount}
+              isFixed={fixedStickers.has(index)}
+              onClick={() => handleStickerClick(index)}
             />
           ))}
         </div>
@@ -89,24 +71,25 @@ interface StickerProps {
   text: string;
   initialRotation: number;
   isFixed: boolean;
+  onClick: () => void;
 }
 
-const Sticker = ({ text, initialRotation, isFixed }: StickerProps) => {
+const Sticker = ({ text, initialRotation, isFixed, onClick }: StickerProps) => {
   return (
     <div
-      className="
+      onClick={!isFixed ? onClick : undefined}
+      className={`
         bg-highlight
         aspect-square 
         p-3
         shadow-lg 
         relative
-        cursor-default
-        hover:scale-105
+        ${!isFixed ? "cursor-pointer hover:scale-105" : "cursor-default"}
         hover:shadow-xl
         transition-all
         duration-500
         ease-out
-      "
+      `}
       style={{
         transform: isFixed ? "rotate(0deg)" : `rotate(${initialRotation}deg)`,
         boxShadow: isFixed 
