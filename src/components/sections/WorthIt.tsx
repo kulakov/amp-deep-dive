@@ -59,7 +59,7 @@ const WorthIt = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-background">
+    <section className="py-12 px-6 bg-background">
       <div className="max-w-3xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-6">

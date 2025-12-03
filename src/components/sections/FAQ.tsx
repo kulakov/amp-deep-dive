@@ -19,7 +19,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-background">
+    <section className="py-12 px-6 bg-background">
       <div className="max-w-3xl mx-auto space-y-12">
         <div className="space-y-4">
           <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
