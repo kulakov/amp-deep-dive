@@ -102,7 +102,7 @@ const StickyNav = () => {
             <div className="flex items-center justify-center gap-1 py-3">
               <div 
                 className={`overflow-hidden transition-all duration-300 ease-out ${
-                  isSticky ? "w-24 opacity-100 mr-4" : "w-0 opacity-0 mr-0"
+                  isSticky ? "w-28 opacity-100 mr-4" : "w-0 opacity-0 mr-0"
                 }`}
               >
                 <button 
