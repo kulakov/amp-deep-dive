@@ -20,28 +20,36 @@ const StickyNav = () => {
   const placeholderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let rafId: number;
+    
     const handleScroll = () => {
-      if (!placeholderRef.current) return;
-      
-      // Sticky when placeholder reaches top of viewport
-      const placeholderRect = placeholderRef.current.getBoundingClientRect();
-      setIsSticky(placeholderRect.top <= 0);
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        if (!placeholderRef.current) return;
+        
+        // Sticky when placeholder reaches top of viewport
+        const placeholderRect = placeholderRef.current.getBoundingClientRect();
+        setIsSticky(placeholderRect.top <= 0);
 
-      // Find active section
-      const scrollPosition = window.scrollY + 150;
-      
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const element = document.getElementById(sections[i].id);
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i].id);
-          break;
+        // Find active section
+        const scrollPosition = window.scrollY + 150;
+        
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const element = document.getElementById(sections[i].id);
+          if (element && element.offsetTop <= scrollPosition) {
+            setActiveSection(sections[i].id);
+            break;
+          }
         }
-      }
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const scrollToSection = (id: string) => {

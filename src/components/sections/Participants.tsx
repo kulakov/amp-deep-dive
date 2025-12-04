@@ -73,34 +73,42 @@ const Participants = () => {
 
   // Scroll-based card changing (mobile only)
   useEffect(() => {
+    let rafId: number;
+    
     const handleScroll = () => {
-      if (!sectionRef.current || isDragging) return;
-      
-      // Only on mobile
-      if (window.innerWidth >= 768) return;
-      
-      const rect = sectionRef.current.getBoundingClientRect();
-      const sectionHeight = rect.height;
-      const viewportHeight = window.innerHeight;
-      
-      // Calculate how far we've scrolled through the section
-      // Start counting when section enters viewport, end when it leaves
-      const scrollStart = viewportHeight; // section top reaches bottom of viewport
-      const scrollEnd = -sectionHeight; // section bottom reaches top of viewport
-      const scrollRange = scrollStart - scrollEnd;
-      
-      const currentPosition = rect.top;
-      const scrollProgress = (scrollStart - currentPosition) / scrollRange;
-      
-      // Map scroll progress to card index
-      const cardIndex = Math.floor(scrollProgress * participants.length);
-      const clampedIndex = Math.max(0, Math.min(participants.length - 1, cardIndex));
-      
-      setCurrentCard(clampedIndex);
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        if (!sectionRef.current || isDragging) return;
+        
+        // Only on mobile
+        if (window.innerWidth >= 768) return;
+        
+        const rect = sectionRef.current.getBoundingClientRect();
+        const sectionHeight = rect.height;
+        const viewportHeight = window.innerHeight;
+        
+        // Calculate how far we've scrolled through the section
+        // Start counting when section enters viewport, end when it leaves
+        const scrollStart = viewportHeight; // section top reaches bottom of viewport
+        const scrollEnd = -sectionHeight; // section bottom reaches top of viewport
+        const scrollRange = scrollStart - scrollEnd;
+        
+        const currentPosition = rect.top;
+        const scrollProgress = (scrollStart - currentPosition) / scrollRange;
+        
+        // Map scroll progress to card index
+        const cardIndex = Math.floor(scrollProgress * participants.length);
+        const clampedIndex = Math.max(0, Math.min(participants.length - 1, cardIndex));
+        
+        setCurrentCard(clampedIndex);
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, [isDragging, participants.length]);
 
   const handleDragStart = (clientX: number) => {
