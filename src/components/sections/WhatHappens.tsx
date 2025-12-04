@@ -310,7 +310,7 @@ const WhatHappens = () => {
         }} />
           
           <div className="text-foreground">
-            <h3 className="font-mono text-sm uppercase tracking-[0.2em] mb-8">Наши форматы:</h3>
+            <h2 className="font-mono text-sm uppercase tracking-[0.2em] mb-8">Наши форматы:</h2>
             
             {/* Mobile horizontal scroll */}
             <div className="md:hidden overflow-x-auto overflow-y-visible -mx-6 px-6 -mb-4">
