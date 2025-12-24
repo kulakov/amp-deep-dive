@@ -28,22 +28,22 @@ const WorthIt = () => {
     rotate: -3
   }, {
     title: "Пипл-бук",
-    description: <><span className="underline decoration-highlight decoration-2 underline-offset-4">база всех участников</span> с их интересами, увлечениями и контактами. Хотите найти человека, который любит монгольский рок, работает арт-директором компьютерной игры и занимается LARP?</>,
+    description: <><span className="underline decoration-highlight decoration-2 underline-offset-4">База всех участников</span> с их интересами, увлечениями и контактами. Хотите найти человека, который любит монгольский рок, работает арт-директором компьютерной игры и занимается LARP?</>,
     img: doodleBook,
     rotate: 2
   }, {
     title: "Вписки",
-    description: <>можете договориться остановиться у участника почти в любом крупном европейском городе, но готовьтесь к <span className="underline decoration-highlight decoration-2 underline-offset-4">разговорам до утра</span>.</>,
+    description: <>Можете договориться остановиться у участника почти в любом крупном европейском городе, но готовьтесь к <span className="underline decoration-highlight decoration-2 underline-offset-4">разговорам до утра</span>.</>,
     img: doodleHouse,
     rotate: -2
   }, {
     title: "Чат(ы) и вообще разные формы общения",
-    description: <>место, где можно говорить без непрошенных советов и мотивационных речей. Кроме чатов у нас есть другие онлайн форматы: <span className="underline decoration-highlight decoration-2 underline-offset-4">дискуссии</span>, <span className="underline decoration-highlight decoration-2 underline-offset-4">мастер-майнды</span> и всякое, что мы переодически делаем, потому что кто-то упоролся.</>,
+    description: <>Место, где можно говорить без непрошенных советов и мотивационных речей. Кроме чатов у нас есть другие онлайн форматы: <span className="underline decoration-highlight decoration-2 underline-offset-4">дискуссии</span>, <span className="underline decoration-highlight decoration-2 underline-offset-4">мастер-майнды</span> и всякое, что мы периодически делаем, потому что кто-то упоролся.</>,
     img: doodleChat,
     rotate: 4
   }, {
     title: "Понимание",
-    description: <>что вы не единственный, кто ценит <span className="underline decoration-highlight decoration-2 underline-offset-4">искреннее общение</span> больше светского</>,
+    description: <>Что вы не единственный, кто ценит <span className="underline decoration-highlight decoration-2 underline-offset-4">искреннее общение</span> больше светского.</>,
     img: doodleHeart,
     rotate: -1
   }];
