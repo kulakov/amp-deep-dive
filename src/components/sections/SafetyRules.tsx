@@ -38,7 +38,7 @@ const SafetyRules = () => {
           <div className="space-y-6 text-muted-foreground font-body">
             <div className="border-l-2 border-highlight pl-4">
               <p className="font-semibold text-foreground">Не заставляем участвовать</p>
-              <p className="text-lg">можно не ходить на любое из мероприятий. можно уходить если вам не ок</p>
+              <p className="text-lg">можно не ходить на любое из мероприятий, можно уходить, если вам не ок</p>
             </div>
             <div className="border-l-2 border-highlight pl-4">
               <p className="font-semibold text-foreground">Не продаем методики</p>
