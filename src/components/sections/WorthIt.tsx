@@ -101,7 +101,7 @@ const WorthIt = () => {
             Что дает сообщество
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl">
-            Сообщество — это все кто когда-то был на кэмпе.
+            Сообщество — это все, кто когда-то был на кэмпе.
           </p>
           
           {/* Mobile horizontal scroll */}
