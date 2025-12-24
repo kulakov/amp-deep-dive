@@ -1,8 +1,6 @@
 import { Mail } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="py-24 px-6 bg-foreground text-background">
+  return <footer className="py-24 px-6 bg-foreground text-background">
       <div className="max-w-3xl mx-auto space-y-12">
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">
@@ -10,18 +8,14 @@ const Footer = () => {
           </span>
         </div>
         
-        <a 
-          href="mailto:hello@amp.camp"
-          className="flex items-center gap-3 text-xl md:text-2xl font-mono hover:text-highlight transition-colors"
-        >
+        <a href="mailto:hello@amp.camp" className="flex items-center gap-3 text-xl md:text-2xl font-mono hover:text-highlight transition-colors">
           <Mail className="w-6 h-6" />
           hello@amp.camp
         </a>
 
         <div className="space-y-6 text-sm opacity-70">
           <p>
-            Мы существуем с 22 года и до сих пор удивляемся, что это работает. 
-            Возможно, в мире действительно не хватает мест, где взрослые люди могут признаться, что они растеряны.
+            Мы существуем с 2022 года и до сих пор удивляемся, что это работает. Возможно, в мире действительно не хватает мест, где взрослые люди могут признаться, что они растеряны.
           </p>
           <p className="font-mono text-xs">
             * От трех до пяти людей потратили сорок часов на обсуждение этой страницы. 
@@ -29,8 +23,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
