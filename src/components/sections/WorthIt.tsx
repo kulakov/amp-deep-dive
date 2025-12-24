@@ -203,7 +203,7 @@ const WorthIt = () => {
             <div className="border-l-2 border-highlight pl-6">
               <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-3">Ближайший дедлайн</p>
               <p className="text-muted-foreground text-lg">
-                дождаться когда мы объявим следующий. если вас номинировали, мы с вами свяжемся, у нас есть ваши контакты
+                Дождаться, когда мы объявим следующий. Если вас номинировали, мы с вами свяжемся, у нас есть ваши контакты.
               </p>
             </div>
           </div>
