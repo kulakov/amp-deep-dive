@@ -204,7 +204,7 @@ const WhatHappens = () => {
         {/* What is it */}
         <div className="space-y-6">
           <p className="text-lg font-body leading-relaxed">
-            AmpCamp — это место, где <strong>CTO</strong> может обнаружить, 
+            AmpCamp — это место, где <strong>технический директор </strong> может обнаружить, 
             что его <strong>тревога про будущее</strong> точно такая же, 
             как у <strong>учителя литературы</strong>, хотя внешне их жизни не похожи.
           </p>
