@@ -69,7 +69,7 @@ const HowToJoin = () => {
               <p className="text-xl font-display italic">Что происходит на интервью</p>
             <div className="space-y-4 text-muted-foreground text-lg">
                 <p>
-                  Мы предлагаем вам ситуацию и смотрим на то, как вы рассуждаете, какие аргументы вам кажутся важными. Мы пытаемся <span className="underline decoration-highlight decoration-2 underline-offset-4">вытащить наружу то, что делает вас интересным, увлечься вами.</span>
+                  Мы предлагаем вам ситуацию и смотрим на то, как вы рассуждаете, какие аргументы вам кажутся важными. Мы пытаемся <span className="underline decoration-highlight decoration-2 underline-offset-4">вытащить наружу то, что делает вас интересными, увлечься вами.</span>
                 </p>
                 <p>
                   Честно сказать, мы просто хотим понять что вокруг вас будет происходить на кэмпе. И понравится ли это вам, и нам.
