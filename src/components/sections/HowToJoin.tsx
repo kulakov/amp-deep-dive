@@ -47,8 +47,7 @@ const HowToJoin = () => {
               в презентацию своих достижений. Боимся тех, кто разрушит то хрупкое доверие, которое мы пытаемся создать.
             </p>
             <p>
-              Интервью — попытка понять: <span className="underline decoration-highlight decoration-2 underline-offset-4">сможете ли вы искренне говорить о том, что вас беспокоит и интересны ли вам 
-              такие люди как мы?</span>
+              Интервью — попытка понять: <span className="underline decoration-highlight decoration-2 underline-offset-4">сможете ли вы искренне говорить о том, что вас беспокоит, и интересны ли вам такие люди как мы?</span>
             </p>
             <p>
               А еще мы хотим чтобы встретились люди, которые друг друга в чем-нибудь усилят. Мы пытаемся разглядеть 
@@ -92,22 +91,22 @@ const HowToJoin = () => {
             </div>
 
             {/* Stories as diary cards - TEMPORARILY COMMENTED OUT
-            <div className="grid md:grid-cols-2 gap-8 pt-4">
+             <div className="grid md:grid-cols-2 gap-8 pt-4">
               {[{
               name: "История Макса",
               text: "Макс, дата-аналитик: «Когда получил приглашение, загуглил всех участников. У них TED talks, стартапы, книги. А я делаю отчеты в компании, о которой никто не слышал. Три дня думал, как вежливо отказаться.\nНа кэмпе основатель известного стартапа сказал: 'Я думал, ты какой-то гуру данных, а ты обычный парень'.",
               conclusion: "Оказалось: чем успешнее человек выглядит снаружи, тем больше он уверен, что все вокруг умнее.»",
               rotate: -2
-            }, {
+             }, {
               name: "История Жени",
               text: "Женя, программистка: «Прячусь за работой, потому что не знаю, как быть интересной людям просто как человек. На корпоративах читаю техдокументацию в туалете. Первый день кэмпа делала вид, что у меня срочная задача.\nПодошел парень: 'Go пишешь? Что думаешь про новые генерики?' Час говорили про код, потом про книги, потом — почему нам обоим сложно с людьми.",
               conclusion: "Поняла: можно быть интересной, не умея рассказывать анекдоты.»",
               rotate: 2
-            }].map((story, index) => <div key={index} className="relative bg-[#FFFEF5] p-8 shadow-lg" style={{
+             }].map((story, index) => <div key={index} className="relative bg-[#FFFEF5] p-8 shadow-lg" style={{
               transform: `rotate(${story.rotate}deg)`,
               backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #E8E4D9 28px)',
               backgroundPosition: '0 40px'
-            }}>
+             }}>
                   <div className="absolute top-0 bottom-0 w-px bg-red-300/60" style={{
                 left: '32px'
               }} />
@@ -123,8 +122,8 @@ const HowToJoin = () => {
                     </p>
                   </div>
                 </div>)}
-            </div>
-            */}
+             </div>
+             */}
           </div>
         </div>
 
