@@ -127,7 +127,7 @@ const HowToJoin = () => {
 
         {/* Stress warning */}
         <div className="border-t border-callout-border pt-6 space-y-3">
-          <h4 className="font-display font-bold italic text-foreground">Про стресс интервью.</h4>
+          <h4 className="font-display font-bold italic text-foreground">Про стресс-интервью.</h4>
           <div className="space-y-3 text-muted-foreground font-body text-lg leading-relaxed">
             <p>
               Да, это волнительно. Мы стараемся создать безопасную атмосферу, но час — это мало, чтобы понять человека.
