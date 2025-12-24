@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <div className="space-y-8">
             <div className="space-y-6">
-              <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">КЕМП ДЛЯ РАЗНЫХ ВЗРОСЛЫХ</span>
+              <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block">КЭМП ДЛЯ РАЗНЫХ ВЗРОСЛЫХ</span>
               <Logo className="w-full max-w-xl mx-auto h-auto text-white" />
             </div>
             
