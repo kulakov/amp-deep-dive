@@ -79,7 +79,7 @@ const HowToJoin = () => {
 
             {/* Example topic */}
             <div className="border-l-2 border-highlight pl-6">
-              <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-3">Темы которые мы предлагали раньше:</p>
+              <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-3">Темы, которые мы предлагали раньше:</p>
               <p className="italic text-muted-foreground">
                 представьте, что пришел к вам волшебник и говорит: "Я могу сделать так, чтобы ты не умирал. 
                 Что вы про это думаете? Согласились ли бы вы? А другие люди согласятся или нет, как вы думаете?"
