@@ -53,7 +53,7 @@ const SafetyRules = () => {
 
         {/* How we change */}
         <div className="max-w-2xl mx-auto pt-8">
-          <h3 className="text-lg font-display text-foreground mb-6">Как мы меняемся:</h3>
+          <h3 className="text-lg font-display text-foreground mb-6">Как мы меняемся</h3>
           <div className="space-y-4 text-muted-foreground font-body text-lg leading-relaxed">
             <p>
               После каждого кэмпа мы просим участников написать обратную связь. Любую: кому что понравилось, 
