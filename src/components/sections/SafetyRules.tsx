@@ -68,7 +68,7 @@ const SafetyRules = () => {
 
         {/* What might not work - warning block */}
         <div className="max-w-2xl mx-auto mt-8 border-t border-callout-border pt-6">
-          <h3 className="font-display font-bold italic text-foreground mb-4">Что может не сработать.</h3>
+          <h3 className="font-display font-bold italic text-foreground mb-4">Что может не сработать</h3>
           <div className="space-y-3 text-muted-foreground font-body text-lg leading-relaxed">
             <p>Любая активность может вам не зайти.</p>
             <p>Иногда в программу пролезают не слишком удачные форматы.</p>
