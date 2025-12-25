@@ -71,7 +71,7 @@ const WhatHappens = () => {
           caption: "включаемся"
         }, {
           img: campAtmosphere,
-          caption: "замечаем друг-друга"
+          caption: "замечаем друг друга"
         }, {
           img: campConnection,
           caption: "общаемся"
@@ -131,7 +131,7 @@ const WhatHappens = () => {
         left: "58%",
         size: "w-40",
         z: 1,
-        caption: "замечаем друг-друга"
+        caption: "замечаем друг друга"
       }, {
         img: campConnection,
         rotate: -4,
