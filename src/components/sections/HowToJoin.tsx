@@ -40,7 +40,7 @@ const HowToJoin = () => {
 
         {/* Why interview */}
         <div className="space-y-6">
-          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Зачем интервью:</h3>
+          <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Зачем интервью</h3>
           <div className="space-y-4 text-muted-foreground text-lg">
             <p>
               Мы боимся. Боимся пустить людей, которые не умеют слушать или превращают любой разговор 
