@@ -8,7 +8,7 @@ const Footer = () => {
           </span>
         </div>
         
-        <a href="mailto:hello@amp.camp" className="flex items-center gap-3 text-xl md:text-2xl font-mono hover:text-highlight transition-colors">
+        <a href="mailto:hello@amp.camp" className="inline-flex items-center gap-3 text-xl md:text-2xl font-mono hover:bg-highlight hover:text-highlight-foreground px-2 -mx-2 py-1 transition-colors">
           <Mail className="w-6 h-6" />
           hello@amp.camp
         </a>
