@@ -103,11 +103,17 @@ const Sticker = ({
         duration-500
         ease-out
       `} style={{
-    transform: isFixed ? "rotate(0deg)" : `rotate(${initialRotation}deg)`,
-    boxShadow: isFixed 
-      ? "4px 4px 12px hsl(var(--highlight) / 0.3)" 
-      : "2px 2px 8px hsl(var(--highlight) / 0.2)"
+    transform: isFixed ? "rotate(0deg)" : `rotate(${initialRotation}deg)`
   }}>
+      {/* Multiply shadow */}
+      <div 
+        className="absolute inset-0 bg-highlight/40 -z-10"
+        style={{
+          transform: isFixed ? "translate(4px, 4px)" : "translate(2px, 2px)",
+          filter: "blur(6px)",
+          mixBlendMode: "multiply"
+        }}
+      />
       {/* Tape effect at top */}
       <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-6 h-3 bg-white/60 backdrop-blur-sm" />
 
