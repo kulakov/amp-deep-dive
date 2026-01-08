@@ -95,8 +95,8 @@ const Sticker = ({
         bg-highlight/20
         aspect-square 
         p-3
-        shadow-lg 
         relative
+        isolate
         ${!isFixed ? "cursor-pointer hover:scale-105" : "cursor-default"}
         hover:shadow-xl
         transition-all
