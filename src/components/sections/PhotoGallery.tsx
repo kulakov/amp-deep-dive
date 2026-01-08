@@ -8,18 +8,19 @@ import gallery6 from "@/assets/gallery-6.jpg";
 import gallery7 from "@/assets/gallery-7.jpg";
 import gallery8 from "@/assets/gallery-8.jpg";
 import gallery9 from "@/assets/gallery-9.jpg";
+import gallery10 from "@/assets/gallery-10.jpg";
+import gallery11 from "@/assets/gallery-11.jpg";
+import gallery12 from "@/assets/gallery-12.jpg";
+import gallery13 from "@/assets/gallery-13.jpg";
+import gallery14 from "@/assets/gallery-14.jpg";
+import gallery15 from "@/assets/gallery-15.jpg";
+import gallery16 from "@/assets/gallery-16.jpg";
 
-// Placeholder for future images - will be replaced when user uploads remaining 6
 const galleryImages = [
-  gallery1,
-  gallery2,
-  gallery3,
-  gallery4,
-  gallery5,
-  gallery6,
-  gallery7,
-  gallery8,
-  gallery9,
+  gallery1, gallery2, gallery3, gallery4,
+  gallery5, gallery6, gallery7, gallery8,
+  gallery9, gallery10, gallery11, gallery12,
+  gallery13, gallery14, gallery15, gallery16,
 ];
 
 const PhotoGallery = () => {
@@ -33,7 +34,7 @@ const PhotoGallery = () => {
           galleryImages.forEach((_, index) => {
             setTimeout(() => {
               setVisiblePhotos((prev) => [...prev, index]);
-            }, index * 100);
+            }, index * 80);
           });
           observer.disconnect();
         }
@@ -46,17 +47,28 @@ const PhotoGallery = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Desktop scattered positions for 9 images (will be 16 later)
+  // Desktop scattered positions for 16 images in 4 rows
   const desktopPositions = [
-    { rotate: -5, top: "0%", left: "0%", size: "w-44", z: 2 },
-    { rotate: 4, top: "2%", left: "16%", size: "w-48", z: 3 },
-    { rotate: -3, top: "0%", left: "34%", size: "w-40", z: 1 },
-    { rotate: 6, top: "4%", left: "52%", size: "w-44", z: 2 },
-    { rotate: -7, top: "0%", left: "70%", size: "w-40", z: 1 },
-    { rotate: 3, top: "32%", left: "5%", size: "w-44", z: 4 },
-    { rotate: -4, top: "35%", left: "25%", size: "w-48", z: 5 },
-    { rotate: 5, top: "30%", left: "48%", size: "w-40", z: 3 },
-    { rotate: -6, top: "34%", left: "68%", size: "w-44", z: 4 },
+    // Row 1
+    { rotate: -5, top: "0%", left: "0%", size: "w-40", z: 2 },
+    { rotate: 4, top: "2%", left: "18%", size: "w-44", z: 3 },
+    { rotate: -3, top: "0%", left: "38%", size: "w-36", z: 1 },
+    { rotate: 6, top: "3%", left: "56%", size: "w-40", z: 2 },
+    // Row 2
+    { rotate: -7, top: "22%", left: "4%", size: "w-38", z: 4 },
+    { rotate: 3, top: "24%", left: "22%", size: "w-44", z: 5 },
+    { rotate: -4, top: "20%", left: "44%", size: "w-36", z: 3 },
+    { rotate: 5, top: "23%", left: "62%", size: "w-40", z: 4 },
+    // Row 3
+    { rotate: -6, top: "44%", left: "2%", size: "w-42", z: 2 },
+    { rotate: 4, top: "46%", left: "20%", size: "w-38", z: 3 },
+    { rotate: -3, top: "42%", left: "40%", size: "w-44", z: 1 },
+    { rotate: 7, top: "45%", left: "60%", size: "w-36", z: 2 },
+    // Row 4
+    { rotate: -4, top: "66%", left: "6%", size: "w-40", z: 4 },
+    { rotate: 5, top: "68%", left: "24%", size: "w-36", z: 5 },
+    { rotate: -6, top: "64%", left: "42%", size: "w-42", z: 3 },
+    { rotate: 3, top: "67%", left: "58%", size: "w-40", z: 4 },
   ];
 
   return (
@@ -95,7 +107,7 @@ const PhotoGallery = () => {
       {/* Desktop scattered gallery */}
       <div
         ref={galleryRef}
-        className="hidden md:block relative h-[500px] max-w-6xl mx-auto"
+        className="hidden md:block relative h-[700px] max-w-5xl mx-auto"
       >
         {galleryImages.map((img, i) => {
           const pos = desktopPositions[i];
