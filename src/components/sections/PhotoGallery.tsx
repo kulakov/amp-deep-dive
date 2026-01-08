@@ -132,12 +132,12 @@ const PhotoGallery = () => {
                 e.currentTarget.style.zIndex = String(pos.z);
               }}
             >
-              <div className="aspect-square overflow-hidden">
+              <div className="aspect-square overflow-hidden group-hover:aspect-auto group-hover:overflow-visible">
                 <img
                   src={img}
                   alt=""
                   loading="lazy"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:object-contain group-hover:h-auto transition-all duration-500"
                 />
               </div>
             </div>
