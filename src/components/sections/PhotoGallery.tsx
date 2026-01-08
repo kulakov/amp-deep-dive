@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -26,7 +27,40 @@ const galleryImages = [
 const PhotoGallery = () => {
   const [visiblePhotos, setVisiblePhotos] = useState<number[]>([]);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
+
+  const openLightbox = (index: number) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
+
+  const goNext = useCallback(() => {
+    if (lightboxIndex === null) return;
+    setLightboxIndex((lightboxIndex + 1) % galleryImages.length);
+  }, [lightboxIndex]);
+
+  const goPrev = useCallback(() => {
+    if (lightboxIndex === null) return;
+    setLightboxIndex((lightboxIndex - 1 + galleryImages.length) % galleryImages.length);
+  }, [lightboxIndex]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    };
+    
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+    
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [lightboxIndex, goNext, goPrev]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -87,7 +121,8 @@ const PhotoGallery = () => {
           {galleryImages.map((img, i) => (
             <div
               key={i}
-              className="w-36 flex-shrink-0 bg-white p-2 shadow-lg"
+              className="w-36 flex-shrink-0 bg-white p-2 shadow-lg cursor-pointer"
+              onClick={() => openLightbox(i)}
             >
               <div className="aspect-square overflow-hidden">
                 <img
@@ -124,6 +159,7 @@ const PhotoGallery = () => {
               }}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
+              onClick={() => openLightbox(i)}
             >
               <div className={hoveredIndex === i ? "" : "aspect-square overflow-hidden"}>
                 <img
@@ -141,6 +177,55 @@ const PhotoGallery = () => {
           );
         })}
       </div>
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-[200] flex items-center justify-center"
+          onClick={closeLightbox}
+        >
+          {/* Close button */}
+          <button
+            className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors"
+            onClick={closeLightbox}
+          >
+            <X size={32} />
+          </button>
+
+          {/* Previous button */}
+          <button
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors p-2"
+            onClick={(e) => { e.stopPropagation(); goPrev(); }}
+          >
+            <ChevronLeft size={48} />
+          </button>
+
+          {/* Image */}
+          <div 
+            className="max-w-[90vw] max-h-[85vh] bg-white p-3"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={galleryImages[lightboxIndex]}
+              alt=""
+              className="max-w-full max-h-[80vh] object-contain"
+            />
+          </div>
+
+          {/* Next button */}
+          <button
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors p-2"
+            onClick={(e) => { e.stopPropagation(); goNext(); }}
+          >
+            <ChevronRight size={48} />
+          </button>
+
+          {/* Counter */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 font-mono text-sm">
+            {lightboxIndex + 1} / {galleryImages.length}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
