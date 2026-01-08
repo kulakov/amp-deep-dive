@@ -145,29 +145,33 @@ const PhotoGallery = () => {
         {galleryImages.map((img, i) => {
           const pos = desktopPositions[i];
           const isVisible = visiblePhotos.includes(i);
+          const isHovered = hoveredIndex === i;
           return (
             <div
               key={i}
               className={`absolute bg-white p-2 shadow-xl cursor-pointer transition-all duration-300 ease-out
                 ${isVisible ? "opacity-100" : "opacity-0 translate-y-8"}
-                ${hoveredIndex === i ? "w-72" : pos.size}`}
+                ${isHovered ? "w-72" : pos.size}`}
               style={{
-                transform: hoveredIndex === i ? `rotate(0deg) scale(1.3)` : `rotate(${pos.rotate}deg)`,
+                transform: isHovered ? `rotate(0deg) scale(1.3)` : `rotate(${pos.rotate}deg)`,
                 top: pos.top,
                 left: pos.left,
-                zIndex: hoveredIndex === i ? 100 : pos.z,
+                zIndex: isHovered ? 100 : pos.z,
+                // Delay z-index change on mouse leave to prevent flickering
+                transitionProperty: isHovered ? "transform, width, opacity" : "transform, width, opacity, z-index",
+                transitionDelay: isHovered ? "0ms" : "0ms, 0ms, 0ms, 150ms",
               }}
               onMouseEnter={() => setHoveredIndex(i)}
               onMouseLeave={() => setHoveredIndex(null)}
               onClick={() => openLightbox(i)}
             >
-              <div className={hoveredIndex === i ? "" : "aspect-square overflow-hidden"}>
+              <div className={isHovered ? "" : "aspect-square overflow-hidden"}>
                 <img
                   src={img}
                   alt=""
                   loading="lazy"
                   className={`w-full transition-all duration-500 ${
-                    hoveredIndex === i 
+                    isHovered 
                       ? "h-auto object-contain" 
                       : "h-full object-cover grayscale"
                   }`}
