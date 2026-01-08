@@ -413,18 +413,28 @@ const WhatHappens = () => {
             </div>
           </div>
           
-          {/* Desktop scattered Polaroid layout */}
-          <div className="hidden md:block relative h-[550px]">
+          {/* Desktop scattered Polaroid layout with background */}
+          <div className="hidden md:block relative h-[650px] -mx-12 px-12">
+            {/* Background image */}
+            <div 
+              className="absolute inset-0 -z-10 opacity-20"
+              style={{
+                backgroundImage: `url(${campConferenceBg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            />
+            
             {[
-              { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга.", rotate: -5, top: "0%", left: "0%", z: 5 },
-              { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих.", rotate: 4, top: "5%", left: "28%", z: 4 },
-              { img: campHandsUp, title: "Взаимопомощь", desc: "Сообщество — это люди, которые готовы помогать друг другу.", rotate: -3, top: "0%", left: "58%", z: 3 },
-              { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет.", rotate: 6, top: "42%", left: "8%", z: 2 },
-              { img: campConferenceBg, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет.", rotate: -4, top: "38%", left: "38%", z: 1 }
+              { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга.", rotate: -5, top: "0%", left: "2%", z: 5 },
+              { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих.", rotate: 4, top: "3%", left: "35%", z: 4 },
+              { img: campHandsUp, title: "Взаимопомощь", desc: "Сообщество — это люди, которые готовы помогать друг другу.", rotate: -3, top: "0%", left: "68%", z: 3 },
+              { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет.", rotate: 6, top: "52%", left: "12%", z: 2 },
+              { img: campEnergy, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет.", rotate: -4, top: "48%", left: "50%", z: 1 }
             ].map((card) => (
               <div 
                 key={card.title}
-                className="absolute w-56 bg-white p-2 shadow-xl cursor-pointer transition-all duration-300"
+                className="absolute w-52 bg-white p-2 shadow-xl cursor-pointer transition-all duration-300"
                 style={{
                   transform: `rotate(${card.rotate}deg)`,
                   top: card.top,
