@@ -48,28 +48,25 @@ const PhotoGallery = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Desktop scattered positions for 16 images in 4 rows
+  // Desktop scattered positions for 16 images - more chaotic layout
   const desktopPositions = [
-    // Row 1
-    { rotate: -5, top: "0%", left: "0%", size: "w-40", z: 2 },
-    { rotate: 4, top: "2%", left: "18%", size: "w-44", z: 3 },
-    { rotate: -3, top: "0%", left: "38%", size: "w-36", z: 1 },
-    { rotate: 6, top: "3%", left: "56%", size: "w-40", z: 2 },
-    // Row 2
-    { rotate: -7, top: "22%", left: "4%", size: "w-36", z: 4 },
-    { rotate: 3, top: "24%", left: "22%", size: "w-44", z: 5 },
-    { rotate: -4, top: "20%", left: "44%", size: "w-36", z: 3 },
-    { rotate: 5, top: "23%", left: "62%", size: "w-40", z: 4 },
-    // Row 3
-    { rotate: -6, top: "44%", left: "2%", size: "w-40", z: 2 },
-    { rotate: 4, top: "46%", left: "20%", size: "w-36", z: 3 },
-    { rotate: -3, top: "42%", left: "40%", size: "w-44", z: 1 },
-    { rotate: 7, top: "45%", left: "60%", size: "w-36", z: 2 },
-    // Row 4
-    { rotate: -4, top: "66%", left: "6%", size: "w-40", z: 4 },
-    { rotate: 5, top: "68%", left: "24%", size: "w-36", z: 5 },
-    { rotate: -6, top: "64%", left: "42%", size: "w-40", z: 3 },
-    { rotate: 3, top: "67%", left: "58%", size: "w-40", z: 4 },
+    // Scattered across the area
+    { rotate: -6, top: "0%", left: "2%", size: "w-40", z: 2 },
+    { rotate: 5, top: "5%", left: "22%", size: "w-36", z: 3 },
+    { rotate: -3, top: "2%", left: "42%", size: "w-44", z: 1 },
+    { rotate: 7, top: "0%", left: "68%", size: "w-36", z: 2 },
+    { rotate: -8, top: "18%", left: "8%", size: "w-36", z: 5 },
+    { rotate: 4, top: "22%", left: "32%", size: "w-40", z: 4 },
+    { rotate: -5, top: "16%", left: "55%", size: "w-36", z: 3 },
+    { rotate: 6, top: "20%", left: "76%", size: "w-40", z: 4 },
+    { rotate: -4, top: "38%", left: "0%", size: "w-44", z: 3 },
+    { rotate: 7, top: "42%", left: "24%", size: "w-36", z: 2 },
+    { rotate: -6, top: "36%", left: "48%", size: "w-40", z: 5 },
+    { rotate: 3, top: "40%", left: "72%", size: "w-36", z: 1 },
+    { rotate: -5, top: "58%", left: "6%", size: "w-36", z: 4 },
+    { rotate: 8, top: "62%", left: "28%", size: "w-40", z: 3 },
+    { rotate: -7, top: "56%", left: "52%", size: "w-36", z: 2 },
+    { rotate: 4, top: "60%", left: "74%", size: "w-44", z: 5 },
   ];
 
   return (
