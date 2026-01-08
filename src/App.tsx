@@ -7,7 +7,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
   <ThemeColorProvider>
-    <BrowserRouter>
+    <BrowserRouter basename="/amp-deep-dive">
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
         <Routes>
           <Route path="/" element={<Index />} />
