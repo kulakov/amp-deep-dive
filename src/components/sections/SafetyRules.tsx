@@ -92,30 +92,22 @@ const Sticker = ({
   onClick
 }: StickerProps) => {
   return <div onClick={!isFixed ? onClick : undefined} className={`
-        bg-highlight/20
+        bg-highlight/25
         aspect-square 
         p-3
         relative
-        isolate
         ${!isFixed ? "cursor-pointer hover:scale-105" : "cursor-default"}
-        hover:shadow-xl
         transition-all
         duration-500
         ease-out
       `} style={{
-    transform: isFixed ? "rotate(0deg)" : `rotate(${initialRotation}deg)`
+    transform: isFixed ? "rotate(0deg)" : `rotate(${initialRotation}deg)`,
+    boxShadow: isFixed 
+      ? "0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08)" 
+      : "0 2px 4px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
   }}>
-      {/* Multiply shadow */}
-      <div 
-        className="absolute inset-0 bg-highlight/40 -z-10"
-        style={{
-          transform: isFixed ? "translate(4px, 4px)" : "translate(2px, 2px)",
-          filter: "blur(6px)",
-          mixBlendMode: "multiply"
-        }}
-      />
       {/* Tape effect at top */}
-      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-6 h-3 bg-white/60 backdrop-blur-sm" />
+      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-8 h-3 bg-white/70 backdrop-blur-sm rounded-sm" />
 
       {/* Text */}
       <div className="h-full flex items-center justify-center">
