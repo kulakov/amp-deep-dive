@@ -94,7 +94,27 @@ const Participants = () => {
   const cardRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Scroll-based card changing (mobile only)
+  // Cache section dimensions to avoid forced reflows
+  const sectionDimensionsRef = useRef<{ height: number; top: number }>({ height: 0, top: 0 });
+
+  // Calculate section dimensions once on mount and resize
+  useEffect(() => {
+    const calculateDimensions = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        sectionDimensionsRef.current = {
+          height: rect.height,
+          top: sectionRef.current.offsetTop
+        };
+      }
+    };
+
+    calculateDimensions();
+    window.addEventListener("resize", calculateDimensions, { passive: true });
+    return () => window.removeEventListener("resize", calculateDimensions);
+  }, []);
+
+  // Scroll-based card changing (mobile only) - using cached dimensions
   useEffect(() => {
     let rafId: number;
     const handleScroll = () => {
@@ -104,17 +124,17 @@ const Participants = () => {
 
         // Only on mobile
         if (window.innerWidth >= 768) return;
-        const rect = sectionRef.current.getBoundingClientRect();
-        const sectionHeight = rect.height;
+        
+        const { height: sectionHeight, top: sectionTop } = sectionDimensionsRef.current;
         const viewportHeight = window.innerHeight;
+        const scrollY = window.scrollY;
 
         // Calculate how far we've scrolled through the section
-        // Start counting when section enters viewport, end when it leaves
-        const scrollStart = viewportHeight; // section top reaches bottom of viewport
-        const scrollEnd = -sectionHeight; // section bottom reaches top of viewport
+        const sectionTopRelative = sectionTop - scrollY;
+        const scrollStart = viewportHeight;
+        const scrollEnd = -sectionHeight;
         const scrollRange = scrollStart - scrollEnd;
-        const currentPosition = rect.top;
-        const scrollProgress = (scrollStart - currentPosition) / scrollRange;
+        const scrollProgress = (scrollStart - sectionTopRelative) / scrollRange;
 
         // Map scroll progress to card index
         const cardIndex = Math.floor(scrollProgress * participants.length);

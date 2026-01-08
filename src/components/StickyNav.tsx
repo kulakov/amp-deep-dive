@@ -19,24 +19,52 @@ const StickyNav = () => {
   const navRef = useRef<HTMLElement>(null);
   const placeholderRef = useRef<HTMLDivElement>(null);
 
+  // Cache section offsets to avoid forced reflows
+  const sectionOffsetsRef = useRef<Map<string, number>>(new Map());
+
+  // Calculate section offsets once on mount and on resize
+  useEffect(() => {
+    const calculateOffsets = () => {
+      sections.forEach(section => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          sectionOffsetsRef.current.set(section.id, element.offsetTop);
+        }
+      });
+    };
+
+    calculateOffsets();
+    window.addEventListener("resize", calculateOffsets, { passive: true });
+    return () => window.removeEventListener("resize", calculateOffsets);
+  }, []);
+
+  // Intersection Observer for sticky state
+  useEffect(() => {
+    if (!placeholderRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsSticky(!entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: "0px" }
+    );
+
+    observer.observe(placeholderRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Scroll handler using cached offsets (no reflows)
   useEffect(() => {
     let rafId: number;
     
     const handleScroll = () => {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
-        if (!placeholderRef.current) return;
-        
-        // Sticky when placeholder reaches top of viewport
-        const placeholderRect = placeholderRef.current.getBoundingClientRect();
-        setIsSticky(placeholderRect.top <= 0);
-
-        // Find active section
         const scrollPosition = window.scrollY + 150;
         
         for (let i = sections.length - 1; i >= 0; i--) {
-          const element = document.getElementById(sections[i].id);
-          if (element && element.offsetTop <= scrollPosition) {
+          const offset = sectionOffsetsRef.current.get(sections[i].id);
+          if (offset !== undefined && offset <= scrollPosition) {
             setActiveSection(sections[i].id);
             break;
           }
