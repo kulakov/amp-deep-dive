@@ -50,27 +50,27 @@ const PhotoGallery = () => {
 
   // Desktop scattered positions for 16 images - more chaotic layout
   const desktopPositions = [
-    // Scattered across the area
-    { rotate: -6, top: "0%", left: "2%", size: "w-40", z: 2 },
-    { rotate: 5, top: "5%", left: "22%", size: "w-36", z: 3 },
-    { rotate: -3, top: "2%", left: "42%", size: "w-44", z: 1 },
-    { rotate: 7, top: "0%", left: "68%", size: "w-36", z: 2 },
+    // Scattered across the area - more compact horizontally
+    { rotate: -6, top: "0%", left: "3%", size: "w-40", z: 2 },
+    { rotate: 5, top: "5%", left: "20%", size: "w-36", z: 3 },
+    { rotate: -3, top: "2%", left: "36%", size: "w-44", z: 1 },
+    { rotate: 7, top: "0%", left: "56%", size: "w-36", z: 2 },
     { rotate: -8, top: "18%", left: "8%", size: "w-36", z: 5 },
-    { rotate: 4, top: "22%", left: "32%", size: "w-40", z: 4 },
-    { rotate: -5, top: "16%", left: "55%", size: "w-36", z: 3 },
-    { rotate: 6, top: "20%", left: "76%", size: "w-40", z: 4 },
-    { rotate: -4, top: "38%", left: "0%", size: "w-44", z: 3 },
-    { rotate: 7, top: "42%", left: "24%", size: "w-36", z: 2 },
-    { rotate: -6, top: "36%", left: "48%", size: "w-40", z: 5 },
-    { rotate: 3, top: "40%", left: "72%", size: "w-36", z: 1 },
+    { rotate: 4, top: "22%", left: "28%", size: "w-40", z: 4 },
+    { rotate: -5, top: "16%", left: "46%", size: "w-36", z: 3 },
+    { rotate: 6, top: "20%", left: "62%", size: "w-40", z: 4 },
+    { rotate: -4, top: "38%", left: "2%", size: "w-44", z: 3 },
+    { rotate: 7, top: "42%", left: "22%", size: "w-36", z: 2 },
+    { rotate: -6, top: "36%", left: "40%", size: "w-40", z: 5 },
+    { rotate: 3, top: "40%", left: "58%", size: "w-36", z: 1 },
     { rotate: -5, top: "58%", left: "6%", size: "w-36", z: 4 },
-    { rotate: 8, top: "62%", left: "28%", size: "w-40", z: 3 },
-    { rotate: -7, top: "56%", left: "52%", size: "w-36", z: 2 },
-    { rotate: 4, top: "60%", left: "74%", size: "w-44", z: 5 },
+    { rotate: 8, top: "62%", left: "26%", size: "w-40", z: 3 },
+    { rotate: -7, top: "56%", left: "44%", size: "w-36", z: 2 },
+    { rotate: 4, top: "60%", left: "60%", size: "w-44", z: 5 },
   ];
 
   return (
-    <section className="py-24 px-6 border-b border-callout-border bg-background relative z-10">
+    <section className="pt-24 pb-5 px-6 border-b border-callout-border bg-background relative z-10">
       {/* Header */}
       <div className="max-w-3xl mx-auto mb-12">
         <span className="font-mono text-xs uppercase tracking-[0.3em] bg-highlight text-highlight-foreground px-3 py-1.5 inline-block mb-6">
