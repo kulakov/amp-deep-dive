@@ -342,19 +342,27 @@ const WhatHappens = () => {
             {/* Desktop scattered cards */}
             <div className="hidden md:block relative h-[500px]">
               {[
-                { name: "Google game", desc: "Я буду называть тебе запрос, как в Google, про тебя — например, «ты и детские страхи», или «ты и закатное небо», а ты рассказываешь столько, сколько хочешь.", rotate: -4, top: "0%", left: "0%", width: "w-72", img: formatGoogleGame },
-                { name: "Я не знаю про тебя…", desc: "Я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком, и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека.", rotate: 3, top: "0%", left: "38%", width: "w-80", img: formatDontKnow },
-                { name: "Круги Котова", desc: "Это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми.", rotate: -5, top: "45%", left: "15%", width: "w-72", img: formatKotovCircles },
-                { name: "Fuck-up night", desc: "Тут просто все по очереди рассказывают о ситуации, когда они облажались.", rotate: 4, top: "40%", left: "55%", width: "w-64", img: formatFuckupNight }
-              ].map((card, i) => (
+                { name: "Google game", desc: "Я буду называть тебе запрос, как в Google, про тебя — например, «ты и детские страхи», или «ты и закатное небо», а ты рассказываешь столько, сколько хочешь.", rotate: -4, top: "0%", left: "0%", width: "w-72", z: 4, img: formatGoogleGame },
+                { name: "Я не знаю про тебя…", desc: "Я смотрю на тебя и перечисляю, что я о тебе не знаю: какая у тебя была любимая конфета в детстве, какую коленку ты разбивал чаще, что ты ел за завтраком, и понравилось ли тебе… Это способ показать тебе, что я вижу в тебе человека.", rotate: 3, top: "0%", left: "38%", z: 3, width: "w-80", img: formatDontKnow },
+                { name: "Круги Котова", desc: "Это когда каждый участник получает напарника и вопрос, потом следующий вопрос и следующая пара. И так 10 вопросов с 10 разными людьми.", rotate: -5, top: "45%", left: "15%", z: 2, width: "w-72", img: formatKotovCircles },
+                { name: "Fuck-up night", desc: "Тут просто все по очереди рассказывают о ситуации, когда они облажались.", rotate: 4, top: "40%", left: "55%", z: 1, width: "w-64", img: formatFuckupNight }
+              ].map((card) => (
                 <div 
-                  key={i}
-                  className={`absolute ${card.width} bg-background text-foreground shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105 hover:z-50`}
+                  key={card.name}
+                  className={`absolute ${card.width} bg-background text-foreground shadow-2xl cursor-pointer transition-all duration-300`}
                   style={{
                     transform: `rotate(${card.rotate}deg)`,
                     top: card.top,
                     left: card.left,
-                    zIndex: i + 1
+                    zIndex: card.z
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.transform = `rotate(0deg) scale(1.08)`;
+                    e.currentTarget.style.zIndex = '50';
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.transform = `rotate(${card.rotate}deg)`;
+                    e.currentTarget.style.zIndex = String(card.z);
                   }}
                 >
                   <div className="h-36 overflow-hidden">
