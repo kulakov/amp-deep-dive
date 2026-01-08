@@ -56,19 +56,19 @@ const PhotoGallery = () => {
     { rotate: -3, top: "0%", left: "38%", size: "w-36", z: 1 },
     { rotate: 6, top: "3%", left: "56%", size: "w-40", z: 2 },
     // Row 2
-    { rotate: -7, top: "22%", left: "4%", size: "w-38", z: 4 },
+    { rotate: -7, top: "22%", left: "4%", size: "w-36", z: 4 },
     { rotate: 3, top: "24%", left: "22%", size: "w-44", z: 5 },
     { rotate: -4, top: "20%", left: "44%", size: "w-36", z: 3 },
     { rotate: 5, top: "23%", left: "62%", size: "w-40", z: 4 },
     // Row 3
-    { rotate: -6, top: "44%", left: "2%", size: "w-42", z: 2 },
-    { rotate: 4, top: "46%", left: "20%", size: "w-38", z: 3 },
+    { rotate: -6, top: "44%", left: "2%", size: "w-40", z: 2 },
+    { rotate: 4, top: "46%", left: "20%", size: "w-36", z: 3 },
     { rotate: -3, top: "42%", left: "40%", size: "w-44", z: 1 },
     { rotate: 7, top: "45%", left: "60%", size: "w-36", z: 2 },
     // Row 4
     { rotate: -4, top: "66%", left: "6%", size: "w-40", z: 4 },
     { rotate: 5, top: "68%", left: "24%", size: "w-36", z: 5 },
-    { rotate: -6, top: "64%", left: "42%", size: "w-42", z: 3 },
+    { rotate: -6, top: "64%", left: "42%", size: "w-40", z: 3 },
     { rotate: 3, top: "67%", left: "58%", size: "w-40", z: 4 },
   ];
 
