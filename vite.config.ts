@@ -5,7 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/amp-deep-dive/',
+  // Use root base in dev/preview, GitHub Pages base in production build
+  base: mode === "production" ? "/amp-deep-dive/" : "/",
   server: {
     host: "::",
     port: 8080,
