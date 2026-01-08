@@ -409,25 +409,43 @@ const WhatHappens = () => {
             </div>
           </div>
           
-          {/* Desktop grid */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга." },
-              { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих." },
-              { img: campHandsUp, title: "Взаимопомощь", desc: "Сообщество — это люди, которые готовы помогать друг другу." },
-              { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет." },
-              { img: campEnergy, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет." }
-            ].map((card, i) => (
-              <div key={i} className="bg-white shadow-lg overflow-hidden">
-                <div className="aspect-[2/1] overflow-hidden">
-                  <img src={card.img} alt={card.title} loading="lazy" className="w-full h-full object-contain object-top" />
+          {/* Desktop grid - clean minimal design */}
+          <div className="hidden md:block">
+            {/* Top row - 3 columns */}
+            <div className="grid grid-cols-3 gap-x-12 gap-y-10 mb-10">
+              {[
+                { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга." },
+                { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих." },
+                { img: campHandsUp, title: "Взаимопомощь", desc: "Сообщество — это люди, которые готовы помогать друг другу." }
+              ].map((card, i) => (
+                <div key={i} className="space-y-4">
+                  <div className="overflow-hidden">
+                    <img src={card.img} alt={card.title} loading="lazy" className="w-full aspect-[4/3] object-cover" />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-lg mb-2">{card.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{card.desc}</p>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-bold mb-2">{card.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{card.desc}</p>
+              ))}
+            </div>
+            {/* Bottom row - 2 columns centered */}
+            <div className="grid grid-cols-3 gap-x-12">
+              {[
+                { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет." },
+                { img: campEnergy, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет." }
+              ].map((card, i) => (
+                <div key={i} className="space-y-4">
+                  <div className="overflow-hidden">
+                    <img src={card.img} alt={card.title} loading="lazy" className="w-full aspect-[4/3] object-cover" />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-lg mb-2">{card.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{card.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
