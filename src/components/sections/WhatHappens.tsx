@@ -378,7 +378,7 @@ const WhatHappens = () => {
           </div>
         </div>
 
-        {/* Community section */}
+        {/* Community section - temporarily commented out
         <div className="space-y-8">
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-display italic">
@@ -390,7 +390,6 @@ const WhatHappens = () => {
             </p>
           </div>
 
-          {/* Mobile carousel for "Что дает сообщество" */}
           <div className="md:hidden overflow-x-auto overflow-y-visible -mx-6 px-6 -mb-4">
             <div className="flex gap-4 pb-8" style={{ width: 'max-content' }}>
               {[
@@ -413,7 +412,6 @@ const WhatHappens = () => {
             </div>
           </div>
           
-          {/* Desktop scattered Polaroid layout */}
           <div className="hidden md:block relative h-[650px]">
             {[
               { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга.", rotate: -5, top: "0%", left: "2%", z: 5 },
@@ -451,6 +449,7 @@ const WhatHappens = () => {
             ))}
           </div>
         </div>
+        */}
       </div>
     </section>
   );
