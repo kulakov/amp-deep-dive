@@ -413,18 +413,8 @@ const WhatHappens = () => {
             </div>
           </div>
           
-          {/* Desktop scattered Polaroid layout with background */}
-          <div className="hidden md:block relative h-[650px] -mx-12 px-12">
-            {/* Background image */}
-            <div 
-              className="absolute inset-0 -z-10 opacity-20"
-              style={{
-                backgroundImage: `url(${campConferenceBg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            />
-            
+          {/* Desktop scattered Polaroid layout */}
+          <div className="hidden md:block relative h-[650px]">
             {[
               { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга.", rotate: -5, top: "0%", left: "2%", z: 5 },
               { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих.", rotate: 4, top: "3%", left: "35%", z: 4 },
