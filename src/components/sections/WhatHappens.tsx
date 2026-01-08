@@ -182,28 +182,21 @@ const WhatHappens = () => {
           className="fixed inset-0 bg-black/90 z-[200] flex items-center justify-center"
           onClick={closeLightbox}
         >
-          {/* Close button */}
-          <button
-            className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors md:top-auto md:right-auto md:left-1/2 md:-translate-x-1/2 md:bottom-20"
-            onClick={closeLightbox}
-            style={{ zIndex: 210 }}
-          >
-            <X size={24} />
-          </button>
-
-          {/* Previous button */}
-          <button
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors p-2"
-            onClick={(e) => { e.stopPropagation(); goPrev(); }}
-          >
-            <ChevronLeft size={48} />
-          </button>
-
           {/* Image */}
           <div 
-            className="max-w-[90vw] max-h-[85vh] bg-white p-3"
+            className="relative max-w-[90vw] max-h-[85vh] bg-white p-3"
             onClick={(e) => e.stopPropagation()}
           >
+            <button
+              className="absolute top-2 right-2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                closeLightbox();
+              }}
+            >
+              <X size={20} />
+            </button>
+
             <img
               src={galleryPhotos[lightboxIndex].img}
               alt={galleryPhotos[lightboxIndex].caption}
