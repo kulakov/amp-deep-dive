@@ -25,6 +25,7 @@ const galleryImages = [
 
 const PhotoGallery = () => {
   const [visiblePhotos, setVisiblePhotos] = useState<number[]>([]);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -115,29 +116,28 @@ const PhotoGallery = () => {
           return (
             <div
               key={i}
-              className={`absolute ${pos.size} bg-white p-2 shadow-xl cursor-pointer transition-all duration-300 ease-out group
-                ${isVisible ? "opacity-100" : "opacity-0 translate-y-8"}`}
+              className={`absolute bg-white p-2 shadow-xl cursor-pointer transition-all duration-300 ease-out
+                ${isVisible ? "opacity-100" : "opacity-0 translate-y-8"}
+                ${hoveredIndex === i ? "w-72" : pos.size}`}
               style={{
-                transform: `rotate(${pos.rotate}deg)`,
+                transform: hoveredIndex === i ? `rotate(0deg) scale(1.3)` : `rotate(${pos.rotate}deg)`,
                 top: pos.top,
                 left: pos.left,
-                zIndex: pos.z,
+                zIndex: hoveredIndex === i ? 100 : pos.z,
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = `rotate(0deg) scale(1.5)`;
-                e.currentTarget.style.zIndex = "100";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = `rotate(${pos.rotate}deg)`;
-                e.currentTarget.style.zIndex = String(pos.z);
-              }}
+              onMouseEnter={() => setHoveredIndex(i)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="aspect-square overflow-hidden group-hover:aspect-auto group-hover:overflow-visible">
+              <div className={hoveredIndex === i ? "" : "aspect-square overflow-hidden"}>
                 <img
                   src={img}
                   alt=""
                   loading="lazy"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:object-contain group-hover:h-auto transition-all duration-500"
+                  className={`w-full transition-all duration-500 ${
+                    hoveredIndex === i 
+                      ? "h-auto object-contain" 
+                      : "h-full object-cover grayscale"
+                  }`}
                 />
               </div>
             </div>
