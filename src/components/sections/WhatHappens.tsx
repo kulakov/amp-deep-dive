@@ -384,6 +384,10 @@ const WhatHappens = () => {
             <h2 className="text-2xl md:text-3xl font-display italic">
               Не кемпинг а сообщество
             </h2>
+            <p className="text-lg font-body leading-relaxed">
+              Примерно <strong>пятнадцать пар</strong> познакомились на кемпинге, часть уже поженились. 
+              Десятки людей нашли бизнес-партнеров, друзей или просто тех, с кем можно поговорить, когда тяжело.
+            </p>
           </div>
 
           {/* Mobile carousel for "Что дает сообщество" */}
@@ -396,12 +400,12 @@ const WhatHappens = () => {
                 { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет." },
                 { img: campEnergy, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет." }
               ].map((card, i) => (
-                <div key={i} className="w-64 flex-shrink-0 bg-white shadow-lg overflow-hidden">
-                  <div className="aspect-[2/1] overflow-hidden">
-                    <img src={card.img} alt={card.title} loading="lazy" className="w-full h-full object-contain object-top" />
+                <div key={i} className="w-64 flex-shrink-0 bg-white shadow-lg p-2">
+                  <div className="aspect-square overflow-hidden">
+                    <img src={card.img} alt={card.title} loading="lazy" className="w-full h-full object-cover" />
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-sm mb-2">{card.title}</h3>
+                  <div className="p-2 pt-3">
+                    <h3 className="font-bold text-sm mb-1">{card.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
                   </div>
                 </div>
@@ -409,60 +413,42 @@ const WhatHappens = () => {
             </div>
           </div>
           
-          {/* Desktop grid - clean minimal design */}
-          <div className="hidden md:block">
-            {/* Top row - 3 columns */}
-            <div className="grid grid-cols-3 gap-x-12 gap-y-10 mb-10">
-              {[
-                { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга." },
-                { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих." },
-                { img: campHandsUp, title: "Взаимопомощь", desc: "Сообщество — это люди, которые готовы помогать друг другу." }
-              ].map((card, i) => (
-                <div key={i} className="space-y-4">
-                  <div className="overflow-hidden">
-                    <img src={card.img} alt={card.title} loading="lazy" className="w-full aspect-[4/3] object-cover" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold text-lg mb-2">{card.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{card.desc}</p>
-                  </div>
+          {/* Desktop scattered Polaroid layout */}
+          <div className="hidden md:block relative h-[550px]">
+            {[
+              { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга.", rotate: -5, top: "0%", left: "0%", z: 5 },
+              { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих.", rotate: 4, top: "5%", left: "28%", z: 4 },
+              { img: campHandsUp, title: "Взаимопомощь", desc: "Сообщество — это люди, которые готовы помогать друг другу.", rotate: -3, top: "0%", left: "58%", z: 3 },
+              { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет.", rotate: 6, top: "42%", left: "8%", z: 2 },
+              { img: campConferenceBg, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет.", rotate: -4, top: "38%", left: "38%", z: 1 }
+            ].map((card) => (
+              <div 
+                key={card.title}
+                className="absolute w-56 bg-white p-2 shadow-xl cursor-pointer transition-all duration-300"
+                style={{
+                  transform: `rotate(${card.rotate}deg)`,
+                  top: card.top,
+                  left: card.left,
+                  zIndex: card.z
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = `rotate(0deg) scale(1.1)`;
+                  e.currentTarget.style.zIndex = '50';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = `rotate(${card.rotate}deg)`;
+                  e.currentTarget.style.zIndex = String(card.z);
+                }}
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img src={card.img} alt={card.title} loading="lazy" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
                 </div>
-              ))}
-            </div>
-            {/* Bottom row - 2 columns centered */}
-            <div className="grid grid-cols-3 gap-x-12">
-              {[
-                { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет." },
-                { img: campEnergy, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет." }
-              ].map((card, i) => (
-                <div key={i} className="space-y-4">
-                  <div className="overflow-hidden">
-                    <img src={card.img} alt={card.title} loading="lazy" className="w-full aspect-[4/3] object-cover" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold text-lg mb-2">{card.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{card.desc}</p>
-                  </div>
+                <div className="p-2 pt-3">
+                  <h3 className="font-bold text-sm mb-1">{card.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Relationships */}
-        <div className="space-y-6">
-          <p className="text-lg font-body leading-relaxed">
-            Примерно <strong>пятнадцать пар</strong> познакомились на кемпинге, часть уже поженились. 
-            Десятки людей нашли бизнес-партнеров, друзей или просто тех, с кем можно поговорить, когда тяжело.
-          </p>
-          
-          <div className="relative aspect-[16/9] overflow-hidden">
-            <img 
-              src={campConferenceBg} 
-              alt="Конференция" 
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
+              </div>
+            ))}
           </div>
         </div>
       </div>
