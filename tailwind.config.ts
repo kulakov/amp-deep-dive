@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Clash Display", "sans-serif"],
+        display: ["Playfair Display", "serif"],
         body: ["Source Serif 4", "serif"],
         mono: ["JetBrains Mono", "monospace"],
         "silly-1": ["Comforter Brush", "cursive"],
