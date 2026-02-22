@@ -46,10 +46,10 @@ const HowToJoin = () => {
 
 
           </p>
-            <p>
-              Интервью — попытка понять: <span className="underline decoration-highlight decoration-2 underline-offset-4">сможете ли вы искренне говорить о том, что вас беспокоит, и интересны ли вам такие люди как мы?</span>
+            <p>Интервью — еще и попытка понять: сможете ли вы искренне говорить о том, что вас беспокоит, и интересны ли вам такие люди как мы?
+            <span className="underline decoration-highlight decoration-2 underline-offset-4">сможете ли вы искренне говорить о том, что вас беспокоит, и интересны ли вам такие люди как мы?</span>
             </p>
-            <p>А еще мы хотим, чтобы встретились люди, которые друг друга в чем-нибудь усилят. Мы пытаемся разглядеть в вас вашу фишку. 
+            <p>Мы хотим, чтобы встретились люди, которые друг друга в чем-нибудь усилят. Мы пытаемся разглядеть в вас вашу фишку. 
           </p>
           </div>
         </div>
@@ -109,12 +109,12 @@ const HowToJoin = () => {
             <div className="absolute left-3 top-1/2 w-3 h-3 rounded-full bg-background border border-foreground/10" />
             <div className="absolute left-3 bottom-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
             <div className="pl-8">
-              <h3 className="font-display text-xl mb-4 text-foreground/80 italic">
-                {story.name}
-              </h3>
-              <p className="font-body text-base leading-[28px] text-foreground/80 whitespace-pre-line">
-                {story.text} <span className="underline decoration-highlight decoration-2 underline-offset-4">{story.conclusion}</span>
-              </p>
+            <h3 className="font-display text-xl mb-4 text-foreground/80 italic">
+            {story.name}
+            </h3>
+            <p className="font-body text-base leading-[28px] text-foreground/80 whitespace-pre-line">
+            {story.text} <span className="underline decoration-highlight decoration-2 underline-offset-4">{story.conclusion}</span>
+            </p>
             </div>
             </div>)}
             </div>
