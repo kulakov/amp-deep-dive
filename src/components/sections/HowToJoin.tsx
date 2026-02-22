@@ -42,22 +42,22 @@ const HowToJoin = () => {
         <div className="space-y-6">
           <h3 className="font-mono text-sm uppercase tracking-[0.2em]">Зачем интервью</h3>
           <div className="space-y-4 text-muted-foreground text-lg">
-            <p>
-              Мы боимся. Боимся пустить людей, которые не умеют слушать или превращают любой разговор 
-              в презентацию своих достижений. Боимся тех, кто разрушит то хрупкое доверие, которое мы пытаемся создать.
-            </p>
+            <p>Мы боимся. Боимся пустить людей, которые не умеют слушать или превращают любой разговор в презентацию своих достижений. Боимся тех, кто разрушит то хрупкое доверие, которое мы пытаемся создать. Именно поэтому мы берем не всех.
+
+
+          </p>
             <p>
               Интервью — попытка понять: <span className="underline decoration-highlight decoration-2 underline-offset-4">сможете ли вы искренне говорить о том, что вас беспокоит, и интересны ли вам такие люди как мы?</span>
             </p>
-            <p>А еще мы хотим, чтобы встретились люди, которые друг друга в чем-нибудь усилят. Мы пытаемся разглядеть в вас вашу фишку. Именно поэтому мы берем не всех.</p>
+            <p>А еще мы хотим, чтобы встретились люди, которые друг друга в чем-нибудь усилят. Мы пытаемся разглядеть в вас вашу фишку. 
+          </p>
           </div>
         </div>
 
         {/* What happens on interview - highlighted block */}
         <div className="relative -mx-6 md:-mx-12 my-8 overflow-hidden">
           {/* Skewed background */}
-          <div className="absolute inset-0 bg-highlight/10" style={{
-          transform: 'skewY(2deg) scale(1.1)'
+          <div className="absolute inset-0 bg-highlight/10" style={{ transform: 'skewY(2deg) scale(1.1)'
         }} />
           
           <div className="relative z-10 px-6 md:px-12 py-16 space-y-12 text-foreground">
@@ -86,39 +86,39 @@ const HowToJoin = () => {
             </div>
 
             {/* Stories as diary cards - TEMPORARILY COMMENTED OUT
-             <div className="grid md:grid-cols-2 gap-8 pt-4">
-              {[{
-              name: "История Макса",
-              text: "Макс, дата-аналитик: «Когда получил приглашение, загуглил всех участников. У них TED talks, стартапы, книги. А я делаю отчеты в компании, о которой никто не слышал. Три дня думал, как вежливо отказаться.\nНа кэмпе основатель известного стартапа сказал: 'Я думал, ты какой-то гуру данных, а ты обычный парень'.",
-              conclusion: "Оказалось: чем успешнее человек выглядит снаружи, тем больше он уверен, что все вокруг умнее.»",
-              rotate: -2
-             }, {
-              name: "История Жени",
-              text: "Женя, программистка: «Прячусь за работой, потому что не знаю, как быть интересной людям просто как человек. На корпоративах читаю техдокументацию в туалете. Первый день кэмпа делала вид, что у меня срочная задача.\nПодошел парень: 'Go пишешь? Что думаешь про новые генерики?' Час говорили про код, потом про книги, потом — почему нам обоим сложно с людьми.",
-              conclusion: "Поняла: можно быть интересной, не умея рассказывать анекдоты.»",
-              rotate: 2
-             }].map((story, index) => <div key={index} className="relative bg-[#FFFEF5] p-8 shadow-lg" style={{
-              transform: `rotate(${story.rotate}deg)`,
-              backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #E8E4D9 28px)',
-              backgroundPosition: '0 40px'
-             }}>
-                  <div className="absolute top-0 bottom-0 w-px bg-red-300/60" style={{
-                left: '32px'
-              }} />
-                  <div className="absolute left-3 top-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
-                  <div className="absolute left-3 top-1/2 w-3 h-3 rounded-full bg-background border border-foreground/10" />
-                  <div className="absolute left-3 bottom-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
-                  <div className="pl-8">
-                    <h3 className="font-display text-xl mb-4 text-foreground/80 italic">
-                      {story.name}
-                    </h3>
-                    <p className="font-body text-base leading-[28px] text-foreground/80 whitespace-pre-line">
-                      {story.text} <span className="underline decoration-highlight decoration-2 underline-offset-4">{story.conclusion}</span>
-                    </p>
-                  </div>
-                </div>)}
-             </div>
-             */}
+            <div className="grid md:grid-cols-2 gap-8 pt-4">
+            {[{
+            name: "История Макса",
+            text: "Макс, дата-аналитик: «Когда получил приглашение, загуглил всех участников. У них TED talks, стартапы, книги. А я делаю отчеты в компании, о которой никто не слышал. Три дня думал, как вежливо отказаться.\nНа кэмпе основатель известного стартапа сказал: 'Я думал, ты какой-то гуру данных, а ты обычный парень'.",
+            conclusion: "Оказалось: чем успешнее человек выглядит снаружи, тем больше он уверен, что все вокруг умнее.»",
+            rotate: -2
+            }, {
+            name: "История Жени",
+            text: "Женя, программистка: «Прячусь за работой, потому что не знаю, как быть интересной людям просто как человек. На корпоративах читаю техдокументацию в туалете. Первый день кэмпа делала вид, что у меня срочная задача.\nПодошел парень: 'Go пишешь? Что думаешь про новые генерики?' Час говорили про код, потом про книги, потом — почему нам обоим сложно с людьми.",
+            conclusion: "Поняла: можно быть интересной, не умея рассказывать анекдоты.»",
+            rotate: 2
+            }].map((story, index) => <div key={index} className="relative bg-[#FFFEF5] p-8 shadow-lg" style={{
+            transform: `rotate(${story.rotate}deg)`,
+            backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, #E8E4D9 28px)',
+            backgroundPosition: '0 40px'
+            }}>
+            <div className="absolute top-0 bottom-0 w-px bg-red-300/60" style={{
+            left: '32px'
+            }} />
+            <div className="absolute left-3 top-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
+            <div className="absolute left-3 top-1/2 w-3 h-3 rounded-full bg-background border border-foreground/10" />
+            <div className="absolute left-3 bottom-12 w-3 h-3 rounded-full bg-background border border-foreground/10" />
+            <div className="pl-8">
+              <h3 className="font-display text-xl mb-4 text-foreground/80 italic">
+                {story.name}
+              </h3>
+              <p className="font-body text-base leading-[28px] text-foreground/80 whitespace-pre-line">
+                {story.text} <span className="underline decoration-highlight decoration-2 underline-offset-4">{story.conclusion}</span>
+              </p>
+            </div>
+            </div>)}
+            </div>
+            */}
           </div>
         </div>
 
