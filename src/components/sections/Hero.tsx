@@ -26,7 +26,7 @@ const Hero = () => {
             
             <div className="space-y-4 max-w-2xl mx-auto">
               <h1 className="text-3xl md:text-5xl font-display font-bold leading-tight text-white">
-                <ColorWord color="green">Место</ColorWord>, где{" "}
+                <ColorWord color="green">место</ColorWord>, где{" "}
                 <ColorWord color="orange">умные взрослые</ColorWord>{" "}
                 <ColorWord color="fuchsia">разрешают</ColorWord>{" "}
                 <ColorWord color="purple">себе</ColorWord>{" "}
