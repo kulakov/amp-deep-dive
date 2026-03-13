@@ -261,7 +261,6 @@ const WhatHappens = () => {
           <div className="space-y-12">
             <div className="space-y-4">
               <p className="text-xl font-display italic">Мы НЕ конференция</p>
-              <p className="text-muted-foreground">и у нас аллергия на банальность и неряшливое мышление</p>
             </div>
 
             {/* Comparison */}
