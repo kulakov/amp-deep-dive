@@ -258,8 +258,8 @@ const WhatHappens = () => {
           transform: 'skewY(-2deg)'
         }} />
           
-          <div className="space-y-12">
-            <div className="space-y-4">
+          <div className="space-y-6">
+            <div>
               <p className="text-xl font-display italic">Мы НЕ конференция</p>
             </div>
 
