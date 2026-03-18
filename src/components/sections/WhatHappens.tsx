@@ -73,11 +73,11 @@ const WhatHappens = () => {
     };
   }, [lightboxIndex, goNext, goPrev]);
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         galleryPhotos.forEach((_, index) => {
           setTimeout(() => {
-            setVisiblePhotos(prev => [...prev, index]);
+            setVisiblePhotos((prev) => [...prev, index]);
           }, index * 120);
         });
         observer.disconnect();
@@ -189,10 +189,10 @@ const WhatHappens = () => {
           top: pos.top,
           left: pos.left,
           zIndex: pos.z
-        }} onMouseEnter={e => {
+        }} onMouseEnter={(e) => {
           e.currentTarget.style.transform = `rotate(0deg) scale(1.5)`;
           e.currentTarget.style.zIndex = '100';
-        }} onMouseLeave={e => {
+        }} onMouseLeave={(e) => {
           e.currentTarget.style.transform = `rotate(${pos.rotate}deg)`;
           e.currentTarget.style.zIndex = String(pos.z);
         }} onClick={() => openLightbox(i)}>
@@ -211,8 +211,8 @@ const WhatHappens = () => {
       {/* Lightbox */}
       {lightboxIndex !== null && <div className="fixed inset-0 bg-black/90 z-[200] flex items-center justify-center" onClick={closeLightbox}>
           {/* Image */}
-          <div className="relative max-w-[90vw] max-h-[85vh] bg-white p-3" onClick={e => e.stopPropagation()}>
-            <button className="absolute top-2 right-2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors" onClick={e => {
+          <div className="relative max-w-[90vw] max-h-[85vh] bg-white p-3" onClick={(e) => e.stopPropagation()}>
+            <button className="absolute top-2 right-2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors" onClick={(e) => {
           e.stopPropagation();
           closeLightbox();
         }}>
@@ -223,7 +223,7 @@ const WhatHappens = () => {
           </div>
 
           {/* Next button */}
-          <button className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors p-2" onClick={e => {
+          <button className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors p-2" onClick={(e) => {
         e.stopPropagation();
         goNext();
       }}>
@@ -240,7 +240,7 @@ const WhatHappens = () => {
       <div className="max-w-3xl mx-auto space-y-20">
         {/* What is it */}
         <div className="space-y-6">
-          <p className="text-lg font-body leading-relaxed !font-bold">
+          <p className="text-lg font-body leading-relaxed font-normal">
             AmpCamp — это место, где технический директор и учительница литературы могут обнаружить, 
             что в их тревоге о будущем есть много общего, хотя внешне их жизни не похожи.
           </p>
@@ -323,7 +323,7 @@ const WhatHappens = () => {
             }, {
               tag: "игры и баловство",
               items: "комедийная импровизация, турнир по «шляпе», стратегическая игра в ООН, сеанс аукционной магии, художественный LARP"
-            }].map(cat => <div key={cat.tag}>
+            }].map((cat) => <div key={cat.tag}>
                   <span className="font-mono text-xs uppercase tracking-wider bg-highlight text-highlight-foreground px-2 py-1 inline-block mb-3">
                     #{cat.tag}
                   </span>
@@ -414,15 +414,15 @@ const WhatHappens = () => {
               z: 1,
               width: "w-64",
               img: formatFuckupNight
-            }].map(card => <div key={card.name} className={`absolute ${card.width} bg-background text-foreground shadow-2xl cursor-pointer transition-all duration-300`} style={{
+            }].map((card) => <div key={card.name} className={`absolute ${card.width} bg-background text-foreground shadow-2xl cursor-pointer transition-all duration-300`} style={{
               transform: `rotate(${card.rotate}deg)`,
               top: card.top,
               left: card.left,
               zIndex: card.z
-            }} onMouseEnter={e => {
+            }} onMouseEnter={(e) => {
               e.currentTarget.style.transform = `rotate(0deg) scale(1.08)`;
               e.currentTarget.style.zIndex = '50';
-            }} onMouseLeave={e => {
+            }} onMouseLeave={(e) => {
               e.currentTarget.style.transform = `rotate(${card.rotate}deg)`;
               e.currentTarget.style.zIndex = String(card.z);
             }}>
@@ -439,76 +439,76 @@ const WhatHappens = () => {
         </div>
 
         {/* Community section - temporarily commented out
-         <div className="space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl font-display italic">
-              Не кемпинг а сообщество
-            </h2>
-            <p className="text-lg font-body leading-relaxed">
-              Примерно <strong>пятнадцать пар</strong> познакомились на кемпинге, часть уже поженились. 
-              Десятки людей нашли бизнес-партнеров, друзей или просто тех, с кем можно поговорить, когда тяжело.
-            </p>
-          </div>
-           <div className="md:hidden overflow-x-auto overflow-y-visible -mx-6 px-6 -mb-4">
-            <div className="flex gap-4 pb-8" style={{ width: 'max-content' }}>
-              {[
-                { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга." },
-                { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих." },
-                { img: campHandsUp, title: "Взаимопомощь", desc: "Сообщество — это люди, которые готовы помогать друг другу." },
-                { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет." },
-                { img: campEnergy, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет." }
-              ].map((card, i) => (
-                <div key={i} className="w-64 flex-shrink-0 bg-white shadow-lg p-2">
-                  <div className="aspect-square overflow-hidden">
-                    <img src={card.img} alt={card.title} loading="lazy" className="w-full h-full object-cover" />
-                  </div>
-                  <div className="p-2 pt-3">
-                    <h3 className="font-bold text-sm mb-1">{card.title}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="hidden md:block relative h-[650px]">
-            {[
-              { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга.", rotate: -5, top: "0%", left: "2%", z: 5 },
-              { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих.", rotate: 4, top: "3%", left: "35%", z: 4 },
-              { img: campHandsUp, title: "Взаимопомощь", desc: "Сообщество — это люди, которые готовы помогать друг другу.", rotate: -3, top: "0%", left: "68%", z: 3 },
-              { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет.", rotate: 6, top: "52%", left: "12%", z: 2 },
-              { img: campEnergy, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет.", rotate: -4, top: "48%", left: "50%", z: 1 }
-            ].map((card) => (
-              <div 
-                key={card.title}
-                className="absolute w-52 bg-white p-2 shadow-xl cursor-pointer transition-all duration-300"
-                style={{
-                  transform: `rotate(${card.rotate}deg)`,
-                  top: card.top,
-                  left: card.left,
-                  zIndex: card.z
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = `rotate(0deg) scale(1.1)`;
-                  e.currentTarget.style.zIndex = '50';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = `rotate(${card.rotate}deg)`;
-                  e.currentTarget.style.zIndex = String(card.z);
-                }}
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img src={card.img} alt={card.title} loading="lazy" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
-                </div>
-                <div className="p-2 pt-3">
-                  <h3 className="font-bold text-sm mb-1">{card.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="space-y-8">
+         <div className="space-y-4">
+           <h2 className="text-2xl md:text-3xl font-display italic">
+             Не кемпинг а сообщество
+           </h2>
+           <p className="text-lg font-body leading-relaxed">
+             Примерно <strong>пятнадцать пар</strong> познакомились на кемпинге, часть уже поженились. 
+             Десятки людей нашли бизнес-партнеров, друзей или просто тех, с кем можно поговорить, когда тяжело.
+           </p>
          </div>
-         */}
+          <div className="md:hidden overflow-x-auto overflow-y-visible -mx-6 px-6 -mb-4">
+           <div className="flex gap-4 pb-8" style={{ width: 'max-content' }}>
+             {[
+               { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга." },
+               { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих." },
+               { img: campHandsUp, title: "Взаимопомощь", desc: "Сообщество — это люди, которые готовы помогать друг другу." },
+               { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет." },
+               { img: campEnergy, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет." }
+             ].map((card, i) => (
+               <div key={i} className="w-64 flex-shrink-0 bg-white shadow-lg p-2">
+                 <div className="aspect-square overflow-hidden">
+                   <img src={card.img} alt={card.title} loading="lazy" className="w-full h-full object-cover" />
+                 </div>
+                 <div className="p-2 pt-3">
+                   <h3 className="font-bold text-sm mb-1">{card.title}</h3>
+                   <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
+                 </div>
+               </div>
+             ))}
+           </div>
+         </div>
+         
+         <div className="hidden md:block relative h-[650px]">
+           {[
+             { img: campWorkshop, title: "Знакомства", desc: "Одни пишут, что нашли на кемпинге будущих партнеров по бизнесу, другие — супруга.", rotate: -5, top: "0%", left: "2%", z: 5 },
+             { img: campHug, title: "Путешествия", desc: "Путешествуя по миру, люди заезжают друг к другу в гости. Эмигрируя, сразу находят своих.", rotate: 4, top: "3%", left: "35%", z: 4 },
+             { img: campHandsUp, title: "Взаимопомощь", desc: "Сообщество — это люди, которые готовы помогать друг другу.", rotate: -3, top: "0%", left: "68%", z: 3 },
+             { img: campConnection, title: "Теплота", desc: "Возможность разделить свои сомнения и переживания с теми, кто поймет.", rotate: 6, top: "52%", left: "12%", z: 2 },
+             { img: campEnergy, title: "Энергия", desc: "Когда вокруг тебя люди, которым не все равно — это вдохновляет.", rotate: -4, top: "48%", left: "50%", z: 1 }
+           ].map((card) => (
+             <div 
+               key={card.title}
+               className="absolute w-52 bg-white p-2 shadow-xl cursor-pointer transition-all duration-300"
+               style={{
+                 transform: `rotate(${card.rotate}deg)`,
+                 top: card.top,
+                 left: card.left,
+                 zIndex: card.z
+               }}
+               onMouseEnter={e => {
+                 e.currentTarget.style.transform = `rotate(0deg) scale(1.1)`;
+                 e.currentTarget.style.zIndex = '50';
+               }}
+               onMouseLeave={e => {
+                 e.currentTarget.style.transform = `rotate(${card.rotate}deg)`;
+                 e.currentTarget.style.zIndex = String(card.z);
+               }}
+             >
+               <div className="aspect-square overflow-hidden">
+                 <img src={card.img} alt={card.title} loading="lazy" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+               </div>
+               <div className="p-2 pt-3">
+                 <h3 className="font-bold text-sm mb-1">{card.title}</h3>
+                 <p className="text-xs text-muted-foreground leading-relaxed">{card.desc}</p>
+               </div>
+             </div>
+           ))}
+         </div>
+        </div>
+        */}
       </div>
     </section>;
 };
