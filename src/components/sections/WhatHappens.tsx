@@ -241,8 +241,8 @@ const WhatHappens = () => {
         {/* What is it */}
         <div className="space-y-6">
           <p className="text-lg font-body leading-relaxed font-normal">
-            AmpCamp — это место, где технический директор и учительница литературы могут обнаружить, 
-            что в их тревоге о будущем есть много общего, хотя внешне их жизни не похожи.
+            AmpCamp — это место, где <span className="font-bold">технический директор</span> и <span className="font-bold">учительница литературы</span> могут обнаружить, 
+            что в их <span className="font-bold">тревоге о будущем</span> есть много общего, хотя внешне их жизни не похожи.
           </p>
           <p className="text-lg font-body leading-relaxed">
             Три дня, когда твоя должность в LinkedIn не имеет значения, потому что все говорят о том, 
