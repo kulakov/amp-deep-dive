@@ -240,7 +240,7 @@ const WhatHappens = () => {
       <div className="max-w-3xl mx-auto space-y-20">
         {/* What is it */}
         <div className="space-y-6">
-          <p className="text-lg font-body leading-relaxed font-bold">
+          <p className="text-lg font-body leading-relaxed !font-bold">
             AmpCamp — это место, где технический директор и учительница литературы могут обнаружить, 
             что в их тревоге о будущем есть много общего, хотя внешне их жизни не похожи.
           </p>
